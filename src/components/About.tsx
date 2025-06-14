@@ -2,10 +2,10 @@
 import React from 'react';
 
 const stats = [
-  { value: "06+", label: "YEARS EXPERIENCES" },
-  { value: "120+", label: "PROJECTS" },
-  { value: "900+", label: "TOTAL CLIENTS" },
-  { value: "72%", label: "CLIENT REVENUE" },
+  { value: "06+", label: "YEARS EXPERIENCES", reversed: true },
+  { value: "120+", label: "PROJECTS", reversed: false },
+  { value: "900+", label: "TOTAL CLIENTS", reversed: true },
+  { value: "72%", label: "CLIENT REVENUE", reversed: false },
 ];
 
 const About = () => {
@@ -18,16 +18,24 @@ const About = () => {
             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
               Hi, I'm Samin, a passionate front-end developer with a love for creating visually appealing and user-friendly web experiences. With a strong foundation in HTML, CSS, and JavaScript, I specialise in turning creative designs into fully responsive and interactive websites. I'm constantly learning new technologies and pushing the boundaries of what's possible in web development. Let's bring your ideas to life!
             </p>
-            <a href="#contact" className="inline-flex items-center px-6 py-3 border border-gray-600 rounded-full text-white hover:bg-brand-purple hover:border-brand-purple transition-colors">
+            <a href="#contact" className="inline-flex items-center px-6 py-3 border border-brand-purple rounded-full text-white hover:bg-brand-purple transition-colors">
               Request a consultation
             </a>
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            {stats.map((stat, index) => (
-              <div key={index} className="bg-gray-900/50 p-8 rounded-lg border border-gray-800 backdrop-blur-sm relative overflow-hidden">
-                <div className="absolute -inset-px bg-gradient-to-r from-brand-purple/10 via-brand-purple/5 to-gray-800/10 rounded-lg"></div>
-                <p className="text-4xl lg:text-5xl font-bold text-white">{stat.value}</p>
-                <p className="text-xs text-gray-400 mt-2 tracking-wider">{stat.label}</p>
+          <div className="grid grid-cols-2 gap-8">
+            {stats.map((stat) => (
+              <div key={stat.label} className="bg-[#161616] p-6 rounded-xl flex flex-col justify-between h-40">
+                {stat.reversed ? (
+                  <>
+                    <p className="text-sm text-gray-400 tracking-wider uppercase">{stat.label}</p>
+                    <p className="text-5xl font-bold text-white text-right">{stat.value}</p>
+                  </>
+                ) : (
+                  <>
+                    <p className="text-5xl font-bold text-white">{stat.value}</p>
+                    <p className="text-sm text-gray-400 tracking-wider uppercase self-end">{stat.label}</p>
+                  </>
+                )}
               </div>
             ))}
           </div>
