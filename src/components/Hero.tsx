@@ -24,7 +24,7 @@ const Hero = () => {
       </div>
       <div className="absolute inset-0 z-0">
         <img
-          src="/lovable-uploads/a72ebcc3-57cf-4d0f-b767-be1dea90a6af.png"
+          src="/lovable-uploads/07c94864-5254-444c-9768-5ec9a11a9f0f.png"
           alt="Portrait of Samin"
           className="absolute right-0 bottom-0 h-full w-full md:w-1/2 object-cover object-top"
         />
