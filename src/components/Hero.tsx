@@ -24,8 +24,8 @@ const Hero = () => {
       </div>
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1887&auto=format&fit=crop"
-          alt="Portrait of a developer"
+          src="/lovable-uploads/a72ebcc3-57cf-4d0f-b767-be1dea90a6af.png"
+          alt="Portrait of Samin"
           className="absolute right-0 bottom-0 h-full w-full md:w-1/2 object-cover object-top"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
@@ -35,3 +35,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
