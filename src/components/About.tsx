@@ -13,16 +13,21 @@ const About = () => {
     <section id="about" className="py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="grid gap-16">
-          <div>
-            <p className="text-gray-400 mb-4 tracking-widest">(ABOUT ME)</p>
-            <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-              Hi, I'm Samin, a passionate front-end developer with a love for creating visually appealing and user-friendly web experiences. With a strong foundation in HTML, CSS, and JavaScript, I specialise in turning creative designs into fully responsive and interactive websites. I'm constantly learning new technologies and pushing the boundaries of what's possible in web development. Let's bring your ideas to life!
-            </p>
-            <a href="#contact" className="inline-flex items-center px-6 py-3 border border-brand-purple rounded-full text-white hover:bg-brand-purple transition-colors">
-              Request a consultation
-            </a>
+          <div className="grid md:grid-cols-3 gap-8 md:gap-16 items-start">
+            <div className="flex flex-col items-start gap-8">
+              <p className="text-gray-400 tracking-widest">(ABOUT ME)</p>
+              <a href="#contact" className="inline-flex items-center px-6 py-3 border border-brand-purple rounded-full text-white hover:bg-brand-purple transition-colors">
+                Request a consultation
+              </a>
+            </div>
+            <div className="md:col-span-2">
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Hi, I'm Samin, a passionate front-end developer with a love for creating visually appealing and user-friendly web experiences. With a strong foundation in HTML, CSS, and JavaScript, I specialise in turning creative designs into fully responsive and interactive websites. I'm constantly learning new technologies and pushing the boundaries of what's possible in web development. Let's bring your ideas to life!
+              </p>
+            </div>
           </div>
-          <div className="grid grid-cols-2 gap-8">
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat) => (
               <div key={stat.label} className="bg-[#161616] p-6 rounded-xl flex flex-col justify-between h-40">
                 {stat.reversed ? (
