@@ -1,3 +1,4 @@
+
 import React from "react";
 
 // Experience/company/study entries
@@ -215,10 +216,18 @@ const TerminalSection = () => {
         {phase === "idle" && <div className="h-56" />}
         {/* Terminal main output: experiences or education, reveal one-by-one */}
         {phase !== "idle" &&
-          <div className="flex-1 w-full overflow-y-auto max-h-[365px] pr-1 custom-scrollbar">
+          <div className="flex-1 w-full overflow-y-auto max-h-[365px] pr-1 custom-scrollbar relative">
+            {/* Vertical connecting line */}
+            {shownCount > 1 && (
+              <div className="absolute left-7 top-16 w-px bg-[#31333c]" style={{height: `${(shownCount - 1) * 140}px`}}></div>
+            )}
             <ul>
               {mode === "experience" && EXPERIENCE.slice(0, shownCount).map((itm, idx) => (
-                <li key={itm.company} className="flex items-start gap-5 mb-8 last:mb-0">
+                <li key={itm.company} className="flex items-start gap-5 mb-8 last:mb-0 relative">
+                  {/* Connection dot */}
+                  {idx > 0 && (
+                    <div className="absolute left-0 top-6 w-3 h-3 bg-[#43e09f] rounded-full border-2 border-[#181823] z-10"></div>
+                  )}
                   <img
                     src={itm.logo}
                     alt={itm.company + " logo"}
@@ -242,7 +251,11 @@ const TerminalSection = () => {
                 </li>
               ))}
               {mode === "education" && EDUCATION.slice(0, shownCount).map((itm, idx) => (
-                <li key={itm.school} className="flex items-start gap-5 mb-8 last:mb-0">
+                <li key={itm.school} className="flex items-start gap-5 mb-8 last:mb-0 relative">
+                  {/* Connection dot */}
+                  {idx > 0 && (
+                    <div className="absolute left-0 top-6 w-3 h-3 bg-[#5dc5d8] rounded-full border-2 border-[#181823] z-10"></div>
+                  )}
                   <img
                     src={itm.logo}
                     alt={itm.school + " logo"}

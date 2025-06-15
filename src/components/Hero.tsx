@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
@@ -26,9 +27,9 @@ const Hero = () => {
               style={{transitionDelay: '150ms'}}
             >
               <h1 className="text-6xl md:text-8xl font-bold text-white leading-tight">
-                Front <em className="font-serif italic">end</em>
+                Software
                 <br />
-                Developer
+                Engineer
               </h1>
             </div>
             <div
@@ -39,7 +40,7 @@ const Hero = () => {
               style={{transitionDelay: '330ms'}}
             >
               <p className="text-lg text-gray-300 mt-6 max-w-xl">
-                Transforming ideas into visually stunning, interactive websites. I specialize in front-end development and web design that captivate and engage.
+                Transforming ideas into robust, scalable software solutions. I specialize in full-stack development and creating applications that make a difference.
               </p>
             </div>
             <div

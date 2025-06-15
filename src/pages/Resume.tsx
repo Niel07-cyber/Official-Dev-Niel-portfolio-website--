@@ -69,7 +69,10 @@ export default function Resume() {
           </div>
 
           {/* Work Experience Section */}
-          <div className="mb-12">
+          <div className="mb-12 relative">
+            {/* Vertical line connecting all experiences */}
+            <div className="absolute left-8 top-16 bottom-0 w-px bg-gray-700"></div>
+            
             <div className="flex items-center gap-3 mb-8">
               <div className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center">
                 <span className="text-sm">💼</span>
@@ -79,7 +82,9 @@ export default function Resume() {
 
             <div className="space-y-8">
               {/* Kanop */}
-              <div className="flex gap-6">
+              <div className="flex gap-6 relative">
+                {/* Connection dot */}
+                <div className="absolute left-2 top-6 w-3 h-3 bg-teal-600 rounded-full border-2 border-black z-10"></div>
                 <div className="w-16 h-16 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
                   kanop
                 </div>
@@ -104,7 +109,9 @@ export default function Resume() {
               </div>
 
               {/* TalentYou.ai */}
-              <div className="flex gap-6">
+              <div className="flex gap-6 relative">
+                {/* Connection dot */}
+                <div className="absolute left-2 top-6 w-3 h-3 bg-blue-600 rounded-full border-2 border-black z-10"></div>
                 <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
                   TY
                 </div>
@@ -130,7 +137,9 @@ export default function Resume() {
               </div>
 
               {/* Escape technologies */}
-              <div className="flex gap-6">
+              <div className="flex gap-6 relative">
+                {/* Connection dot */}
+                <div className="absolute left-2 top-6 w-3 h-3 bg-gray-700 rounded-full border-2 border-black z-10"></div>
                 <div className="w-16 h-16 bg-gray-700 rounded-lg flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
                   ESC
                 </div>
@@ -159,7 +168,10 @@ export default function Resume() {
           </div>
 
           {/* Education Section */}
-          <div className="mb-12">
+          <div className="mb-12 relative">
+            {/* Vertical line connecting all education entries */}
+            <div className="absolute left-8 top-16 bottom-0 w-px bg-gray-700"></div>
+            
             <div className="flex items-center gap-3 mb-8">
               <div className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center">
                 <span className="text-sm">🎓</span>
@@ -169,7 +181,9 @@ export default function Resume() {
 
             <div className="space-y-6">
               {/* ENSEEIHT */}
-              <div className="flex gap-6">
+              <div className="flex gap-6 relative">
+                {/* Connection dot */}
+                <div className="absolute left-2 top-6 w-3 h-3 bg-blue-600 rounded-full border-2 border-black z-10"></div>
                 <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
                   INP
                   N7
@@ -184,7 +198,9 @@ export default function Resume() {
               </div>
 
               {/* AAU Klagenfurt */}
-              <div className="flex gap-6">
+              <div className="flex gap-6 relative">
+                {/* Connection dot */}
+                <div className="absolute left-2 top-6 w-3 h-3 bg-blue-400 rounded-full border-2 border-black z-10"></div>
                 <div className="w-16 h-16 bg-blue-400 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
                   |||
                 </div>
@@ -198,7 +214,9 @@ export default function Resume() {
               </div>
 
               {/* CPGE */}
-              <div className="flex gap-6">
+              <div className="flex gap-6 relative">
+                {/* Connection dot */}
+                <div className="absolute left-2 top-6 w-3 h-3 bg-gray-600 rounded-full border-2 border-black z-10"></div>
                 <div className="w-16 h-16 bg-gray-600 rounded-lg flex items-center justify-center text-white text-2xl flex-shrink-0">
                   📐
                 </div>
