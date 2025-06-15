@@ -1,28 +1,23 @@
 
 import React from "react";
-import Lottie from "lottie-react";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
-// You can replace this import with your own Lottie JSON animation.
-// Example free animation: "Code Development" by lottiefiles
-// Download your preferred Lottie JSON and place it in src/assets/
-import robotArmsJSON from "../assets/robot-arms-lottie.json"; // <-- You'll need to provide this!
+// Use the .lottie animation hosted from LottieFiles
+const LOTTIE_URL = "https://lottie.host/aa140d4c-5789-4c04-ad90-fc79a4b5b8b5/WK9EPCu7NF.lottie";
 
 const LottieRobotArms = () => (
   <div
-    className="flex items-center justify-center min-w-[250px] max-w-[360px] w-full h-[180px] md:mr-2 mx-auto"
+    className="flex items-center justify-center min-w-[250px] max-w-[360px] w-full h-[180px] md:mr-2 mx-auto bg-white/70 dark:bg-black/40 rounded-xl transition-colors"
     style={{
-      background: "none",
-      filter: "drop-shadow(0 4px 16px #0003)"
+      filter: "drop-shadow(0 4px 16px #0003)",
+      overflow: "hidden"
     }}
   >
-    <Lottie
-      animationData={robotArmsJSON}
+    <DotLottieReact
+      src={LOTTIE_URL}
       loop
       autoplay
       style={{ width: "100%", height: "100%", maxWidth: 340, minWidth: 220 }}
-      rendererSettings={{
-        preserveAspectRatio: "xMidYMid meet",
-      }}
     />
   </div>
 );
