@@ -40,32 +40,31 @@ const Projects = () => (
         {projectList.map((proj, i) => (
           <div
             key={i}
-            className="relative group rounded-xl overflow-hidden border border-gray-800 shadow-lg bg-[#161616] transition-all animate-fade-in"
-            style={{ minHeight: 340, animationDelay: `${0.2 + i * 0.07}s` }}
+            className="relative rounded-2xl overflow-hidden border border-gray-800 shadow-lg bg-[#161616] transition-all animate-fade-in min-h-[340px] group"
+            style={{ animationDelay: `${0.2 + i * 0.07}s` }}
           >
-            {/* Image */}
+            {/* Card Background Image */}
             <img
               src={proj.image}
               alt={proj.title}
-              className="w-full h-56 object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
             />
-            {/* Always dimmed overlay */}
-            <div className="absolute inset-0 bg-black/60"></div>
-            {/* Card content */}
-            <div className="absolute bottom-0 left-0 p-6 w-full flex flex-col z-10">
-              <h2 className="text-2xl font-bold text-white mb-1">{proj.title}</h2>
-              <p className="text-gray-300 text-sm mb-2">{proj.desc}</p>
-              <div className="flex flex-wrap gap-2 mb-2">
+            {/* Semi-transparent Overlay */}
+            <div className="absolute inset-0 bg-black/60" />
+            {/* Card Content */}
+            <div className="relative z-10 flex flex-col h-full justify-center px-7 py-7">
+              <h2 className="text-2xl font-bold text-white mb-2 drop-shadow-md">{proj.title}</h2>
+              <p className="text-gray-200 text-[15px] mb-4 max-w-[96%]">{proj.desc}</p>
+              <div className="flex flex-wrap gap-2 mt-1">
                 {proj.languages.map((lang, j) => (
                   <span
                     key={j}
-                    className="bg-brand-purple/10 text-brand-purple px-2 py-0.5 rounded text-[10px]"
+                    className="bg-brand-purple/20 text-brand-purple px-3 py-1 rounded-full text-xs font-medium"
                   >
                     {lang}
                   </span>
                 ))}
               </div>
-              {/* Removed Preview Demo button from each card */}
             </div>
           </div>
         ))}
