@@ -7,28 +7,36 @@ const projectList = [
     desc: "A stylish, responsive website to showcase my skills and experience.",
     languages: ["React", "Typescript", "Tailwind CSS"],
     image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800&auto=format&fit=crop",
-    demo: "https://your-portfolio-demo-link.com"
+    demo: "https://your-portfolio-demo-link.com",
+    location: "Remote",
+    years: "2024"
   },
   {
     title: "ShopEasy",
     desc: "E-commerce platform with real-time inventory and seamless checkout.",
     languages: ["Next.js", "Typescript", "Stripe"],
     image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop",
-    demo: "https://shopeasy-demo-link.com"
+    demo: "https://shopeasy-demo-link.com",
+    location: "Accra, Ghana",
+    years: "2023"
   },
   {
     title: "TaskFlow App",
     desc: "Team collaboration tool for task management and productivity.",
     languages: ["React", "Redux", "Node.js"],
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800&auto=format&fit=crop",
-    demo: "https://taskflow-demo-link.com"
+    demo: "https://taskflow-demo-link.com",
+    location: "Remote",
+    years: "2022"
   },
   {
     title: "BlogCraft",
     desc: "A blogging platform with markdown editing and real-time preview.",
     languages: ["Next.js", "Chakra UI", "Firebase"],
     image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=800&auto=format&fit=crop",
-    demo: "https://blogcraft-demo-link.com"
+    demo: "https://blogcraft-demo-link.com",
+    location: "Lagos, Nigeria",
+    years: "2021"
   }
 ];
 
@@ -54,8 +62,8 @@ const Projects = () => (
             {/* Card Content */}
             <div className="relative z-10 flex flex-col h-full justify-center px-7 py-7">
               <h2 className="text-2xl font-bold text-white mb-2 drop-shadow-md">{proj.title}</h2>
-              <p className="text-gray-200 text-[15px] mb-4 max-w-[96%]">{proj.desc}</p>
-              <div className="flex flex-wrap gap-2 mt-1">
+              <p className="text-gray-200 text-[15px] mb-2 max-w-[96%]">{proj.desc}</p>
+              <div className="flex flex-wrap gap-2 mt-1 mb-2">
                 {proj.languages.map((lang, j) => (
                   <span
                     key={j}
@@ -64,6 +72,10 @@ const Projects = () => (
                     {lang}
                   </span>
                 ))}
+              </div>
+              <div className="flex items-center justify-start gap-3 mt-auto">
+                <span className="text-xs text-gray-200 bg-gray-800/70 rounded px-3 py-1">{proj.location}</span>
+                <span className="text-xs text-gray-400">{proj.years}</span>
               </div>
             </div>
           </div>
