@@ -23,7 +23,7 @@ const Header = () => {
             `}
             style={{ transitionDelay: '120ms' }}
           >
-            Samin.
+            DevNiel
           </a>
           <nav
             className={`
@@ -48,4 +48,3 @@ const Header = () => {
 };
 
 export default Header;
-

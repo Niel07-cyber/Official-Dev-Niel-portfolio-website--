@@ -31,30 +31,44 @@ const Proficiency = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Sequential animation: one bar loads after the previous is filled
   React.useEffect(() => {
     if (!inView) return;
-    let raf: number;
-    let start: number | null = null;
+    let cancelled = false;
     const target = skills.map(s => s.value);
+    const duration = 1200;
 
-    function animate(ts: number) {
-      if (start === null) start = ts;
-      const elapsed = ts - start;
-      const duration = 1200;
-      setProgress(progress =>
-        progress.map((val, i) => {
-          const eased = Math.min(target[i], Math.round((elapsed / duration) * target[i]));
-          return eased;
-        }),
-      );
-      if (elapsed < duration) {
-        raf = requestAnimationFrame(animate);
-      } else {
-        setProgress(target);
+    function animateOne(i: number) {
+      if (i >= skills.length || cancelled) return;
+      let start: number | null = null;
+
+      function animate(ts: number) {
+        if (start === null) start = ts;
+        const elapsed = ts - start;
+        const eased = Math.min(target[i], Math.round((elapsed / duration) * target[i]));
+        setProgress(prev => {
+          const arr = [...prev];
+          arr[i] = eased;
+          return arr;
+        });
+        if (elapsed < duration) {
+          requestAnimationFrame(animate);
+        } else {
+          setProgress(prev => {
+            const arr = [...prev];
+            arr[i] = target[i];
+            return arr;
+          });
+          animateOne(i + 1);
+        }
       }
+      requestAnimationFrame(animate);
     }
-    raf = requestAnimationFrame(animate);
-    return () => raf && cancelAnimationFrame(raf);
+
+    setProgress(skills.map(() => 0));
+    animateOne(0);
+
+    return () => { cancelled = true; }
     // eslint-disable-next-line
   }, [inView]);
 
@@ -67,7 +81,7 @@ const Proficiency = () => {
         Proficiency
       </h2>
       <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-8 w-full">
-        {/* Restored LottieRobotArms to the side as visual! */}
+        {/* Lottie visual */}
         <div className="flex justify-center w-full md:w-1/2">
           <LottieRobotArms />
         </div>
