@@ -1,10 +1,9 @@
-
 import React, { useEffect, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const HERO_LOTTIE =
-  "https://lottie.host/66bf4c78-a81a-4e7b-9126-9d9026827b70/8c55eDjPs2.lottie";
+  "https://lottie.host/4c9a4b46-ca80-4fa5-8ec5-f57ea6c865c8/OxAE8hI3SQ.lottie";
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
@@ -82,4 +81,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
