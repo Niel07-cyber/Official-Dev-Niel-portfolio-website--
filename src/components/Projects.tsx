@@ -65,16 +65,7 @@ const Projects = () => (
                   </span>
                 ))}
               </div>
-              <div className="mt-2 flex justify-end z-10">
-                <a
-                  href={proj.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block px-4 py-2 border border-brand-purple rounded-full text-brand-purple hover:bg-brand-purple hover:text-white transition-colors text-sm"
-                >
-                  Preview Demo
-                </a>
-              </div>
+              {/* Removed Preview Demo button from each card */}
             </div>
           </div>
         ))}
@@ -95,4 +86,3 @@ const Projects = () => (
 );
 
 export default Projects;
-
