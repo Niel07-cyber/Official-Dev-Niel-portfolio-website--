@@ -3,7 +3,6 @@ import React from "react";
 import { Instagram, Linkedin, Github } from "lucide-react";
 
 const GMAIL_LINK = "mailto:your.email@gmail.com";
-// Replace with your actual email if needed
 
 // Gmail SVG Icon
 const GmailIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -25,14 +24,13 @@ const GmailIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 const Footer = () => {
   return (
-    <footer className="py-12 bg-black/50 border-t border-gray-800">
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center md:items-start md:justify-between gap-10">
+    <footer className="py-6 bg-black/50 border-t border-gray-800 w-full">
+      <div className="w-full flex flex-col md:flex-row items-center md:items-start md:justify-between gap-8 mx-0">
         {/* Contact Form */}
         <form
-          className="w-full md:w-1/2 max-w-md bg-white/5 rounded-lg p-6 flex flex-col gap-4 shadow-lg"
+          className="w-full md:w-1/2 max-w-md bg-white/5 rounded-lg p-4 flex flex-col gap-4 shadow-lg"
           onSubmit={e => {
             e.preventDefault();
-            // You could add a toast or email integration here
             alert('Message sent! (Form is demo only.)');
           }}
         >
