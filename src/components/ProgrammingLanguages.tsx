@@ -1,7 +1,12 @@
 
 import React from "react";
 
+// All SVGs from devicon/devicon, simple-icons, or other reputable sources.
 const languages = [
+  {
+    name: "Git",
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  },
   {
     name: "JavaScript",
     url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
@@ -31,42 +36,71 @@ const languages = [
     url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
   },
   {
-    name: "Git",
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    name: "Java",
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
   },
-  // Feel free to add more!
+  {
+    name: "GitHub",
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+  },
+  {
+    name: "Python",
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  },
+  {
+    name: "SQL",
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", // common for SQL
+  },
+  {
+    name: "MongoDB",
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  },
 ];
+
+// To make the marquee seamless, the content needs to be repeated several times.
+// We'll triple the icons array so that even on wide screens, the scroll never ends and there is no gap.
+const marqueeIcons = [];
+for (let i = 0; i < 5; i++) marqueeIcons.push(...languages);
 
 const ProgrammingLanguages = () => {
   return (
     <div className="relative overflow-hidden py-8 my-10 lg:my-16 rounded-xl bg-gradient-to-r from-background via-[#191919]/95 to-background shadow-lg border border-gray-800">
       <h2 className="text-center text-xl md:text-2xl font-bold text-white mb-6 tracking-widest opacity-80">
-        Programming Languages & Tools
+        Programming Languages &amp; Tools
       </h2>
-      <div className="flex w-max animate-marquee gap-10 px-4 mx-auto" style={{
-        animation: "marquee 22s linear infinite",
-      }}>
-        {languages.concat(languages).map((lang, i) => (
-          <div
-            key={i}
-            className="flex flex-col items-center justify-center min-w-[60px] hover:scale-110 transition-transform"
-          >
-            <img
-              src={lang.url}
-              alt={lang.name}
-              className="h-10 w-10 md:h-14 md:w-14 object-contain drop-shadow-md"
-              draggable={false}
-            />
-            <span className="text-xs mt-2 text-gray-300 tracking-wide">{lang.name}</span>
-          </div>
-        ))}
-      </div>
-      <style>{`
+      <div className="relative w-full">
+        <div
+          className="flex w-max animate-[marquee_24s_linear_infinite] gap-12 px-4 mx-auto"
+          style={{
+            // Fallback for browsers that don't support arbitrary animation utilities
+            animation: "marquee 24s linear infinite",
+          }}
+        >
+          {marqueeIcons.map((lang, i) => (
+            <div
+              key={i}
+              className="flex flex-col items-center justify-center min-w-[70px] md:min-w-[90px] hover:scale-110 transition-transform"
+            >
+              <img
+                src={lang.url}
+                alt={lang.name}
+                className="h-10 w-10 md:h-14 md:w-14 object-contain drop-shadow-md"
+                draggable={false}
+              />
+              <span className="text-xs mt-2 text-gray-300 tracking-wide text-center whitespace-nowrap">
+                {lang.name}
+              </span>
+            </div>
+          ))}
+        </div>
+        <style>{`
+        /* Make marquee seamless by moving left by half the duplicated icons row. */
         @keyframes marquee {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
         }
-      `}</style>
+        `}</style>
+      </div>
     </div>
   );
 };
