@@ -1,3 +1,4 @@
+
 import React from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -20,7 +21,8 @@ const Index = () => {
   return (
     <div className="bg-background font-sans text-foreground relative w-full min-h-screen overflow-x-hidden">
       <Header />
-      <main className="w-full min-h-screen">
+      {/* Add responsive horizontal padding here */}
+      <main className="w-full min-h-screen px-4 md:px-8 xl:px-20 max-w-screen-2xl mx-auto">
         <section>
           <Hero />
         </section>
@@ -64,3 +66,4 @@ const Index = () => {
 };
 
 export default Index;
+
