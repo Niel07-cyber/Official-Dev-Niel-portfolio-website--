@@ -5,7 +5,7 @@ import { useInView } from "@/hooks/useInView";
 // Use placeholder images for logos
 const items = [
   {
-    logo: "photo-1487958449943-2429e8be8625", // white concrete building for demo
+    logo: "photo-1487958449943-2429e8be8625",
     school: "University of Frontend Mastery",
     degree: "B.Sc. Computer Science",
     years: "2017 – 2021",
@@ -15,7 +15,7 @@ const items = [
     additionalCoursework: "Other Courses: Distributed Systems, Software Engineering, Database Systems"
   },
   {
-    logo: "photo-1494891848038-7bd202a2afeb", // black and red building for demo
+    logo: "photo-1494891848038-7bd202a2afeb",
     school: "React School of Engineering",
     degree: "Professional Certification, React",
     years: "2021",
@@ -47,12 +47,12 @@ const Education = () => (
                 flex flex-row items-center p-8
                 max-w-4xl w-full mx-auto
                 relative overflow-hidden
-                transition-transform transition-opacity
-                ${inView ? "edu-slide-in-right" : "opacity-0 translate-x-28"}
+                will-change-transform will-change-opacity
+                ${inView ? "edu-slide-in-left" : "opacity-0 edu-pre-slide"}
               `}
               style={{
-                animationDelay: inView ? `${0.3 + i * 0.38}s` : undefined, // slower + stagger
-                animationDuration: inView ? "1.2s" : undefined,
+                animationDelay: inView ? `${0.25 + i * 0.6}s` : undefined,
+                animationDuration: inView ? "2.2s" : undefined,
               }}
             >
               {/* School Logo */}
@@ -99,26 +99,31 @@ const Education = () => (
     </div>
     <style>
       {`
-      @keyframes edu-slide-in-left {
+      /* Hide initially and provide initial state for transition */
+      .edu-pre-slide {
+        opacity: 0;
+        transform: translateX(-120px) scale(0.97);
+      }
+      @keyframes edu-slide-in-left-smooth {
         0% {
           opacity: 0;
-          transform: translateX(-90px);
+          transform: translateX(-120px) scale(0.97);
         }
         60% {
           opacity: 1;
-          transform: translateX(8px);
+          transform: translateX(10px) scale(1.02);
         }
-        80% {
+        78% {
           opacity: 1;
-          transform: translateX(-3px);
+          transform: translateX(-4px) scale(1.01);
         }
         100% {
           opacity: 1;
-          transform: translateX(0);
+          transform: translateX(0) scale(1);
         }
       }
       .edu-slide-in-left {
-        animation: edu-slide-in-left 1.8s cubic-bezier(0.72,0.1,0.12,1) forwards;
+        animation: edu-slide-in-left-smooth 2.2s cubic-bezier(0.66,0.17,0.23,0.98) forwards;
       }
       `}
     </style>
@@ -126,3 +131,4 @@ const Education = () => (
 );
 
 export default Education;
+
