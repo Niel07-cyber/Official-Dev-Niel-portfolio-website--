@@ -1,4 +1,3 @@
-
 import React from "react";
 import { ArrowRight } from "lucide-react";
 
@@ -65,12 +64,15 @@ const Works = () => (
       <p className="text-gray-400 mb-2 tracking-widest text-base text-center">(PROJECTS)</p>
       <h1 className="text-4xl md:text-7xl font-bold text-brand-purple mb-6 text-center animate-fade-in">Projects</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-        {allWorks.map((item, i) => (
+        {
+        allWorks.map((item, i) => (
+          
           <div
             key={i}
             className="relative group rounded-xl overflow-hidden border border-gray-800 shadow-lg bg-[#161616] hover:scale-105 hover:shadow-2xl transition-all animate-fade-in"
             style={{ animationDelay: `${0.2 + i * 0.07}s` }}
           >
+            
             <img
               src={item.image}
               alt={item.title}
@@ -80,6 +82,7 @@ const Works = () => (
             <div className="absolute bottom-0 left-0 p-6">
               <h2 className="text-xl font-bold text-white">{item.title}</h2>
               <p className="text-gray-300 text-sm">{item.desc}</p>
+              
               <div className="mt-2 text-xs text-gray-400">
                 <p className="font-semibold">{item.company}</p>
                 <div className="flex items-center gap-2">
@@ -101,7 +104,7 @@ const Works = () => (
       </div>
       <div className="mt-12 flex justify-center animate-fade-in">
         <a
-          href="/"
+          href="/projects"
           className="inline-flex items-center px-6 py-3 border border-gray-600 rounded-full text-white hover:bg-brand-purple hover:border-brand-purple transition-colors"
         >
           Explore Projects <span className="ml-2"><svg width="16" height="16" fill="none"><path d="M5 12l5-5-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg></span>
