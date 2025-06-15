@@ -10,7 +10,7 @@ import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import { useNavigate } from "react-router-dom";
-import Projects from "@/components/Projects";
+import Certificates from "@/components/Projects";
 import Works from "./Works";
 
 // The page now uses only normal scrolling. No intro/slide-in logic!
@@ -34,12 +34,13 @@ const Index = () => {
         <section>
           <FeaturedWork />
         </section>
-        {/* Add Works (Professional Experience) just after Featured Work */}
+        {/* (PROJECTS) just after Featured Work */}
         <section>
           <Works />
         </section>
+        {/* Certificates */}
         <section>
-          <Projects />
+          <Certificates />
         </section>
         <section>
           <Education />
@@ -59,4 +60,3 @@ const Index = () => {
 };
 
 export default Index;
-

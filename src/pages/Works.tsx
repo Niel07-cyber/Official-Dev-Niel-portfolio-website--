@@ -1,3 +1,4 @@
+
 import React from "react";
 import { ArrowRight } from "lucide-react";
 
@@ -61,7 +62,8 @@ const allWorks = [
 const Works = () => (
   <div className="bg-background min-h-screen py-16 md:py-24">
     <div className="container mx-auto px-4">
-      <h1 className="text-4xl md:text-7xl font-bold text-brand-purple mb-6 text-center animate-fade-in">Professional Experience</h1>
+      <p className="text-gray-400 mb-2 tracking-widest text-base text-center">(PROJECTS)</p>
+      <h1 className="text-4xl md:text-7xl font-bold text-brand-purple mb-6 text-center animate-fade-in">Projects</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
         {allWorks.map((item, i) => (
           <div
@@ -102,7 +104,7 @@ const Works = () => (
           href="/"
           className="inline-flex items-center px-6 py-3 border border-gray-600 rounded-full text-white hover:bg-brand-purple hover:border-brand-purple transition-colors"
         >
-          Back to Home <span className="ml-2"><svg width="16" height="16" fill="none"><path d="M5 12l5-5-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg></span>
+          Explore Projects <span className="ml-2"><svg width="16" height="16" fill="none"><path d="M5 12l5-5-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg></span>
         </a>
       </div>
     </div>
