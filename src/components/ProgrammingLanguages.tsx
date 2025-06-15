@@ -1,3 +1,4 @@
+
 import React from "react";
 
 // All SVGs from devicon/devicon, simple-icons, or other reputable sources.
@@ -63,13 +64,13 @@ for (let i = 0; i < 5; i++) marqueeIcons.push(...languages);
 
 const ProgrammingLanguages = () => {
   return (
-    <div className="relative overflow-hidden py-8 my-10 lg:my-16 rounded-xl bg-gradient-to-r from-background via-[#191919]/95 to-background shadow-lg border border-gray-800">
-      {/* Blending: top fade overlay for smooth transition from above */}
+    <div className="relative overflow-hidden py-8 md:py-12 mb-0 mt-0 rounded-none">
+      {/* Blending: top fade overlay (kept thinner and subtle, optional) */}
       <div
-        className="pointer-events-none absolute top-0 left-0 w-full h-12 z-10"
+        className="pointer-events-none absolute top-0 left-0 w-full h-4 z-10"
         style={{
           background:
-            "linear-gradient(to bottom, #18171a 0%, #191919 35%, rgba(25,25,25,0.5) 85%, rgba(25,25,25,0) 100%)",
+            "linear-gradient(to bottom, rgba(25,25,25,1) 0%, rgba(25,25,25,0.75) 65%, rgba(25,25,25,0) 100%)",
         }}
       />
       <h2 className="text-center text-xl md:text-2xl font-bold text-white mb-6 tracking-widest opacity-80">
@@ -111,3 +112,4 @@ const ProgrammingLanguages = () => {
 };
 
 export default ProgrammingLanguages;
+
