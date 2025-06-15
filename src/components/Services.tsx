@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
@@ -24,17 +23,17 @@ const Services = () => {
             <a href="#work" className="inline-flex items-center px-6 py-3 border border-gray-600 rounded-full text-white hover:bg-brand-purple hover:border-brand-purple transition-colors">
               SEE ALL WORKS <ArrowRight className="ml-2 h-4 w-4" />
             </a>
-            {/* Updated Lottie centered just under the button */}
+            {/* Bigger Lottie centered just under the button */}
             <div className="mt-6 flex justify-center">
               <DotLottieReact
                 src="https://lottie.host/cd5fbd33-2823-4b79-8f28-868c751ecc67/XDT2ug1rxT.lottie"
                 loop
                 autoplay
                 style={{
-                  width: "140px",
-                  height: "100px",
+                  width: "260px",
+                  height: "180px",
                   maxWidth: "100%",
-                  minWidth: "80px"
+                  minWidth: "120px"
                 }}
               />
             </div>
