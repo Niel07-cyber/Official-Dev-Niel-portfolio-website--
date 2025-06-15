@@ -19,32 +19,37 @@ const items = [
 ];
 
 const Education = () => (
-  <div className="relative min-h-screen py-24 bg-gradient-to-tr from-brand-purple/10 via-background to-background">
+  <section className="relative w-full py-20 bg-gradient-to-tr from-brand-purple/10 via-background to-background">
     <div className="container mx-auto px-4">
-      <h1 className="text-4xl md:text-6xl font-bold mb-10 text-white text-center animate-fade-in">Education</h1>
-      <div className="grid gap-12 max-w-2xl mx-auto">
+      <p className="text-gray-400 mb-10 tracking-widest text-base text-center">(EDUCATION)</p>
+      <div className="grid gap-6 max-w-xl mx-auto">
         {items.map((item, i) => (
           <div
             key={i}
-            className="bg-[#191919] rounded-xl shadow-lg p-8 border-l-8 border-brand-purple animate-fade-in"
-            style={{ animationDelay: `${0.3 + i * 0.2}s` }}
+            className="bg-[#191919] rounded-xl shadow-lg px-6 py-5 border-l-8 border-brand-purple animate-fade-in"
+            style={{ animationDelay: `${0.3 + i * 0.2}s`, maxWidth: "100%" }}
           >
-            <div className="flex flex-col md:flex-row md:justify-between md:items-center">
-              <div>
-                <p className="text-lg font-semibold text-brand-purple">{item.school}</p>
-                <h2 className="text-2xl font-bold text-white">{item.degree}</h2>
-                <p className="text-gray-400 mt-1">{item.content}</p>
-              </div>
-              <div className="text-md text-gray-300 mt-4 md:mt-0 md:text-right">
-                <p>{item.years}</p>
-                <p className="text-xs text-muted-foreground">{item.location}</p>
-              </div>
+            {/* School & Years */}
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="text-lg font-semibold text-brand-purple">
+                {item.school}
+                <span className="text-gray-400 text-sm ml-2">({item.years})</span>
+              </span>
             </div>
+            {/* Degree & Location */}
+            <div className="flex flex-wrap items-center justify-between gap-2 mt-0.5">
+              <span className="text-base font-bold text-white">
+                {item.degree}
+                <span className="text-gray-400 text-xs ml-2">({item.location})</span>
+              </span>
+            </div>
+            {/* Description */}
+            <p className="text-gray-400 mt-2 text-sm">{item.content}</p>
           </div>
         ))}
       </div>
     </div>
-  </div>
+  </section>
 );
 
 export default Education;
