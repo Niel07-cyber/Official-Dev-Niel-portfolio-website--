@@ -24,10 +24,10 @@ const Services = () => {
             <a href="#work" className="inline-flex items-center px-6 py-3 border border-gray-600 rounded-full text-white hover:bg-brand-purple hover:border-brand-purple transition-colors">
               SEE ALL WORKS <ArrowRight className="ml-2 h-4 w-4" />
             </a>
-            {/* Minimal Lottie centered just under the button */}
+            {/* Updated Lottie centered just under the button */}
             <div className="mt-6 flex justify-center">
               <DotLottieReact
-                src="https://lottie.host/200d67d2-56cf-42eb-a99e-5912eac0e982/9BsoFolMPt.lottie"
+                src="https://lottie.host/cd5fbd33-2823-4b79-8f28-868c751ecc67/XDT2ug1rxT.lottie"
                 loop
                 autoplay
                 style={{
