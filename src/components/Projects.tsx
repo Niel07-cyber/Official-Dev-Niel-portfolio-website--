@@ -22,30 +22,40 @@ const projectList = [
     languages: ["React", "Redux", "Node.js"],
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800&auto=format&fit=crop",
     demo: "https://taskflow-demo-link.com"
+  },
+  {
+    title: "BlogCraft",
+    desc: "A blogging platform with markdown editing and real-time preview.",
+    languages: ["Next.js", "Chakra UI", "Firebase"],
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=800&auto=format&fit=crop",
+    demo: "https://blogcraft-demo-link.com"
   }
 ];
 
 const Projects = () => (
   <section id="projects" className="py-20 bg-background">
-    <div className="max-w-6xl mx-auto px-4">
+    <div className="container mx-auto px-4">
       <p className="text-gray-400 mb-10 tracking-widest text-base">(PROJECTS)</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {projectList.map((proj, i) => (
           <div
             key={i}
-            className="relative group rounded-xl overflow-hidden border border-gray-800 shadow-lg bg-[#161616] hover:scale-105 hover:shadow-2xl transition-all"
+            className="relative group rounded-xl overflow-hidden border border-gray-800 shadow-lg bg-[#161616] transition-all animate-fade-in"
             style={{ minHeight: 340, animationDelay: `${0.2 + i * 0.07}s` }}
           >
+            {/* Image */}
             <img
               src={proj.image}
               alt={proj.title}
               className="w-full h-56 object-cover"
             />
+            {/* Always dimmed overlay */}
             <div className="absolute inset-0 bg-black/60"></div>
-            <div className="absolute bottom-0 left-0 p-6 w-full flex flex-col">
-              <h2 className="text-xl font-bold text-white">{proj.title}</h2>
-              <p className="text-gray-300 text-sm">{proj.desc}</p>
-              <div className="mt-2 flex flex-wrap gap-2">
+            {/* Card content */}
+            <div className="absolute bottom-0 left-0 p-6 w-full flex flex-col z-10">
+              <h2 className="text-2xl font-bold text-white mb-1">{proj.title}</h2>
+              <p className="text-gray-300 text-sm mb-2">{proj.desc}</p>
+              <div className="flex flex-wrap gap-2 mb-2">
                 {proj.languages.map((lang, j) => (
                   <span
                     key={j}
@@ -55,7 +65,7 @@ const Projects = () => (
                   </span>
                 ))}
               </div>
-              <div className="mt-4 flex justify-end">
+              <div className="mt-2 flex justify-end z-10">
                 <a
                   href={proj.demo}
                   target="_blank"
@@ -69,8 +79,20 @@ const Projects = () => (
           </div>
         ))}
       </div>
+      {/* Preview Demos Button */}
+      <div className="text-center mt-12 animate-fade-in">
+        <a
+          href={projectList[0].demo}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-6 py-3 border border-gray-600 rounded-full text-white hover:bg-brand-purple hover:border-brand-purple transition-colors"
+        >
+          Preview Demos
+        </a>
+      </div>
     </div>
   </section>
 );
 
 export default Projects;
+
