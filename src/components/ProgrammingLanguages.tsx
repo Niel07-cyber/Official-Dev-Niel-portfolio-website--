@@ -54,7 +54,7 @@ const ProgrammingLanguages = () => {
             <img
               src={lang.url}
               alt={lang.name}
-              className="h-10 w-10 md:h-14 md:w-14 object-contain grayscale hover:grayscale-0 transition-all drop-shadow-md"
+              className="h-10 w-10 md:h-14 md:w-14 object-contain drop-shadow-md"
               draggable={false}
             />
             <span className="text-xs mt-2 text-gray-300 tracking-wide">{lang.name}</span>
@@ -72,3 +72,4 @@ const ProgrammingLanguages = () => {
 };
 
 export default ProgrammingLanguages;
+
