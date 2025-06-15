@@ -1,6 +1,10 @@
 
 import React, { useEffect, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+
+const HERO_LOTTIE =
+  "https://lottie.host/66bf4c78-a81a-4e7b-9126-9d9026827b70/8c55eDjPs2.lottie";
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
@@ -53,12 +57,24 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1887&auto=format&fit=crop"
-          alt="Portrait of a developer"
-          className="absolute right-0 bottom-0 h-full w-full md:w-1/2 object-cover object-top"
-        />
+      {/* Replace man's image with Lottie */}
+      <div className="absolute inset-0 z-0 flex justify-end items-end pointer-events-none select-none">
+        <div className="w-full md:w-1/2 h-full flex items-end justify-end">
+          <DotLottieReact
+            src={HERO_LOTTIE}
+            loop
+            autoplay
+            style={{
+              width: "100%",
+              height: "100%",
+              maxWidth: "600px",
+              minWidth: "220px",
+              maxHeight: "90vh",
+              marginRight: 0,
+              marginBottom: 0,
+            }}
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
       </div>
     </section>
