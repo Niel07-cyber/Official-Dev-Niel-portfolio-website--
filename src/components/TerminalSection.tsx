@@ -1,4 +1,3 @@
-
 import React from "react";
 
 // Experience/company/study entries
@@ -140,7 +139,8 @@ const TerminalSection = () => {
   // Terminal style matches reference! (shadows, topbar, etc)
   return (
     <section
-      className="max-w-3xl w-full mx-auto mt-16 mb-20 relative select-none rounded-2xl overflow-hidden shadow-[0_8px_32px_0_rgba(0,0,0,0.80)] border border-neutral-800"
+      className="w-full mx-auto mt-16 mb-20 relative select-none rounded-2xl overflow-hidden shadow-[0_8px_32px_0_rgba(0,0,0,0.80)] border border-neutral-800"
+      // Changed from `max-w-3xl` to `w-full`, so it fills the page content width.
       style={{
         fontFamily: "Consolas, 'Menlo', 'Monaco', 'Fira Mono', 'monospace'",
         background: "#181823"
@@ -170,8 +170,9 @@ const TerminalSection = () => {
       </div>
       {/* Terminal inner */}
       <div
-        className="flex flex-col px-7 py-7 md:py-12 overflow-hidden"
-        style={{ minHeight: 480, background: "#181823" }}
+        className="flex flex-col px-4 md:px-10 py-7 md:py-12 overflow-hidden"
+        // Reduced padding on mobile for more width, larger on wider screens
+        style={{ minHeight: 520, background: "#181823" }}
       >
         <div className="text-[#c7c6c6] text-[13px] mb-1">Powershell 7.3.4</div>
         <div className="text-[#9d9d9f] text-xs mb-5">Loading personal and system profiles took 281ms.</div>
