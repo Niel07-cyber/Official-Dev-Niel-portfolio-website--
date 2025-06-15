@@ -1,7 +1,6 @@
 
 import React from "react";
 import { Progress } from "@/components/ui/progress";
-// REPLACE AnimatedRobotArms with the new LottieRobotArms
 import LottieRobotArms from "./LottieRobotArms";
 
 const skills = [
@@ -12,12 +11,10 @@ const skills = [
 ];
 
 const Proficiency = () => {
-  // Track progress for each skill bar individually
   const [progress, setProgress] = React.useState(skills.map(() => 0));
   const containerRef = React.useRef<HTMLDivElement>(null);
   const [inView, setInView] = React.useState(false);
 
-  // Simple IntersectionObserver to trigger animation
   React.useEffect(() => {
     const node = containerRef.current;
     if (!node) return;
@@ -34,7 +31,6 @@ const Proficiency = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Animate progress bars when in view
   React.useEffect(() => {
     if (!inView) return;
     let raf: number;
@@ -44,7 +40,7 @@ const Proficiency = () => {
     function animate(ts: number) {
       if (start === null) start = ts;
       const elapsed = ts - start;
-      const duration = 1200; // ms
+      const duration = 1200;
       setProgress(progress =>
         progress.map((val, i) => {
           const eased = Math.min(target[i], Math.round((elapsed / duration) * target[i]));
@@ -54,7 +50,7 @@ const Proficiency = () => {
       if (elapsed < duration) {
         raf = requestAnimationFrame(animate);
       } else {
-        setProgress(target); // Snap to final value
+        setProgress(target);
       }
     }
     raf = requestAnimationFrame(animate);
@@ -65,14 +61,16 @@ const Proficiency = () => {
   return (
     <section
       ref={containerRef}
-      className="max-w-4xl mx-auto w-full px-4 my-14 lg:my-20"
+      className="max-w-6xl mx-auto w-full px-4 my-14 lg:my-20"
     >
       <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 tracking-wide">
         Proficiency
       </h2>
-      <div className="flex flex-col md:flex-row gap-10 md:gap-8 items-center justify-between md:items-start">
-        <LottieRobotArms />
-        <div className="flex-1 w-full flex flex-col gap-7 md:max-w-md">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-8 w-full">
+        <div className="flex justify-center w-full md:w-1/2">
+          <LottieRobotArms />
+        </div>
+        <div className="flex-1 w-full max-w-sm flex flex-col gap-7 md:w-1/2">
           {skills.map((skill, i) => (
             <div key={skill.label}>
               <div className="text-base md:text-lg text-white mb-2">
@@ -91,3 +89,4 @@ const Proficiency = () => {
 };
 
 export default Proficiency;
+
