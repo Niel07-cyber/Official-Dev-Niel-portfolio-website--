@@ -17,8 +17,8 @@ const sections = [
   { name: "Footer", component: <Footer /> },
 ];
 
-// transition timing in ms for cascading intro (slow and visually appealing)
-const INTRO_STEP_TIME = 1400; // 1.4s per section
+// Slower transition for intro: 2 seconds per section
+const INTRO_STEP_TIME = 2000; // 2s per slide, much slower for dramatic effect
 
 const Index = () => {
   // Current section for intro autoplay
@@ -41,7 +41,7 @@ const Index = () => {
       // All sections are revealed; end intro after the last one is visible for a moment
       timerRef.current = window.setTimeout(() => {
         setIsIntro(false);
-      }, INTRO_STEP_TIME + 400);
+      }, INTRO_STEP_TIME + 700);
     }
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
@@ -60,56 +60,70 @@ const Index = () => {
     };
   }, [isIntro]);
 
-  // No pointer/wheel listeners, no dots navigation during normal scroll mode
-  // Only show them during intro
+  // ---- CSS tweaks ----
+  // We'll ensure each intro section is always 100svh/100vh for full mobile/desktop fit.
+  // During intro, all sections are absolutely stacked and only one is interactable at a time.
 
   return (
     <div className="bg-background font-sans text-foreground relative w-full min-h-screen overflow-x-hidden">
       <Header />
       {isIntro ? (
         <main
-          className="relative w-full h-screen"
+          className="relative w-full min-h-screen"
           style={{
-            transition: "transform 1s cubic-bezier(0.86,0,0.07,1)",
-            transform: `translateY(-${current * 100}vh)`,
+            transition: "transform 1.3s cubic-bezier(0.86,0,0.07,1)",
+            // Slide 'viewport' up for each new section intro
+            transform: `translateY(-${current * 100}svh)`,
           }}
         >
           {sections.map((section, idx) => (
             <section
               key={section.name}
-              className="w-full min-h-screen h-screen"
+              className={`
+                w-full min-h-screen h-[100svh] md:h-screen
+                flex flex-col
+                absolute left-0
+                `}
               style={{
-                position: "absolute",
-                top: `${idx * 100}vh`,
-                left: 0,
+                top: `${idx * 100}svh`,
                 width: "100%",
-                height: "100vh",
-                // Use will-change for smoother animation
+                height: "100svh",
                 willChange: "transform",
                 pointerEvents: idx === current ? "auto" : "none",
+                // Enable hardware acceleration for smoothness
+                contain: "layout style",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
               }}
             >
-              {section.component}
+              {/* For FeaturedWork, ensure grid fills full screen for any viewport */}
+              <div className="w-full h-full flex flex-col">
+                {section.component}
+              </div>
             </section>
           ))}
           {/* Dots navigation, optional to show progression */}
-          <div className="fixed right-4 top-1/2 z-50 flex flex-col gap-3 -translate-y-1/2">
+          <div className="fixed right-3 top-1/2 z-50 flex flex-col gap-3 -translate-y-1/2">
             {sections.map((_, idx) => (
               <div
                 key={idx}
-                className={`w-3 h-3 rounded-full bg-white/40 border-2 border-white/80 transition-colors ${
-                  idx === current ? "bg-brand-purple border-brand-purple" : "hover:bg-white/80"
-                }`}
+                className={`w-3 h-3 rounded-full bg-white/40 border-2 border-white/80 transition-colors
+                  ${idx === current ? "bg-brand-purple border-brand-purple" : "hover:bg-white/80"}
+                `}
               />
             ))}
           </div>
         </main>
       ) : (
-        // Normal scroll mode: render in natural stacking order, no absolute/fixed positions
+        // Normal scroll mode: render all sections in natural order, standard height
         <main className="w-full min-h-screen">
           {sections.map((section, idx) => (
-            <section key={section.name} className="w-full min-h-screen">
-              {section.component}
+            <section
+              key={section.name}
+              className="w-full min-h-screen md:min-h-screen h-fit flex flex-col"
+            >
+              <div className="w-full h-full flex flex-col">{section.component}</div>
             </section>
           ))}
         </main>
@@ -119,4 +133,3 @@ const Index = () => {
 };
 
 export default Index;
-
