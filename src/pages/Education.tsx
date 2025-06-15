@@ -48,7 +48,7 @@ const Education = () => (
                 max-w-4xl w-full mx-auto
                 relative overflow-hidden
                 will-change-transform will-change-opacity
-                ${inView ? "edu-slide-in-left" : "opacity-0 edu-pre-slide"}
+                ${inView ? "edu-slide-in-left" : "edu-pre-slide edu-hidden"}
               `}
               style={{
                 animationDelay: inView ? `${0.25 + i * 0.6}s` : undefined,
@@ -104,6 +104,9 @@ const Education = () => (
         opacity: 0;
         transform: translateX(-120px) scale(0.97);
       }
+      .edu-hidden {
+        display: none;
+      }
       @keyframes edu-slide-in-left-smooth {
         0% {
           opacity: 0;
@@ -123,6 +126,7 @@ const Education = () => (
         }
       }
       .edu-slide-in-left {
+        display: block;
         animation: edu-slide-in-left-smooth 2.2s cubic-bezier(0.66,0.17,0.23,0.98) forwards;
       }
       `}
