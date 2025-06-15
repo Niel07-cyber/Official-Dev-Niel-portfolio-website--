@@ -96,6 +96,14 @@ const Education = () => (
         })}
       </div>
     </div>
+    {/* Blending: bottom fade overlay for smooth transition */}
+    <div
+      className="pointer-events-none absolute left-0 bottom-0 w-full h-16 z-10"
+      style={{
+        background:
+          "linear-gradient(to bottom, rgba(25,25,25,0) 0%, #191919 60%, #18171a 85%, #0d0d0d 100%)",
+      }}
+    />
     <style>
       {`
       /* Hide initially and provide initial state for transition */

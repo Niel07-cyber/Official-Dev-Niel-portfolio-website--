@@ -64,6 +64,14 @@ for (let i = 0; i < 5; i++) marqueeIcons.push(...languages);
 const ProgrammingLanguages = () => {
   return (
     <div className="relative overflow-hidden py-8 my-10 lg:my-16 rounded-xl bg-gradient-to-r from-background via-[#191919]/95 to-background shadow-lg border border-gray-800">
+      {/* Blending: top fade overlay for smooth transition from above */}
+      <div
+        className="pointer-events-none absolute top-0 left-0 w-full h-12 z-10"
+        style={{
+          background:
+            "linear-gradient(to bottom, #18171a 0%, #191919 35%, rgba(25,25,25,0.5) 85%, rgba(25,25,25,0) 100%)",
+        }}
+      />
       <h2 className="text-center text-xl md:text-2xl font-bold text-white mb-6 tracking-widest opacity-80">
         Programming Languages &amp; Tools
       </h2>
@@ -92,7 +100,6 @@ const ProgrammingLanguages = () => {
           ))}
         </div>
         <style>{`
-        /* Make marquee seamless by moving left by half the duplicated icons row. */
         @keyframes marquee {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
