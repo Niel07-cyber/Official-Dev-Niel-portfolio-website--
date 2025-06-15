@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   const [mounted, setMounted] = useState(false);
@@ -37,6 +38,9 @@ const Header = () => {
             <a href="#education" className="hover:text-brand-purple transition-colors">Education</a>
             <a href="#contact" className="hover:text-brand-purple transition-colors">Contact</a>
           </nav>
+          <div className="flex items-center space-x-2">
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </header>
@@ -44,3 +48,4 @@ const Header = () => {
 };
 
 export default Header;
+
