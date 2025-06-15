@@ -2,12 +2,12 @@
 import React from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
-// Use the .lottie animation hosted from LottieFiles
-const LOTTIE_URL = "https://lottie.host/aa140d4c-5789-4c04-ad90-fc79a4b5b8b5/WK9EPCu7NF.lottie";
+const LOTTIE_URL =
+  "https://lottie.host/cd5fbd33-2823-4b79-8f28-868c751ecc67/XDT2ug1rxT.lottie";
 
 const LottieRobotArms = () => (
   <div
-    className="flex items-center justify-center min-w-[280px] max-w-[500px] w-full h-[230px] md:h-[280px] md:mr-2 mx-auto transition-colors"
+    className="flex items-center justify-center w-full max-w-full h-[260px] md:h-[340px] mx-auto"
     style={{
       filter: "drop-shadow(0 4px 16px #0003)",
       overflow: "hidden"
@@ -20,12 +20,15 @@ const LottieRobotArms = () => (
       style={{
         width: "100%",
         height: "100%",
-        maxWidth: 480,
+        maxWidth: 600,
         minWidth: 220,
-        maxHeight: 300
+        maxHeight: 360
       }}
+      renderer="svg"
+      // SVG is vector and always crisp, no pixel blur
     />
   </div>
 );
 
 export default LottieRobotArms;
+
