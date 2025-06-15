@@ -1,6 +1,5 @@
-
 import React from "react";
-import { Github, ExternalLink, ArrowLeft, Search, Filter, Shuffle, Sun } from "lucide-react";
+import { Github, ExternalLink, ArrowLeft, Search, ChevronDown, Shuffle, Sun } from "lucide-react";
 
 const projects = [
   {
@@ -10,8 +9,8 @@ const projects = [
     lang: "TypeScript",
     logo: <Github size={36} />,
     info: "project published to GitHub 2 years ago, updated 8 months ago",
-    exploreUrl: "#", // Replace with actual GitHub/source link
-    demoUrl: "#",    // Replace with actual demo link
+    exploreUrl: "#",
+    demoUrl: "#",
   },
   {
     title: "lidar",
@@ -20,8 +19,8 @@ const projects = [
     lang: "JavaScript",
     logo: <Github size={36} />,
     info: "project published to GitHub 2 years ago, updated 8 months ago",
-    exploreUrl: "#", // Replace with actual GitHub/source link
-    demoUrl: "#",    // Replace with actual demo link
+    exploreUrl: "#",
+    demoUrl: "#",
   },
   {
     title: "avatar",
@@ -38,7 +37,7 @@ const projects = [
     subtitle: "artwork",
     description: "An incoherent landscape drowning in dark, ominous shades of blue and green.",
     lang: "Photoshop 2021",
-    logo: <ExternalLink size={32} />, // Example non-GitHub icon
+    logo: <ExternalLink size={32} />,
     info: "",
     exploreUrl: "#",
     demoUrl: "#",
@@ -47,65 +46,78 @@ const projects = [
 
 export default function Projects() {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header Section */}
-      <div className="relative px-4 md:px-12 py-12 mb-8">
+    <div className="min-h-screen bg-black text-white">
+      {/* Hero Header Section */}
+      <div className="relative px-8 md:px-16 py-16">
         <div className="mx-auto w-full max-w-7xl">
           {/* Top Controls */}
-          <div className="flex items-center justify-between mb-16">
+          <div className="flex items-center justify-between mb-20">
             <a 
               href="/"
-              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+              className="flex items-center gap-3 px-4 py-2 border border-gray-600 rounded-lg text-gray-300 hover:text-white hover:border-gray-400 transition-colors"
             >
-              <ArrowLeft size={20} />
-              <span className="text-sm">Back to homepage</span>
+              <ArrowLeft size={18} />
+              <span>Back to homepage</span>
             </a>
             
-            <div className="flex items-center gap-4">
-              <button className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-700 bg-black/40 hover:bg-gray-800 transition-colors">
-                <Search size={18} className="text-gray-300" />
-              </button>
-              <button className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-700 bg-black/40 hover:bg-gray-800 transition-colors">
-                <Filter size={18} className="text-gray-300" />
-              </button>
-              <button className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-700 bg-black/40 hover:bg-gray-800 transition-colors">
-                <Shuffle size={18} className="text-gray-300" />
-              </button>
-              <button className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-700 bg-black/40 hover:bg-gray-800 transition-colors">
-                <Sun size={18} className="text-yellow-300" />
-              </button>
-            </div>
+            <button className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 transition-colors">
+              <Sun size={20} className="text-yellow-300" />
+            </button>
           </div>
 
-          {/* Main Header Content */}
+          {/* Main Header with Featured Text */}
           <div className="relative flex items-start">
             {/* Vertical "Featured" Text */}
-            <div className="hidden lg:block mr-12">
+            <div className="hidden lg:block mr-16 mt-8">
               <div className="writing-mode-vertical-rl text-orientation-mixed">
-                <span className="text-4xl font-bold text-gray-600 tracking-widest transform rotate-180 inline-block">
-                  FEATURED
+                <span className="text-lg font-normal text-gray-400 tracking-[0.3em] transform rotate-180 inline-block">
+                  Featured
                 </span>
               </div>
             </div>
 
             {/* Main Title */}
             <div className="flex-1">
-              <div className="mb-6">
-                <span className="block text-lg font-medium text-gray-400 tracking-widest mb-5">
-                  (PROJECTS)
-                </span>
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-tight">
-                  Projects &<br />
-                  Experiments
-                </h1>
-              </div>
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold leading-none mb-12">
+                Projects &<br />
+                <span className="font-bold">Experiments</span>
+              </h1>
             </div>
+          </div>
+
+          {/* Search and Filter Controls */}
+          <div className="flex flex-col md:flex-row gap-4 mt-12 max-w-4xl">
+            {/* Search Input */}
+            <div className="relative flex-1">
+              <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
+                <Search size={20} className="text-gray-400" />
+              </div>
+              <input
+                type="text"
+                placeholder="Search 24 projects"
+                className="w-full pl-12 pr-4 py-4 bg-gray-900/80 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 transition-colors"
+              />
+            </div>
+
+            {/* Filter Dropdown */}
+            <div className="relative">
+              <button className="flex items-center justify-between gap-3 px-6 py-4 bg-gray-900/80 border border-gray-700 rounded-lg text-gray-300 hover:text-white hover:border-gray-500 transition-colors min-w-[200px]">
+                <span>Filter by platform</span>
+                <ChevronDown size={18} />
+              </button>
+            </div>
+
+            {/* Randomize Button */}
+            <button className="flex items-center gap-3 px-6 py-4 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors font-medium">
+              <Shuffle size={18} />
+              <span>Randomize</span>
+            </button>
           </div>
         </div>
       </div>
 
       {/* Projects Grid */}
-      <div className="px-4 md:px-12 pb-20">
+      <div className="px-8 md:px-16 pb-20">
         <div className="mx-auto w-full max-w-7xl">
           <div className="flex flex-col gap-8">
             {projects.map((proj, i) => (
