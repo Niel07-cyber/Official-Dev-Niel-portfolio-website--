@@ -27,7 +27,10 @@ const Index = () => {
         <section>
           <About />
         </section>
-        {/* Programming languages now comes directly AFTER About */}
+        <section>
+          <Education />
+        </section>
+        {/* Programming languages now comes directly AFTER Education */}
         <section>
           <ProgrammingLanguages />
         </section>
@@ -41,9 +44,6 @@ const Index = () => {
         {/* Certificates */}
         <section>
           <Certificates />
-        </section>
-        <section>
-          <Education />
         </section>
         <section>
           <Services />
