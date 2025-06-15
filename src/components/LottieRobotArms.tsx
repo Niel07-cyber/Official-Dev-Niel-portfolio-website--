@@ -2,9 +2,9 @@
 import React from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
-// Full width and suitable height for Proficiency's visual impact
+// Updated for Proficiency: replaces the robot arms Lottie with new
 const LOTTIE_URL =
-  "https://lottie.host/200d67d2-56cf-42eb-a99e-5912eac0e982/9BsoFolMPt.lottie";
+  "https://lottie.host/5a0b4595-6f2d-461f-af5d-d1c8e472bb4f/ik5EXm7J2K.lottie";
 
 const LottieRobotArms = () => (
   <div
@@ -30,3 +30,4 @@ const LottieRobotArms = () => (
 );
 
 export default LottieRobotArms;
+
