@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 
 const BLOCKS = [
@@ -225,11 +224,12 @@ export default function AnimatedRobotArms() {
             height={b.h}
             rx={6}
             fill={b.color}
-            opacity={b.moving ? 0.7 : 1}
+            opacity={"moving" in b && b.moving ? 0.7 : 1}
             style={{
-              filter: b.moving
-                ? "drop-shadow(0 1.5px 2.5px #0005)"
-                : "",
+              filter:
+                "moving" in b && b.moving
+                  ? "drop-shadow(0 1.5px 2.5px #0005)"
+                  : "",
               transition: "x 0.2s, y 0.2s, opacity 0.16s",
             }}
           />
