@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import ProgrammingLanguages from "@/components/ProgrammingLanguages";
+import Education from "./Education";
 import FeaturedWork from "@/components/FeaturedWork";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
@@ -27,6 +28,9 @@ const Index = () => {
         {/* Programming languages now comes directly AFTER About */}
         <section>
           <ProgrammingLanguages />
+        </section>
+        <section>
+          <Education />
         </section>
         <section>
           <FeaturedWork />
