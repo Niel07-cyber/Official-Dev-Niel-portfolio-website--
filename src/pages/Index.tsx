@@ -1,4 +1,3 @@
-
 import React from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -8,11 +7,9 @@ import Education from "./Education";
 import FeaturedWork from "@/components/FeaturedWork";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
-import Footer from "@/components/Footer";
 import { useNavigate } from "react-router-dom";
 import Certificates from "@/components/Projects";
 import Works from "./Works";
-import Proficiency from "@/components/Proficiency";
 import ContactSocials from "@/components/ContactSocials";
 import TerminalSection from "@/components/TerminalSection";
 
@@ -34,10 +31,8 @@ const Index = () => {
         <section>
           <ProgrammingLanguages />
         </section>
-        <section>
-          <Proficiency />
-        </section>
-        {/* Terminal style section for Experience/Education */}
+        {/* Removed Proficiency */}
+        {/* Powershell experience/education */}
         <TerminalSection />
         <section>
           <FeaturedWork />
@@ -48,17 +43,13 @@ const Index = () => {
         <section>
           <Certificates />
         </section>
-        {/* Contact socials as in screenshot - stylish, animated */}
         <ContactSocials />
+        {/* Removed Footer */}
         <section>
           <Services />
         </section>
         <section>
           <Testimonials />
-        </section>
-        {/* Footer with no black bg and edge-to-edge */}
-        <section className="!px-0 !max-w-none">
-          <Footer />
         </section>
       </main>
     </div>
