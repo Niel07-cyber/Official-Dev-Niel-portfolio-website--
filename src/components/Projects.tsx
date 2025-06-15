@@ -53,7 +53,7 @@ const Projects = () => (
         {projectList.map((proj, i) => (
           <div
             key={i}
-            className="relative rounded-2xl overflow-hidden border border-gray-800 shadow-lg bg-[#161616] transition-all animate-fade-in min-h-[220px] group"
+            className="relative rounded-2xl overflow-hidden border border-gray-800 shadow-lg bg-[#161616] transition-all animate-fade-in min-h-[220px] group hover:scale-105 hover:shadow-2xl duration-200"
             style={{ animationDelay: `${0.2 + i * 0.07}s` }}
           >
             {/* Card Background Image */}
@@ -110,3 +110,4 @@ const Projects = () => (
 );
 
 export default Projects;
+
