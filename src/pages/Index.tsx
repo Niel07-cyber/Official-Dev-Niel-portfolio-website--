@@ -4,12 +4,11 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import ProgrammingLanguages from "@/components/ProgrammingLanguages";
-import FeaturedWork from "@/components/FeaturedWork";
 import Works from "./Works";
 import Certificates from "@/components/Projects";
 import ContactSocials from "@/components/ContactSocials";
 import TerminalSection from "@/components/TerminalSection";
-// Removed Footer and Proficiency section
+import ResumeBanner from "@/components/ResumeBanner";
 
 const Index = () => (
   <div className="bg-background font-sans text-foreground relative w-full min-h-screen overflow-x-hidden">
@@ -25,9 +24,7 @@ const Index = () => (
         <ProgrammingLanguages />
       </section>
       <TerminalSection />
-      <section>
-        <FeaturedWork />
-      </section>
+      <ResumeBanner />
       <section>
         <Works />
       </section>
@@ -35,7 +32,6 @@ const Index = () => (
         <Certificates />
       </section>
       <ContactSocials />
-      {/* Footer is intentionally removed, 'Let's connect' is now the last section */}
     </main>
   </div>
 );

@@ -58,9 +58,36 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Manrope', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Light mode improvements */
+  .light {
+    --background: 250 100% 98%; /* Very light blue-white */
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 239 84% 67%; /* Brand purple */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 239 84% 67%;
+  }
+
+  /* Smooth transitions for all theme-aware elements */
+  * {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
   }
 }
