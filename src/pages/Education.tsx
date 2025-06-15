@@ -99,26 +99,26 @@ const Education = () => (
     </div>
     <style>
       {`
-      @keyframes edu-slide-in-right {
+      @keyframes edu-slide-in-left {
         0% {
           opacity: 0;
-          transform: translateX(90px);
+          transform: translateX(-90px);
         }
         60% {
           opacity: 1;
-          transform: translateX(-8px);
+          transform: translateX(8px);
         }
         80% {
           opacity: 1;
-          transform: translateX(3px);
+          transform: translateX(-3px);
         }
         100% {
           opacity: 1;
           transform: translateX(0);
         }
       }
-      .edu-slide-in-right {
-        animation: edu-slide-in-right 1.2s cubic-bezier(0.6,0.05,0.3,1) forwards;
+      .edu-slide-in-left {
+        animation: edu-slide-in-left 1.8s cubic-bezier(0.72,0.1,0.12,1) forwards;
       }
       `}
     </style>
