@@ -1,7 +1,8 @@
 
 import React from "react";
 import { Progress } from "@/components/ui/progress";
-import AnimatedRobotArms from "./AnimatedRobotArms";
+// REPLACE AnimatedRobotArms with the new LottieRobotArms
+import LottieRobotArms from "./LottieRobotArms";
 
 const skills = [
   { label: "Front-end", value: 95 },
@@ -70,7 +71,7 @@ const Proficiency = () => {
         Proficiency
       </h2>
       <div className="flex flex-col md:flex-row gap-10 md:gap-8 items-center justify-between md:items-start">
-        <AnimatedRobotArms />
+        <LottieRobotArms />
         <div className="flex-1 w-full flex flex-col gap-7 md:max-w-md">
           {skills.map((skill, i) => (
             <div key={skill.label}>
@@ -90,4 +91,3 @@ const Proficiency = () => {
 };
 
 export default Proficiency;
-
