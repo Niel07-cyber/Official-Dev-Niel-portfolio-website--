@@ -1,4 +1,3 @@
-
 import React from "react";
 
 // All SVGs from devicon/devicon, simple-icons, or other reputable sources.
@@ -70,10 +69,9 @@ const ProgrammingLanguages = () => {
       </h2>
       <div className="relative w-full">
         <div
-          className="flex w-max animate-[marquee_24s_linear_infinite] gap-12 px-4 mx-auto"
+          className="flex w-max animate-[marquee_40s_linear_infinite] gap-12 px-4 mx-auto"
           style={{
-            // Fallback for browsers that don't support arbitrary animation utilities
-            animation: "marquee 24s linear infinite",
+            animation: "marquee 40s linear infinite",
           }}
         >
           {marqueeIcons.map((lang, i) => (
@@ -106,4 +104,3 @@ const ProgrammingLanguages = () => {
 };
 
 export default ProgrammingLanguages;
-

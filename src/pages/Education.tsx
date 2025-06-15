@@ -6,12 +6,14 @@ const items = [
     school: "University of Frontend Mastery",
     degree: "B.Sc. Computer Science",
     years: "2017 – 2021",
+    location: "Accra, Ghana",
     content: "Graduated with honors, specializing in web user interfaces and interactive experiences.",
   },
   {
     school: "React School of Engineering",
     degree: "Professional Certification, React",
     years: "2021",
+    location: "Remote",
     content: "Built real-world applications and mastered advanced React, design systems, and web animation.",
   },
 ];
@@ -33,7 +35,10 @@ const Education = () => (
                 <h2 className="text-2xl font-bold text-white">{item.degree}</h2>
                 <p className="text-gray-400 mt-1">{item.content}</p>
               </div>
-              <span className="text-md text-gray-300 mt-4 md:mt-0 md:text-right">{item.years}</span>
+              <div className="text-md text-gray-300 mt-4 md:mt-0 md:text-right">
+                <p>{item.years}</p>
+                <p className="text-xs text-muted-foreground">{item.location}</p>
+              </div>
             </div>
           </div>
         ))}

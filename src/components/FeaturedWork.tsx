@@ -43,7 +43,7 @@ const FeaturedWork = () => {
           ))}
         </div>
         <div className="text-center mt-12">
-          <a href="#" className="inline-flex items-center px-6 py-3 border border-gray-600 rounded-full text-white hover:bg-brand-purple hover:border-brand-purple transition-colors">
+          <a href="/works" className="inline-flex items-center px-6 py-3 border border-gray-600 rounded-full text-white hover:bg-brand-purple hover:border-brand-purple transition-colors">
             SEE ALL WORKS <ArrowRight className="ml-2 h-4 w-4" />
           </a>
         </div>
