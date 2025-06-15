@@ -1,185 +1,242 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
-// Configuration for the "code blocks" (positions where robot arms move)
-const codeBlocks = [
-  { x: 48, y: 46, width: 90, height: 16 },
-  { x: 48, y: 70, width: 90, height: 16 },
-  { x: 48, y: 94, width: 70, height: 16 },
-  { x: 175, y: 46, width: 71, height: 16 },
-  { x: 175, y: 94, width: 71, height: 16 },
+const BLOCKS = [
+  { x: 90, y: 68, w: 44, h: 16, color: "#FFB027" },
+  { x: 148, y: 86, w: 44, h: 16, color: "#A4A1F8" },
+  { x: 65, y: 106, w: 38, h: 16, color: "#28282d" },
+  { x: 134, y: 122, w: 45, h: 16, color: "#28282d" },
 ];
 
-const pickedColor = "#a4a1f8";
-const armRestColor = "#818181";
-const blockDefaultColor = "#a4a1f8";
+const BASE_X = [40, 240];
+const BASE_Y = [30, 30];
+const ARM_COLOR = "#18181C";
+const ARM_SHADOW = "#27282c";
+const JOINT_COLOR = "#FFB027";
+const TIP_OUTLINE = "#FFB027";
 
+// Given block i, which arm picks/moves it
+function getArmIndex(i: number) {
+  // Alternate: left, right, left, right
+  return i % 2;
+}
+
+// Get position between two points with t ∈ [0,1]
+function lerp(a: number, b: number, t: number) {
+  return a + (b - a) * t;
+}
+
+// Animate the arms and blocks: pick up, move, drop, rest
 export default function AnimatedRobotArms() {
-  const [picked, setPicked] = useState(-1);
-  const [pos, setPos] = useState(0); // Index in codeBlocks
+  // Which block is currently being moved?
+  const [animState, setAnimState] = useState({
+    block: 0,
+    phase: 0, // 0=rest, 1=move-to, 2=pick, 3=to-dest, 4=drop
+    t: 0,
+    dir: 1,
+  });
+  // Animation phases: per-block, arms stretch to block, pick, move, drop
 
-  // Animation loop (pick up code block, move, drop, repeat)
+  // Animate
   useEffect(() => {
-    let animFrame: number;
-    let phase = 0; // 0 = move to, 1 = pick, 2 = move to dest, 3 = drop
-    let dir = 1;   // Direction: left->right or right->left
+    let raf: number;
+    let t = 0;
+    let { block, phase, dir } = animState;
 
-    let nextPos = 0;
-
-    function animate() {
-      if (phase === 0) { // Move to a code block
-        nextPos = dir > 0 ? (pos + 1) % codeBlocks.length : (pos - 1 + codeBlocks.length) % codeBlocks.length;
+    function tick() {
+      if (phase === 0) { // rest
+        setTimeout(() => setAnimState(a => ({ ...a, phase: 1, t: 0 })), 420);
+      } else if (phase === 1) { // arm approaches block
+        t += 0.055;
+        if (t < 1) {
+          setAnimState(a => ({ ...a, t }));
+          raf = requestAnimationFrame(tick);
+        } else {
+          setAnimState(a => ({ ...a, phase: 2, t: 0 }));
+        }
+      } else if (phase === 2) { // picking
+        setTimeout(() => setAnimState(a => ({ ...a, phase: 3, t: 0 })), 220);
+      } else if (phase === 3) { // move to destination
+        t += 0.042;
+        if (t < 1) {
+          setAnimState(a => ({ ...a, t }));
+          raf = requestAnimationFrame(tick);
+        } else {
+          setAnimState(a => ({ ...a, phase: 4, t: 0 }));
+        }
+      } else if (phase === 4) { // dropping
         setTimeout(() => {
-          setPicked(pos);
-          phase = 1;
-          animFrame = requestAnimationFrame(animate);
-        }, 450);
-      } else if (phase === 1) { // Pick block
-        setTimeout(() => {
-          setPicked(-1);
-          setPos(nextPos);
-          phase = 2;
-          animFrame = requestAnimationFrame(animate);
-        }, 550);
-      } else if (phase === 2) { // Move with block to destination
-        setTimeout(() => {
-          setPicked(nextPos);
-          phase = 3;
-          dir *= -1; // switch direction for variety
-          animFrame = requestAnimationFrame(animate);
-        }, 450);
-      } else { // Drop block
-        setTimeout(() => {
-          phase = 0;
-          animFrame = requestAnimationFrame(animate);
-        }, 650);
+          let nextBlock = (block + 1) % BLOCKS.length;
+          setAnimState({
+            block: nextBlock,
+            phase: 0,
+            t: 0,
+            dir: nextBlock % 2 === 0 ? 1 : -1,
+          });
+        }, 350);
       }
     }
-    animFrame = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animFrame);
+    raf = requestAnimationFrame(tick);
+    return () => raf && cancelAnimationFrame(raf);
     // eslint-disable-next-line
-  }, [pos]);
+  }, [animState.block, animState.phase]);
 
-  // Arm endpoint (moves between blocks)
-  const active = (picked !== -1 ? picked : pos);
-  const endBlock = codeBlocks[active];
-  const leftArmBase = { x: 25, y: 138 };
-  const rightArmBase = { x: 245, y: 138 };
+  // For motion: origin to block, block to other spot
+  const { block, phase, t, dir } = animState;
+  const startArmIndex = getArmIndex(block);
+  const nextBlock = (block + 1) % BLOCKS.length;
+  const destArmIndex = getArmIndex(nextBlock);
 
-  // Helper to animate arm endpoint towards code block (lerp for smoothness)
-  function armTip(blockIndex: number, t: number = 1) {
-    const { x, y, width, height } = codeBlocks[blockIndex];
-    return {
-      x: x + width / 2,
-      y: y + height / 2,
-    };
+  // Arm base positions (from top to center)
+  // (you can tweak xy for more expressive arms)
+  const ARM_BASE = [
+    { x: 58, y: 17 }, // left
+    { x: 230, y: 17 }, // right
+  ];
+
+  // Main block: inactive or (actively moved)
+  let activeBlocks = BLOCKS.map((blk, i) => {
+    if (i === block && (phase === 2 || phase === 3 || phase === 4)) {
+      // The block follows the arm tip in motion during pick/move/drop
+      let pos = { x: blk.x, y: blk.y };
+      if (phase === 3) {
+        // anim between src and dest
+        const src = { x: blk.x, y: blk.y };
+        const dst = { x: BLOCKS[nextBlock].x, y: BLOCKS[nextBlock].y };
+        pos = {
+          x: lerp(src.x, dst.x, t),
+          y: lerp(src.y, dst.y, t),
+        };
+      }
+      return { ...blk, x: pos.x, y: pos.y, moving: true };
+    }
+    return blk;
+  });
+
+  // Arm kinematics: reach to block (when in phase 1,2,3,4)
+  function getTip(idx: number) {
+    // If arm is active, animate toward block
+    if (
+      (phase === 1 && idx === startArmIndex) ||
+      (phase >= 2 && idx === (phase === 3 ? destArmIndex : startArmIndex))
+    ) {
+      // Find target pos
+      let blockIdx = phase === 3 ? nextBlock : block;
+      let blk = BLOCKS[blockIdx];
+      let pos = { x: blk.x + blk.w / 2, y: blk.y + blk.h / 2 };
+      if (phase === 3 && t > 0) {
+        const src = BLOCKS[block];
+        const dst = BLOCKS[nextBlock];
+        pos = {
+          x: lerp(src.x + src.w / 2, dst.x + dst.w / 2, t),
+          y: lerp(src.y + src.h / 2, dst.y + dst.h / 2, t),
+        };
+      }
+      // Lerp arm extension during approach
+      if (phase === 1) {
+        const rest = { x: ARM_BASE[idx].x, y: ARM_BASE[idx].y + 46 };
+        pos = {
+          x: lerp(rest.x, pos.x, t),
+          y: lerp(rest.y, pos.y, t),
+        };
+      }
+      return pos;
+    }
+    // Default: resting
+    return { x: ARM_BASE[idx].x, y: ARM_BASE[idx].y + 46 };
   }
 
-  const leftTip = armTip(active);
-  const rightTip = armTip(active);
+  const tips = [getTip(0), getTip(1)];
 
   return (
-    <div
-      className="flex items-center justify-center sm:mx-0 mx-auto"
-      style={{
-        minWidth: 270,
-        width: 270,
-        minHeight: 180,
-        maxWidth: "100%",
-      }}
-    >
+    <div className="flex items-center justify-center min-w-[300px] w-[300px] min-h-[180px] md:mr-2 mx-auto">
       <svg
-        width={270}
-        height={180}
-        viewBox="0 0 270 160"
+        width={300}
+        height={162}
+        viewBox="0 0 300 162"
+        fill="none"
         className="block"
-        style={{ width: "100%", maxWidth: 270, height: "auto" }}
+        style={{ width: "100%", maxWidth: 340, height: "auto" }}
       >
-        <rect width="100%" height="100%" fill="none" />
+        {/* Background */}
+        <rect x={0} y={0} width={300} height={162} rx={18} fill="#18181c" />
 
-        {/* Laptop base */}
-        <rect x={20} y={140} width={230} height={14} rx={7} fill="#111217" />
-        <rect x={36} y={152} width={196} height={10} rx={5} fill="#111217" />
+        {/* Main base circle */}
+        <circle cx={150} cy={40} r={34} fill="#25252b" stroke="#31313A" strokeWidth={5} />
+        <circle cx={150} cy={40} r={16.6} fill="#1b1b1b" />
+        <circle cx={150} cy={40} r={9.2} fill={JOINT_COLOR} />
 
-        {/* Screen */}
-        <rect x={35} y={30} width={200} height={90} rx={6} fill="#fff" stroke="#191a1b" strokeWidth={2} />
+        {/* Arms */}
+        {[0, 1].map(ai => (
+          <g key={ai}>
+            {/* Arm shadow for depth */}
+            <polyline
+              points={`${ARM_BASE[ai].x},${ARM_BASE[ai].y} ${tips[ai].x},${tips[ai].y}`}
+              fill="none"
+              stroke={ARM_SHADOW}
+              strokeWidth={13}
+              strokeLinecap="round"
+              style={{ filter: "blur(1.5px)", opacity: 0.45 }}
+            />
+            {/* Arm core */}
+            <polyline
+              points={`${ARM_BASE[ai].x},${ARM_BASE[ai].y} ${tips[ai].x},${tips[ai].y}`}
+              fill="none"
+              stroke={ARM_COLOR}
+              strokeWidth={8}
+              strokeLinecap="round"
+            />
+            {/* Joint at base */}
+            <circle
+              cx={ARM_BASE[ai].x}
+              cy={ARM_BASE[ai].y}
+              r={11}
+              fill="#19191a"
+              stroke={JOINT_COLOR}
+              strokeWidth={4.5}
+            />
+            {/* Tip effect */}
+            <circle
+              cx={tips[ai].x}
+              cy={tips[ai].y}
+              r={9.3}
+              fill="#23232a"
+              stroke={TIP_OUTLINE}
+              strokeWidth={3}
+              opacity={0.98}
+            />
+            <circle
+              cx={tips[ai].x}
+              cy={tips[ai].y}
+              r={4.1}
+              fill={JOINT_COLOR}
+              opacity={phase !== 0 && ai === (phase >= 3 ? destArmIndex : startArmIndex) ? 1 : 0.68}
+            />
+          </g>
+        ))}
 
-        {/* Code blocks */}
-        {codeBlocks.map((b, i) => (
+        {/* Render code blocks */}
+        {activeBlocks.map((b, i) => (
           <rect
             key={i}
             x={b.x}
             y={b.y}
-            width={b.width}
-            height={b.height}
-            rx={8}
-            fill={blockDefaultColor}
-            opacity={picked === i ? 0.48 : 1}
-            style={{ transition: "opacity 0.16s" }}
+            width={b.w}
+            height={b.h}
+            rx={6}
+            fill={b.color}
+            opacity={b.moving ? 0.7 : 1}
+            style={{
+              filter: b.moving
+                ? "drop-shadow(0 1.5px 2.5px #0005)"
+                : "",
+              transition: "x 0.2s, y 0.2s, opacity 0.16s",
+            }}
           />
         ))}
 
-        {/* Left arm */}
-        <g>
-          {/* Arm body */}
-          <polyline
-            points={`${leftArmBase.x},${leftArmBase.y} 65,93 ${leftTip.x},${leftTip.y}`}
-            fill="none"
-            stroke={armRestColor}
-            strokeWidth={16}
-            strokeLinejoin="round"
-          />
-          {/* Arm joint */}
-          <circle cx={leftArmBase.x} cy={leftArmBase.y} r={13} fill="#191a1b" />
-          {/* Arm claw */}
-          <circle cx={leftTip.x} cy={leftTip.y} r={12} fill="#191a1b" />
-          {/* "Pen" tip */}
-          <rect
-            x={leftTip.x - 4}
-            y={leftTip.y - 8}
-            width={8}
-            height={18}
-            rx={2}
-            fill={pickedColor}
-            opacity={picked !== -1 ? 1 : 0.7}
-            transform={`rotate(-18 ${leftTip.x} ${leftTip.y})`}
-          />
-        </g>
-
-        {/* Right arm */}
-        <g>
-          <polyline
-            points={`${rightArmBase.x},${rightArmBase.y} 205,95 ${rightTip.x},${rightTip.y}`}
-            fill="none"
-            stroke={armRestColor}
-            strokeWidth={16}
-            strokeLinejoin="round"
-          />
-          {/* Arm joint */}
-          <circle cx={rightArmBase.x} cy={rightArmBase.y} r={13} fill="#191a1b" />
-          {/* "Claw" */}
-          <g>
-            {/* Claw fingers */}
-            <rect
-              x={rightTip.x - 9}
-              y={rightTip.y - 12}
-              width={8}
-              height={23}
-              rx={2}
-              fill="#191a1b"
-              transform={`rotate(-15 ${rightTip.x} ${rightTip.y})`}
-            />
-            <rect
-              x={rightTip.x + 1}
-              y={rightTip.y - 12}
-              width={8}
-              height={23}
-              rx={2}
-              fill="#191a1b"
-              transform={`rotate(18 ${rightTip.x + 4} ${rightTip.y})`}
-            />
-          </g>
-        </g>
+        {/* Table/ground for blocks */}
+        <rect x={54} y={148} width={192} height={7.5} rx={2.5} fill="#262626" opacity={0.59} />
       </svg>
     </div>
   );
