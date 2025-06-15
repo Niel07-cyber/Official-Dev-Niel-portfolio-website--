@@ -1,4 +1,3 @@
-
 import React from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -10,6 +9,7 @@ import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import { useNavigate } from "react-router-dom";
+import Projects from "@/components/Projects";
 
 // The page now uses only normal scrolling. No intro/slide-in logic!
 const Index = () => {
@@ -30,10 +30,13 @@ const Index = () => {
           <ProgrammingLanguages />
         </section>
         <section>
-          <Education />
+          <FeaturedWork />
         </section>
         <section>
-          <FeaturedWork />
+          <Projects />
+        </section>
+        <section>
+          <Education />
         </section>
         <section>
           <Services />

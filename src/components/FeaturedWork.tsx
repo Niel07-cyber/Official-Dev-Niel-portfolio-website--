@@ -28,17 +28,21 @@ const projectsData = [
 const FeaturedWork = () => {
   return (
     <section id="work" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+      <div className="max-w-6xl mx-auto px-4">
         <p className="text-gray-400 mb-10 tracking-widest text-base">(FEATURED WORK)</p>
-        <div className="grid gap-5 grid-cols-1 md:grid-cols-2">
+        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2">
           {projectsData.map((project, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-lg border border-gray-800 aspect-video max-w-md mx-auto md:mx-0 bg-[#161616]"
-              style={{ minHeight: '210px' }}
+              className="group relative overflow-hidden rounded-lg border border-gray-800 aspect-video bg-[#161616] mx-auto hover:scale-105 transition-transform duration-200"
+              style={{ minHeight: '200px', maxWidth: '420px', width: '100%' }}
             >
-              <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-black/50"></div>
+              <img
+                src={project.imageUrl}
+                alt={project.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/60"></div>
               <div className="absolute bottom-0 left-0 p-5">
                 <h3 className="text-xl font-bold text-white">{project.title}</h3>
                 <p className="text-gray-300 text-sm">{project.category}</p>

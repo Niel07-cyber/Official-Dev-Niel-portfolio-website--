@@ -1,4 +1,3 @@
-
 import React from "react";
 import { ArrowRight } from "lucide-react";
 
@@ -73,9 +72,9 @@ const Works = () => (
             <img
               src={item.image}
               alt={item.title}
-              className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
+              className="w-full h-56 object-cover"
             />
-            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all"></div>
+            <div className="absolute inset-0 bg-black/60"></div>
             <div className="absolute bottom-0 left-0 p-6">
               <h2 className="text-xl font-bold text-white">{item.title}</h2>
               <p className="text-gray-300 text-sm">{item.desc}</p>
@@ -103,11 +102,10 @@ const Works = () => (
           href="/"
           className="inline-flex items-center px-6 py-3 border border-gray-600 rounded-full text-white hover:bg-brand-purple hover:border-brand-purple transition-colors"
         >
-          Back to Home <ArrowRight className="ml-2 h-4 w-4" />
+          Back to Home <span className="ml-2"><svg width="16" height="16" fill="none"><path d="M5 12l5-5-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg></span>
         </a>
       </div>
     </div>
   </div>
 );
-
 export default Works;
