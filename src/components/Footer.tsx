@@ -25,9 +25,9 @@ const GmailIcon = (props: React.SVGProps<SVGSVGElement>) => (
 const Footer = () => {
   return (
     <footer className="py-3 bg-black/50 border-t border-gray-800 w-full">
-      <div className="w-full flex flex-col items-center gap-2 px-0">
-        {/* Socials Inline */}
-        <div className="flex flex-row gap-7 justify-center items-center mb-1">
+      <div className="flex justify-between items-center w-full">
+        {/* Socials Straight Line, flush left */}
+        <div className="flex flex-row gap-7 ml-0 pl-4">
           <a
             href="https://instagram.com/"
             className="hover:text-brand-purple text-white transition-colors"
@@ -65,7 +65,8 @@ const Footer = () => {
             <GmailIcon />
           </a>
         </div>
-        <div className="text-xs text-gray-400 text-center">©2025 DevNiel</div>
+        {/* Copyright flush right */}
+        <div className="text-xs text-gray-400 text-right mr-0 pr-4">©2025 DevNiel</div>
       </div>
     </footer>
   );
