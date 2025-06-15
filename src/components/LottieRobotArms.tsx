@@ -24,11 +24,8 @@ const LottieRobotArms = () => (
         minWidth: 220,
         maxHeight: 360
       }}
-      renderer="svg"
-      // SVG is vector and always crisp, no pixel blur
     />
   </div>
 );
 
 export default LottieRobotArms;
-
