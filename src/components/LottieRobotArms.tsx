@@ -2,6 +2,7 @@
 import React from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
+// Full width and suitable height for Proficiency's visual impact
 const LOTTIE_URL =
   "https://lottie.host/200d67d2-56cf-42eb-a99e-5912eac0e982/9BsoFolMPt.lottie";
 

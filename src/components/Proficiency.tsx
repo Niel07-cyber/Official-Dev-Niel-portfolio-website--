@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Progress } from "@/components/ui/progress";
 import LottieRobotArms from "./LottieRobotArms";
@@ -66,7 +67,10 @@ const Proficiency = () => {
         Proficiency
       </h2>
       <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-8 w-full">
-        {/* LottieRobotArms removed from here */}
+        {/* Restored LottieRobotArms to the side as visual! */}
+        <div className="flex justify-center w-full md:w-1/2">
+          <LottieRobotArms />
+        </div>
         <div className="flex-1 w-full max-w-sm flex flex-col gap-7 md:w-1/2">
           {skills.map((skill, i) => (
             <div key={skill.label}>

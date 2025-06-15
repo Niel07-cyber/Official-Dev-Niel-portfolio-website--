@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import LottieRobotArms from "./LottieRobotArms";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const services = [
   { title: "UI/UX DESIGNER", description: "Creating intuitive user combining deep industry knowledge with innovative techniques." },
@@ -24,9 +24,19 @@ const Services = () => {
             <a href="#work" className="inline-flex items-center px-6 py-3 border border-gray-600 rounded-full text-white hover:bg-brand-purple hover:border-brand-purple transition-colors">
               SEE ALL WORKS <ArrowRight className="ml-2 h-4 w-4" />
             </a>
-            {/* Robot Lottie placed here */}
-            <div className="mt-8 flex justify-center">
-              <LottieRobotArms />
+            {/* Minimal Lottie centered just under the button */}
+            <div className="mt-6 flex justify-center">
+              <DotLottieReact
+                src="https://lottie.host/200d67d2-56cf-42eb-a99e-5912eac0e982/9BsoFolMPt.lottie"
+                loop
+                autoplay
+                style={{
+                  width: "140px",
+                  height: "100px",
+                  maxWidth: "100%",
+                  minWidth: "80px"
+                }}
+              />
             </div>
           </div>
           <div className="space-y-4">
