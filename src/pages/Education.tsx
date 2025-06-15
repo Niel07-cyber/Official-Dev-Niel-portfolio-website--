@@ -2,22 +2,27 @@
 import React from "react";
 import { useInView } from "@/hooks/useInView";
 
+// Use placeholder images for logos
 const items = [
   {
+    logo: "photo-1487958449943-2429e8be8625", // white concrete building for demo
     school: "University of Frontend Mastery",
     degree: "B.Sc. Computer Science",
     years: "2017 – 2021",
     location: "Accra, Ghana",
     content: "Graduated with honors, specializing in web user interfaces and interactive experiences.",
-    relevantCoursework: "Web Development, UI/UX Design, Data Structures, Algorithms",
+    relevantCoursework: "Relevant Coursework: Web Development, UI/UX Design, Data Structures, Algorithms",
+    additionalCoursework: "Other Courses: Distributed Systems, Software Engineering, Database Systems"
   },
   {
+    logo: "photo-1494891848038-7bd202a2afeb", // black and red building for demo
     school: "React School of Engineering",
     degree: "Professional Certification, React",
     years: "2021",
     location: "Remote",
     content: "Built real-world applications and mastered advanced React, design systems, and web animation.",
-    relevantCoursework: "Advanced React, State Management, Animation in UI, Design Systems",
+    relevantCoursework: "Relevant Coursework: Advanced React, State Management, Animation in UI, Design Systems",
+    additionalCoursework: "Other Courses: Testing React Apps, Performance Optimization, TypeScript"
   },
 ];
 
@@ -26,51 +31,67 @@ const Education = () => (
     id="education"
     className="relative w-full py-20 bg-gradient-to-tr from-brand-purple/10 via-background to-background"
   >
-    <div className="max-w-4xl mx-auto px-4">
+    <div className="max-w-5xl mx-auto px-4">
       <p className="text-gray-400 mb-10 tracking-widest text-base text-left font-semibold pl-2">
         (EDUCATION)
       </p>
-      <div className="grid gap-8">
+      <div className="grid gap-12">
         {items.map((item, i) => {
           const [ref, inView] = useInView<HTMLDivElement>();
           return (
             <div
               key={i}
               ref={ref}
-              className={`bg-[#191919] rounded-xl shadow-lg px-12 py-8 border-l-8 border-brand-purple
-                transition-all duration-700 delay-100
-                hover:scale-105 
-                max-w-3xl
-                relative
-                ${inView ? "animate-edu-slide-in-right" : "opacity-0 translate-x-20"}
+              className={`
+                bg-[#191919] rounded-2xl shadow-lg border-l-8 border-brand-purple
+                flex flex-row items-center p-8
+                max-w-4xl w-full mx-auto
+                relative overflow-hidden
+                transition-transform transition-opacity
+                ${inView ? "edu-slide-in-right" : "opacity-0 translate-x-28"}
               `}
               style={{
-                animationDelay: inView ? `${0.1 + i * 0.25}s` : undefined,
+                animationDelay: inView ? `${0.3 + i * 0.38}s` : undefined, // slower + stagger
+                animationDuration: inView ? "1.2s" : undefined,
               }}
             >
-              {/* School & Years */}
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <span className="text-lg font-semibold text-brand-purple">
-                  {item.school}
-                  <span className="text-gray-400 text-sm ml-2">
-                    ({item.years})
-                  </span>
-                </span>
+              {/* School Logo */}
+              <div className="min-w-[88px] h-24 w-24 flex items-center justify-center rounded-full overflow-hidden shadow-md bg-background mr-8">
+                <img
+                  src={`https://images.unsplash.com/${item.logo}?auto=format&fit=facearea&w=92&h=92&facepad=2&q=80`}
+                  alt={item.school + " logo"}
+                  className="object-cover w-full h-full"
+                />
               </div>
-              {/* Degree & Location */}
-              <div className="flex flex-wrap items-center justify-between gap-2 mt-1">
-                <span className="text-base font-bold text-white">
-                  {item.degree}
-                  <span className="text-gray-400 text-xs ml-2">
+              {/* Card Details */}
+              <div className="flex-grow">
+                {/* School & Years */}
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <span className="text-2xl font-bold text-white">
+                    {item.school}
+                  </span>
+                  <span className="text-gray-400 text-md ml-4">{item.years}</span>
+                </div>
+                {/* Degree & Location */}
+                <div className="flex flex-wrap items-center gap-2 mt-1">
+                  <span className="text-base font-semibold text-brand-purple">
+                    {item.degree}
+                  </span>
+                  <span className="text-gray-400 text-sm ml-2">
                     ({item.location})
                   </span>
-                </span>
+                </div>
+                {/* Description Text */}
+                <p className="text-gray-300 mt-4 text-base">{item.content}</p>
+                {/* Relevant Coursework */}
+                <p className="text-gray-100 mt-2 text-sm font-semibold">
+                  {item.relevantCoursework}
+                </p>
+                {/* Additional Coursework */}
+                <p className="text-gray-400 mt-1 text-xs italic">
+                  {item.additionalCoursework}
+                </p>
               </div>
-              {/* Description */}
-              <p className="text-gray-400 mt-2 text-sm">{item.content}</p>
-              <p className="text-gray-300 mt-2 text-xs italic">
-                <span className="font-semibold">Relevant Coursework:</span> {item.relevantCoursework}
-              </p>
             </div>
           );
         })}
@@ -81,15 +102,23 @@ const Education = () => (
       @keyframes edu-slide-in-right {
         0% {
           opacity: 0;
-          transform: translateX(70px);
+          transform: translateX(90px);
+        }
+        60% {
+          opacity: 1;
+          transform: translateX(-8px);
+        }
+        80% {
+          opacity: 1;
+          transform: translateX(3px);
         }
         100% {
           opacity: 1;
           transform: translateX(0);
         }
       }
-      .animate-edu-slide-in-right {
-        animation: edu-slide-in-right 0.7s cubic-bezier(0.5,0,0.5,1) forwards;
+      .edu-slide-in-right {
+        animation: edu-slide-in-right 1.2s cubic-bezier(0.6,0.05,0.3,1) forwards;
       }
       `}
     </style>
