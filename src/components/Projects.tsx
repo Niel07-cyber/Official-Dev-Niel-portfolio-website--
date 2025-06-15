@@ -1,6 +1,7 @@
 
 import React from "react";
 
+// You can add a "company" or "role" field if needed, but in this sample we'll leave it out
 const projectList = [
   {
     title: "Personal Portfolio",
@@ -9,7 +10,8 @@ const projectList = [
     image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800&auto=format&fit=crop",
     demo: "https://your-portfolio-demo-link.com",
     location: "Remote",
-    years: "2024"
+    years: "2024",
+    company: "Freelance"
   },
   {
     title: "ShopEasy",
@@ -18,7 +20,8 @@ const projectList = [
     image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop",
     demo: "https://shopeasy-demo-link.com",
     location: "Accra, Ghana",
-    years: "2023"
+    years: "2023",
+    company: "MarketHub Systems"
   },
   {
     title: "TaskFlow App",
@@ -27,7 +30,8 @@ const projectList = [
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800&auto=format&fit=crop",
     demo: "https://taskflow-demo-link.com",
     location: "Remote",
-    years: "2022"
+    years: "2022",
+    company: "TeamFlow"
   },
   {
     title: "BlogCraft",
@@ -36,7 +40,8 @@ const projectList = [
     image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=800&auto=format&fit=crop",
     demo: "https://blogcraft-demo-link.com",
     location: "Lagos, Nigeria",
-    years: "2021"
+    years: "2021",
+    company: "Brand Studio"
   }
 ];
 
@@ -48,7 +53,7 @@ const Projects = () => (
         {projectList.map((proj, i) => (
           <div
             key={i}
-            className="relative rounded-2xl overflow-hidden border border-gray-800 shadow-lg bg-[#161616] transition-all animate-fade-in min-h-[280px] group"
+            className="relative rounded-2xl overflow-hidden border border-gray-800 shadow-lg bg-[#161616] transition-all animate-fade-in min-h-[220px] group"
             style={{ animationDelay: `${0.2 + i * 0.07}s` }}
           >
             {/* Card Background Image */}
@@ -57,25 +62,33 @@ const Projects = () => (
               alt={proj.title}
               className="absolute inset-0 w-full h-full object-cover"
             />
-            {/* Semi-transparent Overlay */}
+            {/* Lighter Semi-transparent Overlay */}
             <div className="absolute inset-0 bg-black/60" />
             {/* Card Content */}
-            <div className="relative z-10 flex flex-col h-full justify-center px-7 py-7">
-              <h2 className="text-2xl font-bold text-white mb-2 drop-shadow-md">{proj.title}</h2>
-              <p className="text-gray-200 text-[15px] mb-2 max-w-[96%]">{proj.desc}</p>
-              <div className="flex flex-wrap gap-2 mt-1 mb-2">
+            <div className="relative z-10 flex flex-col justify-between h-full px-7 py-7">
+              {/* Top Part: Title, Description */}
+              <div>
+                <h2 className="text-2xl font-bold text-white mb-1 drop-shadow-md">{proj.title}</h2>
+                <p className="text-gray-200 text-base mb-4">{proj.desc}</p>
+                {/* Company role line */}
+                <div className="flex items-center flex-wrap gap-3 mb-1">
+                  <span className="font-semibold text-gray-200">{proj.company}</span>
+                  <span className="text-gray-300 text-sm">•</span>
+                  <span className="text-gray-300 text-sm">{proj.location}</span>
+                  <span className="text-gray-300 text-sm">|</span>
+                  <span className="text-gray-300 text-sm">{proj.years}</span>
+                </div>
+              </div>
+              {/* Bottom: Chips */}
+              <div className="flex flex-wrap gap-2 mt-6">
                 {proj.languages.map((lang, j) => (
                   <span
                     key={j}
-                    className="bg-brand-purple/20 text-brand-purple px-3 py-1 rounded-full text-xs font-medium"
+                    className="bg-brand-purple/30 text-brand-purple px-3 py-1 rounded-full text-xs font-medium"
                   >
                     {lang}
                   </span>
                 ))}
-              </div>
-              <div className="flex items-center justify-start gap-3 mt-auto">
-                <span className="text-xs text-gray-200 bg-gray-800/70 rounded px-3 py-1">{proj.location}</span>
-                <span className="text-xs text-gray-400">{proj.years}</span>
               </div>
             </div>
           </div>
@@ -97,4 +110,3 @@ const Projects = () => (
 );
 
 export default Projects;
-
