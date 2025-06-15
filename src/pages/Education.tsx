@@ -19,16 +19,29 @@ const items = [
 ];
 
 const Education = () => (
-  <section id="education" className="relative w-full py-20 bg-gradient-to-tr from-brand-purple/10 via-background to-background">
-    <div className="max-w-3xl mx-auto px-4">
-      <p className="text-gray-400 mb-10 tracking-widest text-base text-center">(EDUCATION)</p>
+  <section
+    id="education"
+    className="relative w-full py-20 bg-gradient-to-tr from-brand-purple/10 via-background to-background"
+  >
+    <div className="max-w-4xl mx-auto px-4">
+      <p className="text-gray-400 mb-10 tracking-widest text-base text-left font-semibold pl-2">
+        (EDUCATION)
+      </p>
       <div className="grid gap-8">
         {items.map((item, i) => (
           <div
             key={i}
-            className="bg-[#191919] rounded-xl shadow-lg px-8 py-8 border-l-8 border-brand-purple 
-              transition-transform duration-200 hover:scale-105 hover:border-brand-purple/80 animate-fade-in"
-            style={{ animationDelay: `${0.3 + i * 0.2}s`, maxWidth: "100%" }}
+            className="bg-[#191919] rounded-xl shadow-lg px-12 py-8 border-l-8 border-brand-purple
+              transition-all duration-300 delay-100
+              hover:scale-105 
+              max-w-3xl
+              relative
+              animate-none
+            "
+            style={{
+              animation: `edu-slide-in-right 0.7s cubic-bezier(0.5,0,0.5,1) forwards`,
+              animationDelay: `${0.1 + i * 0.25}s`,
+            }}
           >
             {/* School & Years */}
             <div className="flex flex-wrap items-center justify-between gap-2">
@@ -45,11 +58,25 @@ const Education = () => (
               </span>
             </div>
             {/* Description */}
-            <p className="text-gray-400 mt-2 text-sm">({item.content})</p>
+            <p className="text-gray-400 mt-2 text-sm">{item.content}</p>
           </div>
         ))}
       </div>
     </div>
+    <style>
+      {`
+      @keyframes edu-slide-in-right {
+        0% {
+          opacity: 0;
+          transform: translateX(70px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      `}
+    </style>
   </section>
 );
 
