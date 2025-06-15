@@ -3,14 +3,14 @@ import React from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const LOTTIE_URL =
-  "https://lottie.host/cd5fbd33-2823-4b79-8f28-868c751ecc67/XDT2ug1rxT.lottie";
+  "https://lottie.host/200d67d2-56cf-42eb-a99e-5912eac0e982/9BsoFolMPt.lottie";
 
 const LottieRobotArms = () => (
   <div
-    className="flex items-center justify-center w-full max-w-full h-[260px] md:h-[340px] mx-auto"
+    className="flex items-center justify-center w-full max-w-full h-[220px] md:h-[280px] mx-auto"
     style={{
       filter: "drop-shadow(0 4px 16px #0003)",
-      overflow: "hidden"
+      overflow: "hidden",
     }}
   >
     <DotLottieReact
@@ -20,9 +20,9 @@ const LottieRobotArms = () => (
       style={{
         width: "100%",
         height: "100%",
-        maxWidth: 600,
-        minWidth: 220,
-        maxHeight: 360
+        maxWidth: 480,
+        minWidth: 180,
+        maxHeight: 260,
       }}
     />
   </div>
