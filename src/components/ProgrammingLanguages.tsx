@@ -20,6 +20,10 @@ const languages = [
     url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   },
   {
+    name: "Next.js",
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+  },
+  {
     name: "HTML5",
     url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
   },
@@ -36,12 +40,20 @@ const languages = [
     url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
   },
   {
+    name: "Nest.js",
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg",
+  },
+  {
     name: "Java",
     url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
   },
   {
+    name: "PHP",
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+  },
+  {
     name: "GitHub",
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg",
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
   },
   {
     name: "Python",
@@ -49,11 +61,19 @@ const languages = [
   },
   {
     name: "SQL",
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", // common for SQL
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
   },
   {
     name: "MongoDB",
     url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  },
+  {
+    name: "Jira",
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg",
+  },
+  {
+    name: "Postman",
+    url: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
   },
 ];
 
@@ -91,9 +111,7 @@ const ProgrammingLanguages = () => {
               <img
                 src={lang.url}
                 alt={lang.name}
-                className={`h-10 w-10 md:h-14 md:w-14 object-contain drop-shadow-md ${
-                  lang.name === "GitHub" ? "filter invert dark:invert-0" : ""
-                }`}
+                className="h-10 w-10 md:h-14 md:w-14 object-contain drop-shadow-md"
                 draggable={false}
               />
               <span className="text-xs mt-2 text-gray-300 tracking-wide text-center whitespace-nowrap">

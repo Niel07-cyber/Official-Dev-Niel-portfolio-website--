@@ -32,37 +32,7 @@ const allWorks = [
     location: "Remote",
     tech: ["HTML", "CSS", "JavaScript"],
     link: "/projects"
-  },
-  {
-    title: "Startup Promo Site",
-    desc: "Fast and SEO-friendly launches for new startups.",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1887&auto=format&fit=crop",
-    company: "Innovate Tech",
-    years: "2020–2021",
-    location: "Lagos, Nigeria",
-    tech: ["Next.js", "TypeScript", "Figma"],
-    link: "/projects"
-  },
-  {
-    title: "Collaboration App UI",
-    desc: "Intuitive UIs for productivity SaaS.",
-    image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=2231&auto=format&fit=crop",
-    company: "TeamFlow",
-    years: "2021",
-    location: "Nairobi, Kenya",
-    tech: ["React", "Redux", "Sass"],
-    link: "/projects"
-  },
-  {
-    title: "Design System",
-    desc: "Reusable component-driven atomic design.",
-    image: "https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?q=80&w=1000&auto=format&fit=crop",
-    company: "Brand Studio",
-    years: "2023",
-    location: "Remote",
-    tech: ["Storybook", "TypeScript", "Styled Components"],
-    link: "/projects"
-  },
+  }
 ];
 
 const Works = () => (

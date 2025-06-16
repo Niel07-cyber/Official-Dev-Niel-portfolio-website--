@@ -1,6 +1,5 @@
 
 import React, { useEffect, useState } from 'react';
-import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   const [mounted, setMounted] = useState(false);
@@ -24,7 +23,7 @@ const Header = () => {
           <a
             href="/"
             className={`
-              text-2xl font-bold text-white dark:text-white text-gray-900
+              text-2xl font-bold text-white
               transition-all duration-700
               ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'}
             `}
@@ -34,7 +33,7 @@ const Header = () => {
           </a>
           <nav
             className={`
-              hidden md:flex items-center space-x-10 text-white dark:text-white text-gray-700
+              hidden md:flex items-center space-x-10 text-white
               transition-all duration-700
               ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'}
             `}
@@ -66,9 +65,6 @@ const Header = () => {
               Contact
             </button>
           </nav>
-          <div className="flex items-center space-x-2">
-            <ThemeToggle />
-          </div>
         </div>
       </div>
     </header>

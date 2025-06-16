@@ -1,7 +1,7 @@
 
 import React from "react";
 
-// Certificates list (replacing previous projects)
+// Certificates list (removing Scrum Master certificate)
 const certificateList = [
   {
     title: "Google UX Design Certificate",
@@ -29,15 +29,6 @@ const certificateList = [
     location: "Accra, Ghana",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800&auto=format&fit=crop",
     credentialUrl: "https://aws.amazon.com/verification"
-  },
-  {
-    title: "Scrum Master Certified (SMC)",
-    desc: "Signifies agile project leadership and the ability to facilitate high performing teams.",
-    organization: "Scrum Study",
-    issued: "December 2021",
-    location: "Lagos, Nigeria",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=800&auto=format&fit=crop",
-    credentialUrl: "https://www.scrumstudy.com/certification/verify"
   }
 ];
 
