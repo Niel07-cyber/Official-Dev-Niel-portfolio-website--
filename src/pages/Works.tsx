@@ -1,4 +1,3 @@
-
 import React from "react";
 import { ArrowRight } from "lucide-react";
 
@@ -11,7 +10,6 @@ const allWorks = [
     years: "2022–Present",
     location: "Accra, Ghana",
     tech: ["React", "Tailwind CSS", "Vite"],
-    link: "/projects"
   },
   {
     title: "E-Commerce Dashboard",
@@ -21,7 +19,6 @@ const allWorks = [
     years: "2021–2022",
     location: "Remote",
     tech: ["Node.js", "TypeScript", "React"],
-    link: "/projects"
   },
   {
     title: "Interactive Portfolio",
@@ -31,7 +28,6 @@ const allWorks = [
     years: "2023",
     location: "Remote",
     tech: ["HTML", "CSS", "JavaScript"],
-    link: "/projects"
   },
   {
     title: "Startup Promo Site",
@@ -41,7 +37,6 @@ const allWorks = [
     years: "2020–2021",
     location: "Lagos, Nigeria",
     tech: ["Next.js", "TypeScript", "Figma"],
-    link: "/projects"
   },
   {
     title: "Collaboration App UI",
@@ -51,7 +46,6 @@ const allWorks = [
     years: "2021",
     location: "Nairobi, Kenya",
     tech: ["React", "Redux", "Sass"],
-    link: "/projects"
   },
   {
     title: "Design System",
@@ -61,7 +55,6 @@ const allWorks = [
     years: "2023",
     location: "Remote",
     tech: ["Storybook", "TypeScript", "Styled Components"],
-    link: "/projects"
   },
 ];
 
@@ -71,13 +64,15 @@ const Works = () => (
       <p className="text-gray-400 mb-2 tracking-widest text-base text-center">(PROJECTS)</p>
       <h1 className="text-4xl md:text-7xl font-bold text-brand-purple mb-6 text-center animate-fade-in">Projects</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-        {allWorks.map((item, i) => (
-          <a
+        {
+        allWorks.map((item, i) => (
+          
+          <div
             key={i}
-            href={item.link}
-            className="relative group rounded-xl overflow-hidden border border-gray-800 shadow-lg bg-[#161616] hover:scale-105 hover:shadow-2xl transition-all animate-fade-in cursor-pointer"
+            className="relative group rounded-xl overflow-hidden border border-gray-800 shadow-lg bg-[#161616] hover:scale-105 hover:shadow-2xl transition-all animate-fade-in"
             style={{ animationDelay: `${0.2 + i * 0.07}s` }}
           >
+            
             <img
               src={item.image}
               alt={item.title}
@@ -104,7 +99,7 @@ const Works = () => (
                 </div>
               </div>
             </div>
-          </a>
+          </div>
         ))}
       </div>
       <div className="mt-12 flex justify-center animate-fade-in">

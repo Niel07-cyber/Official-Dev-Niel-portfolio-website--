@@ -23,21 +23,15 @@ const Index = () => (
       <section>
         <ProgrammingLanguages />
       </section>
-      <section id="terminal-section">
-        <TerminalSection />
-      </section>
+      <TerminalSection />
+      <ResumeBanner />
       <section>
         <Works />
       </section>
       <section>
         <Certificates />
       </section>
-      <section id="resume-banner">
-        <ResumeBanner />
-      </section>
-      <section id="contact-section">
-        <ContactSocials />
-      </section>
+      <ContactSocials />
     </main>
   </div>
 );

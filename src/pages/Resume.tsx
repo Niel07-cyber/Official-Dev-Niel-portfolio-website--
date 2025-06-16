@@ -5,14 +5,14 @@ import { ArrowLeft, Eye, Download } from "lucide-react";
 export default function Resume() {
   const handleViewPDF = () => {
     // Open PDF in new tab
-    window.open("/Resume_Othniel_Nii_Dodou_Aryee.pdf", "_blank");
+    window.open("/Resume_Elliot_Négrel-Jerzy.pdf", "_blank");
   };
 
   const handleDownloadPDF = () => {
     // Create download link
     const link = document.createElement('a');
-    link.href = "/Resume_Othniel_Nii_Dodou_Aryee.pdf";
-    link.download = "Resume_Othniel_Nii_Dodou_Aryee.pdf";
+    link.href = "/Resume_Elliot_Négrel-Jerzy.pdf";
+    link.download = "Resume_Elliot_Négrel-Jerzy.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -38,7 +38,7 @@ export default function Resume() {
         <div className="mx-auto w-full max-w-4xl">
           {/* Header Section */}
           <div className="mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Othniel Nii Dodou Aryee</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4">Elliot Négrel-Jerzy</h1>
             <h2 className="text-2xl text-gray-300 mb-6">Software Engineer</h2>
             
             <p className="text-gray-300 text-lg leading-relaxed mb-8">
@@ -55,7 +55,7 @@ export default function Resume() {
               </div>
               <div>
                 <h3 className="font-semibold text-white mb-1">Email</h3>
-                <p className="text-gray-300">contact@devniel.com</p>
+                <p className="text-gray-300">contact@bsodium.fr</p>
               </div>
               <div>
                 <h3 className="font-semibold text-white mb-1">Phone</h3>
@@ -63,7 +63,7 @@ export default function Resume() {
               </div>
               <div>
                 <h3 className="font-semibold text-white mb-1">Website</h3>
-                <p className="text-gray-300">https://www.devniel.com</p>
+                <p className="text-gray-300">https://www.bsodium.fr</p>
               </div>
             </div>
           </div>
@@ -85,8 +85,8 @@ export default function Resume() {
               <div className="flex gap-6 relative">
                 {/* Connection dot */}
                 <div className="absolute left-2 top-6 w-3 h-3 bg-teal-600 rounded-full border-2 border-black z-10"></div>
-                <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center text-black font-bold text-sm flex-shrink-0 overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=64&h=64&fit=crop&crop=center" alt="Kanop" className="w-full h-full object-cover" />
+                <div className="w-16 h-16 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                  kanop
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-1">
@@ -112,8 +112,8 @@ export default function Resume() {
               <div className="flex gap-6 relative">
                 {/* Connection dot */}
                 <div className="absolute left-2 top-6 w-3 h-3 bg-blue-600 rounded-full border-2 border-black z-10"></div>
-                <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center text-black font-bold text-xs flex-shrink-0 overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=64&h=64&fit=crop&crop=center" alt="TalentYou.ai" className="w-full h-full object-cover" />
+                <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
+                  TY
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-1">
@@ -140,8 +140,8 @@ export default function Resume() {
               <div className="flex gap-6 relative">
                 {/* Connection dot */}
                 <div className="absolute left-2 top-6 w-3 h-3 bg-gray-700 rounded-full border-2 border-black z-10"></div>
-                <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center text-black font-bold text-xs flex-shrink-0 overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=64&h=64&fit=crop&crop=center" alt="Escape technologies" className="w-full h-full object-cover" />
+                <div className="w-16 h-16 bg-gray-700 rounded-lg flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
+                  ESC
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-1">
@@ -184,8 +184,9 @@ export default function Resume() {
               <div className="flex gap-6 relative">
                 {/* Connection dot */}
                 <div className="absolute left-2 top-6 w-3 h-3 bg-blue-600 rounded-full border-2 border-black z-10"></div>
-                <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center text-black font-bold text-xs flex-shrink-0 overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9d1?w=64&h=64&fit=crop&crop=center" alt="ENSEEIHT" className="w-full h-full object-cover" />
+                <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
+                  INP
+                  N7
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-1">
@@ -200,8 +201,8 @@ export default function Resume() {
               <div className="flex gap-6 relative">
                 {/* Connection dot */}
                 <div className="absolute left-2 top-6 w-3 h-3 bg-blue-400 rounded-full border-2 border-black z-10"></div>
-                <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center text-black font-bold text-lg flex-shrink-0 overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=64&h=64&fit=crop&crop=center" alt="AAU Klagenfurt" className="w-full h-full object-cover" />
+                <div className="w-16 h-16 bg-blue-400 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                  |||
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-1">
@@ -216,8 +217,8 @@ export default function Resume() {
               <div className="flex gap-6 relative">
                 {/* Connection dot */}
                 <div className="absolute left-2 top-6 w-3 h-3 bg-gray-600 rounded-full border-2 border-black z-10"></div>
-                <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center text-black text-2xl flex-shrink-0 overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=64&h=64&fit=crop&crop=center" alt="CPGE" className="w-full h-full object-cover" />
+                <div className="w-16 h-16 bg-gray-600 rounded-lg flex items-center justify-center text-white text-2xl flex-shrink-0">
+                  📐
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-1">
@@ -262,7 +263,7 @@ export default function Resume() {
           <div className="flex items-center justify-center gap-4 pt-8 border-t border-gray-800">
             <div className="flex items-center gap-3 text-gray-300">
               <span className="text-lg">📄</span>
-              <span className="font-medium">Resume_Othniel_Nii_Dodou_Aryee.pdf</span>
+              <span className="font-medium">Resume_Elliot_Négrel-Jerzy.pdf</span>
             </div>
             <button
               onClick={handleViewPDF}

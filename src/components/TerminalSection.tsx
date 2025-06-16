@@ -1,58 +1,39 @@
+
 import React from "react";
 
 // Experience/company/study entries
 const EXPERIENCE = [
   {
     company: "Kanop",
-    logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=64&h=64&fit=crop&crop=center",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/0/09/IOS_Kanop.png",
     role: "Front-end engineer",
     period: "Feb 2025 – Present",
     duration: "5 months",
     type: "Full-time",
     location: "Barcelona, Spain",
-    tags: [
-      { name: "React", icon: "⚛️" },
-      { name: "GCP", icon: "☁️" },
-      { name: "Framer Motion", icon: "🎭" },
-      { name: "Gitlab CI/CD", icon: "🔄" },
-      { name: "Agentic AI UI/UX", icon: "🤖" }
-    ],
+    tags: ["React", "GCP", "Framer Motion", "Gitlab CI/CD", "Agentic AI UI/UX"],
     description: "Implementing high-performance cartography and data visualization tools for the Kanop SaaS platform."
   },
   {
     company: "TalentYou.ai",
-    logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=64&h=64&fit=crop&crop=center",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Ios_logo_2.png",
     role: "Full-stack engineer",
     period: "Jul 2024 – Feb 2025",
     duration: "8 months",
     type: "Full-time",
     location: "Barcelona, Spain",
-    tags: [
-      { name: "React", icon: "⚛️" },
-      { name: "REST", icon: "🌐" },
-      { name: "Docker", icon: "🐳" },
-      { name: "Django", icon: "🐍" },
-      { name: "Redux", icon: "🔄" },
-      { name: "i18n", icon: "🌍" }
-    ],
+    tags: ["React", "REST", "Docker", "Django", "Redux", "i18n"],
     description: "Rewrote the entire front-end of the TalentYou platform. Containerized services, improved onboarding and UX."
   },
   {
     company: "Escape technologies",
-    logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=64&h=64&fit=crop&crop=center",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Ios_logo_3.png",
     role: "Full-stack engineer",
     period: "Nov 2023 – May 2024",
     duration: "6 months",
     type: "Full-time",
     location: "Paris, France",
-    tags: [
-      { name: "R&D", icon: "🔬" },
-      { name: "UI/UX", icon: "🎨" },
-      { name: "Svelte", icon: "🧡" },
-      { name: "GraphQL", icon: "📊" },
-      { name: "NodeJS", icon: "💚" },
-      { name: "Figma", icon: "🎨" }
-    ],
+    tags: ["R&D", "UI/UX", "Svelte", "GraphQL", "NodeJS", "Figma"],
     description: "Designed and built a Svelte component library based on the latest Material UI guidelines, greatly increasing development speed and design consistency."
   },
 ];
@@ -60,27 +41,27 @@ const EXPERIENCE = [
 const EDUCATION = [
   {
     school: "ENSEEIHT",
-    logo: "https://images.unsplash.com/photo-1523050854058-8df90110c9d1?w=64&h=64&fit=crop&crop=center",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/b/bb/Ios_uni_1.png",
     degree: "Master's degree in engineering - Computer Science and Applied Mathematics",
     period: "Sep 2020 – May 2023",
   },
   {
     school: "AAU Klagenfurt",
-    logo: "https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=64&h=64&fit=crop&crop=center",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/e/e6/IOS_uni_2.png",
     degree: "Master's degree in computer science - Computer Graphics and Vision",
     period: "Sep 2022 – Mar 2023",
   },
   {
     school: "CPGE Lycée Déodat de Séverac",
-    logo: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=64&h=64&fit=crop&crop=center",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Windows_Terminal_Logo_2021.svg",  // fallback logo
     degree: "PTSI/PSI* (Bachelor equivalent) - Mathematics and Physics",
     period: "Sep 2018 – Jul 2020"
   }
 ];
 
 const PROMPT_USER = "root";
-const PROMPT_HOST = "devniel";
-const EXE = "devniel.exe";
+const PROMPT_HOST = "bsodium";
+const EXE = "bsodium.exe";
 const TYPING_SPEED = 32; // ms per character
 const OUTPUT_DELAY = 370; // ms before writing first output
 const ENTRY_DELAY = 160; // delay (ms) between each item output
@@ -170,11 +151,11 @@ const TerminalSection = () => {
           <span className="w-3 h-3 bg-[#e75454] rounded-full" />
           <span className="w-3 h-3 bg-[#dfbb39] rounded-full" />
           <span className="w-3 h-3 bg-[#51cd4a] rounded-full" />
-          <span className="ml-4 text-base font-semibold text-gray-200 dark:text-gray-200 text-gray-700">pwsh in devniel</span>
+          <span className="ml-4 text-base font-semibold text-gray-200 dark:text-gray-200 text-gray-700">pwsh in bsodium</span>
         </div>
         <div className="flex gap-2 items-center">
           <span className="bg-[#191921] dark:bg-[#191921] bg-white text-gray-200 dark:text-gray-200 text-gray-700 px-3 py-1.5 rounded-t font-semibold text-xs select-none">
-            pwsh in devniel
+            pwsh in bsodium
           </span>
           <button
             className="ml-2 w-7 h-7 text-[#63646b] dark:text-[#63646b] text-gray-500 text-xl flex items-center justify-center rounded hover:bg-[#323235] dark:hover:bg-[#323235] hover:bg-gray-200"
@@ -230,10 +211,10 @@ const TerminalSection = () => {
           </button>
         </div>
         
-        {/* Blank/clear phase for tab switch */}
+        {/* Blank/clear phase for tab switch (erase previous output) */}
         {phase === "idle" && <div className="h-56" />}
         
-        {/* Terminal main output */}
+        {/* Terminal main output: experiences or education, reveal one-by-one */}
         {phase !== "idle" &&
           <div className="flex-1 w-full overflow-y-auto max-h-[365px] pr-1 custom-scrollbar relative">
             {/* Vertical connecting line */}
@@ -253,7 +234,7 @@ const TerminalSection = () => {
                   <img
                     src={itm.logo}
                     alt={itm.company + " logo"}
-                    className="w-14 h-14 rounded-md bg-[#191921] dark:bg-[#191921] bg-white shadow border border-[#35373f] dark:border-[#35373f] border-gray-200 object-cover"
+                    className="w-14 h-14 rounded-md bg-[#191921] dark:bg-[#191921] bg-white shadow border border-[#35373f] dark:border-[#35373f] border-gray-200 object-contain"
                   />
                   <div>
                     <div className="flex items-center gap-2 mb-0.5">
@@ -265,10 +246,7 @@ const TerminalSection = () => {
                     </div>
                     <div className="flex flex-wrap gap-2 mt-1 mb-1.5">
                       {itm.tags.map(tag => (
-                        <span key={tag.name} className="bg-[#282b3e] dark:bg-[#282b3e] bg-blue-100 text-[#8dd7f2] dark:text-[#8dd7f2] text-blue-800 px-2 py-0.5 rounded text-xs font-medium flex items-center gap-1">
-                          <span>{tag.icon}</span>
-                          {tag.name}
-                        </span>
+                        <span key={tag} className="bg-[#282b3e] dark:bg-[#282b3e] bg-blue-100 text-[#8dd7f2] dark:text-[#8dd7f2] text-blue-800 px-2 py-0.5 rounded text-xs font-medium">{tag}</span>
                       ))}
                     </div>
                     <div className="text-xs text-gray-300 dark:text-gray-300 text-gray-600 max-w-xl">{itm.description}</div>
@@ -284,7 +262,7 @@ const TerminalSection = () => {
                   <img
                     src={itm.logo}
                     alt={itm.school + " logo"}
-                    className="w-14 h-14 rounded-md bg-[#191921] dark:bg-[#191921] bg-white shadow border border-[#35373f] dark:border-[#35373f] border-gray-200 object-cover"
+                    className="w-14 h-14 rounded-md bg-[#191921] dark:bg-[#191921] bg-white shadow border border-[#35373f] dark:border-[#35373f] border-gray-200 object-contain"
                   />
                   <div>
                     <div className="flex items-center gap-2 mb-0.5">
