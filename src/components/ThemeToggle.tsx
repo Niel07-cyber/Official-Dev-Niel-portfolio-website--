@@ -28,12 +28,12 @@ const ThemeToggle = () => {
     <button
       aria-label="Toggle theme"
       onClick={handleToggle}
-      className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 dark:border-gray-700 bg-white/10 dark:bg-black/40 hover:bg-white/20 dark:hover:bg-gray-800 transition-all focus:outline-none backdrop-blur"
+      className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-700 dark:border-gray-700 border-gray-300 bg-black/40 dark:bg-black/40 bg-white/80 hover:bg-gray-100 dark:hover:bg-gray-800 hover:bg-gray-50 transition-all focus:outline-none"
     >
       {theme === "dark" ? (
         <Sun className="h-6 w-6 text-yellow-300" />
       ) : (
-        <Moon className="h-6 w-6 text-slate-700" />
+        <Moon className="h-6 w-6 text-gray-800" />
       )}
     </button>
   );

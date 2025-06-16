@@ -27,13 +27,13 @@ const SoftwarePhilosophySection = () => {
   ];
 
   return (
-    <section className="py-16 bg-slate-50 dark:bg-background">
+    <section className="py-16 bg-background">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white text-gray-900 mb-4">
             Software <span className="text-brand-purple">Philosophy</span>
           </h2>
-          <p className="text-slate-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 dark:text-gray-400 text-gray-600 text-lg max-w-2xl mx-auto">
             The principles and values that guide my approach to software development and engineering
           </p>
         </div>
@@ -42,17 +42,17 @@ const SoftwarePhilosophySection = () => {
           {principles.map((principle, index) => (
             <div
               key={index}
-              className="group bg-white dark:bg-gray-900/30 border border-slate-200 dark:border-gray-800 rounded-xl p-8 hover:border-brand-purple/50 hover:shadow-lg dark:hover:bg-gray-900/50 transition-all duration-300"
+              className="group bg-gray-900/30 dark:bg-gray-900/30 bg-white border border-gray-800 dark:border-gray-800 border-gray-200 rounded-xl p-8 hover:border-brand-purple/50 hover:bg-gray-900/50 dark:hover:bg-gray-900/50 hover:bg-gray-50 transition-all duration-300 shadow-sm"
             >
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-brand-purple/10 rounded-lg flex items-center justify-center group-hover:bg-brand-purple/20 transition-colors">
                   <principle.icon className="h-6 w-6 text-brand-purple" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-brand-purple transition-colors">
+                  <h3 className="text-xl font-semibold text-white dark:text-white text-gray-900 mb-2 group-hover:text-brand-purple transition-colors">
                     {principle.title}
                   </h3>
-                  <p className="text-slate-600 dark:text-gray-400 leading-relaxed">
+                  <p className="text-gray-400 dark:text-gray-400 text-gray-600 leading-relaxed">
                     {principle.description}
                   </p>
                 </div>
@@ -62,8 +62,8 @@ const SoftwarePhilosophySection = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <div className="bg-gradient-to-r from-slate-100 to-slate-200 dark:from-gray-900/50 dark:to-gray-800/50 rounded-2xl p-8 border border-slate-200 dark:border-gray-800 shadow-sm">
-            <blockquote className="text-xl md:text-2xl text-slate-900 dark:text-white font-medium italic mb-4">
+          <div className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 dark:from-gray-900/50 dark:to-gray-800/50 from-gray-100/50 to-gray-200/50 rounded-2xl p-8 border border-gray-800 dark:border-gray-800 border-gray-200">
+            <blockquote className="text-xl md:text-2xl text-white dark:text-white text-gray-900 font-medium italic mb-4">
               "The best code is not just functional, but beautiful, maintainable, and empowering for both developers and users."
             </blockquote>
             <cite className="text-brand-purple font-semibold">— DevNiel</cite>
