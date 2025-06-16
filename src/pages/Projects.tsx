@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Github, ExternalLink, ArrowLeft, Search, ChevronDown, Shuffle, Sun } from "lucide-react";
 
@@ -42,6 +43,46 @@ const projects = [
     exploreUrl: "#",
     demoUrl: "#",
   },
+  {
+    title: "neural-network",
+    subtitle: "code repository",
+    description: "A deep learning framework built from scratch using Python and NumPy.",
+    lang: "Python",
+    logo: <Github size={36} />,
+    info: "project published to GitHub 10 months ago, updated 6 months ago",
+    exploreUrl: "#",
+    demoUrl: "#",
+  },
+  {
+    title: "blockchain-explorer",
+    subtitle: "web application",
+    description: "Real-time blockchain explorer with transaction tracking and analytics dashboard.",
+    lang: "React",
+    logo: <ExternalLink size={32} />,
+    info: "project deployed 8 months ago, updated 3 months ago",
+    exploreUrl: "#",
+    demoUrl: "#",
+  },
+  {
+    title: "ai-chatbot",
+    subtitle: "code repository",
+    description: "Intelligent chatbot with natural language processing capabilities and context awareness.",
+    lang: "Node.js",
+    logo: <Github size={36} />,
+    info: "project published to GitHub 6 months ago, updated 2 months ago",
+    exploreUrl: "#",
+    demoUrl: "#",
+  },
+  {
+    title: "cryptography-suite",
+    subtitle: "code repository",
+    description: "Comprehensive cryptography library implementing modern encryption algorithms.",
+    lang: "Rust",
+    logo: <Github size={36} />,
+    info: "project published to GitHub 1 year ago, updated 4 months ago",
+    exploreUrl: "#",
+    demoUrl: "#",
+  }
 ];
 
 export default function Projects() {
@@ -94,7 +135,7 @@ export default function Projects() {
               </div>
               <input
                 type="text"
-                placeholder="Search 24 projects"
+                placeholder="Search 8 projects"
                 className="w-full pl-12 pr-4 py-4 bg-gray-900/80 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 transition-colors"
               />
             </div>

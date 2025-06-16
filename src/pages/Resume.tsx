@@ -1,18 +1,17 @@
-
 import React from "react";
 import { ArrowLeft, Eye, Download } from "lucide-react";
 
 export default function Resume() {
   const handleViewPDF = () => {
     // Open PDF in new tab
-    window.open("/Resume_Elliot_Négrel-Jerzy.pdf", "_blank");
+    window.open("/Resume_Othniel_Nii_Dodou_Aryee.pdf", "_blank");
   };
 
   const handleDownloadPDF = () => {
     // Create download link
     const link = document.createElement('a');
-    link.href = "/Resume_Elliot_Négrel-Jerzy.pdf";
-    link.download = "Resume_Elliot_Négrel-Jerzy.pdf";
+    link.href = "/Resume_Othniel_Nii_Dodou_Aryee.pdf";
+    link.download = "Resume_Othniel_Nii_Dodou_Aryee.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -38,7 +37,7 @@ export default function Resume() {
         <div className="mx-auto w-full max-w-4xl">
           {/* Header Section */}
           <div className="mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Elliot Négrel-Jerzy</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4">Othniel Nii Dodou Aryee</h1>
             <h2 className="text-2xl text-gray-300 mb-6">Software Engineer</h2>
             
             <p className="text-gray-300 text-lg leading-relaxed mb-8">
@@ -247,12 +246,6 @@ export default function Resume() {
               <span className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium">
                 C1 English
               </span>
-              <span className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium">
-                C1 Spanish
-              </span>
-              <span className="bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium">
-                B2 Polish
-              </span>
               <span className="bg-gray-600 text-white px-4 py-2 rounded-full text-sm font-medium">
                 B1 German
               </span>
@@ -263,7 +256,7 @@ export default function Resume() {
           <div className="flex items-center justify-center gap-4 pt-8 border-t border-gray-800">
             <div className="flex items-center gap-3 text-gray-300">
               <span className="text-lg">📄</span>
-              <span className="font-medium">Resume_Elliot_Négrel-Jerzy.pdf</span>
+              <span className="font-medium">Resume_Othniel_Nii_Dodou_Aryee.pdf</span>
             </div>
             <button
               onClick={handleViewPDF}
