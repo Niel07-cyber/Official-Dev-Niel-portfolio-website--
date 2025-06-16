@@ -24,7 +24,7 @@ const Header = () => {
           <a
             href="/"
             className={`
-              text-2xl font-bold text-white 
+              text-2xl font-bold text-white dark:text-white text-gray-900
               transition-all duration-700
               ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'}
             `}
@@ -34,7 +34,7 @@ const Header = () => {
           </a>
           <nav
             className={`
-              hidden md:flex items-center space-x-10 text-white 
+              hidden md:flex items-center space-x-10 text-white dark:text-white text-gray-700
               transition-all duration-700
               ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'}
             `}

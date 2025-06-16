@@ -27,10 +27,10 @@ const socials = [
 
 const ContactSocials = () => (
   <section className="w-full flex flex-col items-center py-16">
-    <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
+    <h2 className="text-4xl md:text-5xl font-black text-white dark:text-white text-gray-900 mb-4 tracking-tight">
       Let&apos;s <span className="text-brand-purple">connect.</span>
     </h2>
-    <p className="mb-8 text-lg text-gray-300 text-center max-w-2xl">
+    <p className="mb-8 text-lg text-gray-300 dark:text-gray-300 text-gray-600 text-center max-w-2xl">
       Feel free to <b>contact me</b> if you have any questions or suggestions.<br />
       I am always open to new <b>ideas and opportunities</b>.
     </p>
@@ -40,11 +40,14 @@ const ContactSocials = () => (
           key={social.name}
           href={social.href}
           className={`
-            px-5 py-2 rounded-full flex items-center gap-2 bg-black/40 border border-gray-700
-            text-gray-100 hover:text-white font-semibold text-base
+            px-5 py-2 rounded-full flex items-center gap-2 
+            bg-black/40 dark:bg-black/40 bg-white/80 
+            border border-gray-700 dark:border-gray-700 border-gray-300
+            text-gray-100 dark:text-gray-100 text-gray-700 
+            hover:text-white font-semibold text-base
             shadow-md backdrop-blur
             transition-all transform
-            hover:scale-105 hover:bg-brand-purple/30 hover:border-brand-purple
+            hover:scale-105 hover:bg-brand-purple/30 hover:border-brand-purple hover:text-white
             focus:outline-none focus:ring-2 focus:ring-brand-purple
             ${i === 0 ? "animate-pulse" : ""}
           `}

@@ -26,7 +26,7 @@ const Hero = () => {
               `}
               style={{transitionDelay: '150ms'}}
             >
-              <h1 className="text-6xl md:text-8xl font-bold text-white leading-tight">
+              <h1 className="text-6xl md:text-8xl font-bold text-white dark:text-white text-gray-900 leading-tight">
                 Software
                 <br />
                 Engineer
@@ -39,7 +39,7 @@ const Hero = () => {
               `}
               style={{transitionDelay: '330ms'}}
             >
-              <p className="text-lg text-gray-300 mt-6 max-w-xl">
+              <p className="text-lg text-gray-300 dark:text-gray-300 text-gray-600 mt-6 max-w-xl">
                 Transforming ideas into robust, scalable software solutions. I specialize in full-stack development and creating applications that make a difference.
               </p>
             </div>
@@ -50,7 +50,7 @@ const Hero = () => {
               `}
               style={{transitionDelay: '510ms'}}
             >
-              <a href="#contact" className="inline-flex items-center mt-8 px-6 py-3 border border-gray-600 rounded-full text-white hover:bg-brand-purple hover:border-brand-purple transition-colors">
+              <a href="#contact" className="inline-flex items-center mt-8 px-6 py-3 border border-gray-600 dark:border-gray-600 border-gray-300 rounded-full text-white dark:text-white text-gray-700 hover:bg-brand-purple hover:border-brand-purple hover:text-white transition-colors">
                 Let's discuss <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </div>
