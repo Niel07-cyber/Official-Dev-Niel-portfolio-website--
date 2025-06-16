@@ -9,6 +9,8 @@ import Certificates from "@/components/Projects";
 import ContactSocials from "@/components/ContactSocials";
 import TerminalSection from "@/components/TerminalSection";
 import ResumeBanner from "@/components/ResumeBanner";
+import OpenSourceSection from "@/components/OpenSourceSection";
+import SoftwarePhilosophySection from "@/components/SoftwarePhilosophySection";
 
 const Index = () => (
   <div className="bg-background font-sans text-foreground relative w-full min-h-screen overflow-x-hidden">
@@ -31,6 +33,12 @@ const Index = () => (
       </section>
       <section>
         <Certificates />
+      </section>
+      <section>
+        <OpenSourceSection />
+      </section>
+      <section>
+        <SoftwarePhilosophySection />
       </section>
       <section id="resume-banner">
         <ResumeBanner />
