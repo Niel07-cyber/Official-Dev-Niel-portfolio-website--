@@ -1,155 +1,330 @@
 
-import React, { useState, useEffect } from 'react';
-import { Terminal, ChevronRight } from 'lucide-react';
-import AnimatedRobotArms from './AnimatedRobotArms';
+import React from "react";
+
+// Experience/company/study entries
+const EXPERIENCE = [
+  {
+    company: "Kanop",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/0/09/IOS_Kanop.png",
+    role: "Front-end engineer",
+    period: "Feb 2025 – Present",
+    duration: "5 months",
+    type: "Full-time",
+    location: "Barcelona, Spain",
+    tags: [
+      { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "GCP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
+      { name: "Framer Motion", logo: "https://www.framer.com/images/favicons/favicon.svg" },
+      { name: "Gitlab CI/CD", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" },
+      { name: "Agentic AI UI/UX", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" }
+    ],
+    description: "Implementing high-performance cartography and data visualization tools for the Kanop SaaS platform."
+  },
+  {
+    company: "TalentYou.ai",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Ios_logo_2.png",
+    role: "Full-stack engineer",
+    period: "Jul 2024 – Feb 2025",
+    duration: "8 months",
+    type: "Full-time",
+    location: "Barcelona, Spain",
+    tags: [
+      { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "REST", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+      { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+      { name: "Django", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" },
+      { name: "Redux", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
+      { name: "i18n", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" }
+    ],
+    description: "Rewrote the entire front-end of the TalentYou platform. Containerized services, improved onboarding and UX."
+  },
+  {
+    company: "Escape technologies",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Ios_logo_3.png",
+    role: "Full-stack engineer",
+    period: "Nov 2023 – May 2024",
+    duration: "6 months",
+    type: "Full-time",
+    location: "Paris, France",
+    tags: [
+      { name: "R&D", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" },
+      { name: "UI/UX", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+      { name: "Svelte", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg" },
+      { name: "GraphQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" },
+      { name: "NodeJS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+      { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" }
+    ],
+    description: "Designed and built a Svelte component library based on the latest Material UI guidelines, greatly increasing development speed and design consistency."
+  },
+];
+
+const EDUCATION = [
+  {
+    school: "ENSEEIHT",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/b/bb/Ios_uni_1.png",
+    degree: "Master's degree in engineering - Computer Science and Applied Mathematics",
+    period: "Sep 2020 – May 2023",
+  },
+  {
+    school: "AAU Klagenfurt",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/e/e6/IOS_uni_2.png",
+    degree: "Master's degree in computer science - Computer Graphics and Vision",
+    period: "Sep 2022 – Mar 2023",
+  },
+  {
+    school: "CPGE Lycée Déodat de Séverac",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Windows_Terminal_Logo_2021.svg",  // fallback logo
+    degree: "PTSI/PSI* (Bachelor equivalent) - Mathematics and Physics",
+    period: "Sep 2018 – Jul 2020"
+  }
+];
+
+const PROMPT_USER = "root";
+const PROMPT_HOST = "devniel";
+const EXE = "devniel.exe";
+const TYPING_SPEED = 32; // ms per character
+const OUTPUT_DELAY = 370; // ms before writing first output
+const ENTRY_DELAY = 160; // delay (ms) between each item output
+
+function sleep(ms: number) {
+  return new Promise((res) => setTimeout(res, ms));
+}
+
+// Typed-out text animation
+function useTypeWriter(text: string, speed: number, deps: React.DependencyList) {
+  const [output, setOutput] = React.useState("");
+  React.useEffect(() => {
+    let cancelled = false;
+    setOutput("");
+    async function run() {
+      let cur = "";
+      for (let i = 0; i < text.length; ++i) {
+        if (cancelled) break;
+        cur += text[i];
+        setOutput(cur);
+        await sleep(speed);
+      }
+    }
+    run();
+    return () => { cancelled = true; };
+    // eslint-disable-next-line
+  }, deps);
+  return output;
+}
+
+type Mode = "experience" | "education";
+const CommandMap = {
+  experience: `${EXE} --experience`,
+  education: `${EXE} --education`
+};
 
 const TerminalSection = () => {
-  const [currentTime, setCurrentTime] = useState(new Date());
+  const [mode, setMode] = React.useState<Mode>("experience");
+  const [phase, setPhase] = React.useState<"idle" | "typing-command" | "writing-output">("typing-command");
+  const [shownCount, setShownCount] = React.useState(0);
+  const [animeKey, setAnimeKey] = React.useState(0);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 60000); // Update every minute
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const getGreeting = () => {
-    const hour = currentTime.getHours();
-    if (hour < 12) {
-      return "Good Morning";
-    } else if (hour < 17) {
-      return "Good Afternoon";
-    } else {
-      return "Good Evening";
+  // Animate typed command (prompt stays)
+  const promptPart = useTypeWriter(` ${CommandMap[mode]}`, TYPING_SPEED, [mode, animeKey]);
+  
+  // When the command finishes typing, print output line by line
+  React.useEffect(() => {
+    let cancelled = false;
+    setPhase("typing-command");
+    setShownCount(0);
+    async function run() {
+      await sleep(CommandMap[mode].length * TYPING_SPEED + OUTPUT_DELAY);
+      setPhase("writing-output");
+      const items = mode === "experience" ? EXPERIENCE : EDUCATION;
+      for (let i = 1; i <= items.length; ++i) {
+        if (cancelled) break;
+        setShownCount(i);
+        await sleep(ENTRY_DELAY);
+      }
     }
-  };
+    run();
+    return () => { cancelled = true; };
+    // eslint-disable-next-line
+  }, [mode, animeKey]);
 
-  const experiences = [
-    {
-      company: "Tech Solutions Inc.",
-      role: "Senior Full-Stack Developer",
-      period: "2022 - Present",
-      technologies: ["React", "Node.js", "PostgreSQL", "AWS"],
-      logo: "💼"
-    },
-    {
-      company: "Digital Innovations Co.",
-      role: "Frontend Developer",
-      period: "2020 - 2022",
-      technologies: ["Vue.js", "TypeScript", "Docker", "Firebase"],
-      logo: "🚀"
-    },
-    {
-      company: "StartupXYZ",
-      role: "Junior Developer",
-      period: "2019 - 2020",
-      technologies: ["JavaScript", "Python", "MongoDB", "Git"],
-      logo: "⚡"
-    }
-  ];
-
-  const getTechIcon = (tech: string) => {
-    const icons: { [key: string]: string } = {
-      'React': '⚛️',
-      'Node.js': '🟢',
-      'PostgreSQL': '🐘',
-      'AWS': '☁️',
-      'Vue.js': '💚',
-      'TypeScript': '🔷',
-      'Docker': '🐳',
-      'Firebase': '🔥',
-      'JavaScript': '🟨',
-      'Python': '🐍',
-      'MongoDB': '🍃',
-      'Git': '📝'
-    };
-    return icons[tech] || '🔧';
-  };
+  // Tab switch with erasing output (like closing and rerunning command)
+  function switchMode(newMode: Mode) {
+    if (newMode === mode) return;
+    setPhase("idle");
+    setTimeout(() => {
+      setMode(newMode);
+      setAnimeKey((k) => k + 1); // re-run animation
+    }, 220); // add a short blank for realism
+  }
 
   return (
-    <section className="py-16 bg-background">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Work <span className="text-brand-purple">Experience</span>
-          </h2>
-          <p className="text-gray-400 text-lg">
-            My professional journey in software development
-          </p>
+    <section
+      className="w-full mx-auto mt-16 mb-20 relative select-none rounded-2xl overflow-hidden shadow-[0_8px_32px_0_rgba(0,0,0,0.80)] border border-neutral-800 dark:border-neutral-800 border-gray-200"
+      style={{
+        fontFamily: "Consolas, 'Menlo', 'Monaco', 'Fira Mono', 'monospace'",
+        background: "var(--terminal-bg)"
+      }}
+    >
+      {/* Terminal Top */}
+      <div className="flex items-center h-11 px-3 bg-[#22232c] dark:bg-[#22232c] bg-gray-100 border-b border-[#31333c] dark:border-[#31333c] border-gray-300 justify-between">
+        <div className="flex items-center gap-2">
+          <span className="w-3 h-3 bg-[#e75454] rounded-full" />
+          <span className="w-3 h-3 bg-[#dfbb39] rounded-full" />
+          <span className="w-3 h-3 bg-[#51cd4a] rounded-full" />
+          <span className="ml-4 text-base font-semibold text-gray-200 dark:text-gray-200 text-gray-700">pwsh in devniel</span>
         </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Terminal Interface */}
-          <div className="bg-gray-900/50 rounded-lg border border-gray-800 overflow-hidden">
-            <div className="bg-gray-800/50 px-4 py-2 flex items-center gap-2 border-b border-gray-700">
-              <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-              </div>
-              <div className="flex items-center gap-2 ml-4">
-                <Terminal className="h-4 w-4 text-gray-400" />
-                <span className="text-sm text-gray-400">devniel@terminal</span>
-              </div>
-            </div>
-            
-            <div className="p-6 font-mono text-sm">
-              <div className="text-green-400 mb-4">
-                <span className="text-brand-purple">devniel@portfolio</span>
-                <span className="text-white">:</span>
-                <span className="text-blue-400">~</span>
-                <span className="text-white">$ </span>
-                <span className="text-green-400">whoami</span>
-              </div>
-              
-              <div className="mb-6 text-gray-300">
-                <div className="mb-2">{getGreeting()}! 👋</div>
-                <div className="mb-2">Name: Daniel Esteves (DevNiel)</div>
-                <div className="mb-2">Role: Full-Stack Software Engineer</div>
-                <div className="mb-2">Location: Remote</div>
-                <div className="mb-4">Status: Available for opportunities</div>
-              </div>
-
-              <div className="space-y-4">
-                {experiences.map((exp, index) => (
-                  <div key={index} className="border-l-2 border-brand-purple pl-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-lg">{exp.logo}</span>
-                      <div>
-                        <h3 className="text-white font-semibold">{exp.role}</h3>
-                        <p className="text-brand-purple text-sm">{exp.company}</p>
-                        <p className="text-gray-400 text-xs">{exp.period}</p>
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap gap-2 mt-2">
-                      {exp.technologies.map((tech, techIndex) => (
-                        <span 
-                          key={techIndex}
-                          className="inline-flex items-center gap-1 px-2 py-1 bg-gray-800 rounded text-xs text-gray-300"
-                        >
-                          <span>{getTechIcon(tech)}</span>
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6 flex items-center text-green-400">
-                <ChevronRight className="h-4 w-4" />
-                <span className="ml-1 animate-pulse">_</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Robot Animation */}
-          <div className="flex justify-center">
-            <AnimatedRobotArms />
-          </div>
+        <div className="flex gap-2 items-center">
+          <span className="bg-[#191921] dark:bg-[#191921] bg-white text-gray-200 dark:text-gray-200 text-gray-700 px-3 py-1.5 rounded-t font-semibold text-xs select-none">
+            pwsh in devniel
+          </span>
+          <button
+            className="ml-2 w-7 h-7 text-[#63646b] dark:text-[#63646b] text-gray-500 text-xl flex items-center justify-center rounded hover:bg-[#323235] dark:hover:bg-[#323235] hover:bg-gray-200"
+            tabIndex={-1}
+            title="New Tab"
+            aria-label="New tab"
+            style={{ pointerEvents: "none" }}
+          >+</button>
         </div>
       </div>
+      
+      {/* Terminal inner */}
+      <div
+        className="flex flex-col px-4 md:px-10 py-7 md:py-12 overflow-hidden"
+        style={{ minHeight: 520, background: "var(--terminal-bg)" }}
+      >
+        <div className="text-[#c7c6c6] dark:text-[#c7c6c6] text-gray-600 text-[13px] mb-1">Powershell 7.3.4</div>
+        <div className="text-[#9d9d9f] dark:text-[#9d9d9f] text-gray-500 text-xs mb-5">Loading personal and system profiles took 281ms.</div>
+        <div className="flex flex-row items-center text-lg md:text-xl font-semibold mb-2 whitespace-pre">
+          <span className="text-brand-purple font-bold">{PROMPT_USER}</span>
+          <span className="text-white dark:text-white text-gray-800">@</span>
+          <span className="text-[#01c2c2]">{PROMPT_HOST}:</span>
+          <span className="text-white dark:text-white text-gray-800">~$</span>
+          {phase === "typing-command" &&
+            <span className="ml-2" style={{ fontWeight: 500 }}>{promptPart}<span className="animate-pulse">|</span></span>
+          }
+          {phase !== "typing-command" &&
+            <span className="ml-2" style={{ fontWeight: 500 }}> {CommandMap[mode]}<span className="animate-pulse">|</span></span>
+          }
+        </div>
+        
+        {/* Tabs - Experience/Education switch */}
+        <div className="flex flex-row gap-1 mb-6 mt-2">
+          <button
+            className={`px-5 py-1.5 rounded-md text-base font-bold transition-all duration-300 ${mode === "experience"
+              ? "bg-white text-[#181823] shadow border border-white"
+              : "bg-[#262738] dark:bg-[#262738] bg-gray-200 border border-[#31333c] dark:border-[#31333c] border-gray-300 text-gray-300 dark:text-gray-300 text-gray-700 hover:bg-[#2a2a37] dark:hover:bg-[#2a2a37] hover:bg-gray-300 hover:text-white dark:hover:text-white hover:text-gray-800"} transition-all`}
+            disabled={mode === "experience"}
+            style={{ fontWeight: mode === "experience" ? 800 : 500 }}
+            onClick={() => switchMode("experience")}
+          >
+            experience
+          </button>
+          <button
+            className={`px-5 py-1.5 rounded-md text-base font-bold transition-all duration-300 ${mode === "education"
+              ? "bg-white text-[#181823] shadow border border-white"
+              : "bg-[#262738] dark:bg-[#262738] bg-gray-200 border border-[#31333c] dark:border-[#31333c] border-gray-300 text-gray-300 dark:text-gray-300 text-gray-700 hover:bg-[#2a2a37] dark:hover:bg-[#2a2a37] hover:bg-gray-300 hover:text-white dark:hover:text-white hover:text-gray-800"} transition-all`}
+            disabled={mode === "education"}
+            style={{ fontWeight: mode === "education" ? 800 : 500 }}
+            onClick={() => switchMode("education")}
+          >
+            education
+          </button>
+        </div>
+        
+        {/* Blank/clear phase for tab switch (erase previous output) */}
+        {phase === "idle" && <div className="h-56" />}
+        
+        {/* Terminal main output: experiences or education, reveal one-by-one */}
+        {phase !== "idle" &&
+          <div className="flex-1 w-full overflow-y-auto max-h-[365px] pr-1 custom-scrollbar relative">
+            {/* Vertical connecting line */}
+            {shownCount > 1 && (
+              <div 
+                className="absolute left-7 top-16 w-px bg-[#31333c] dark:bg-[#31333c] bg-gray-300 transition-all duration-500 ease-out" 
+                style={{height: `${(shownCount - 1) * 140}px`}}
+              ></div>
+            )}
+            <ul>
+              {mode === "experience" && EXPERIENCE.slice(0, shownCount).map((itm, idx) => (
+                <li key={itm.company} className={`flex items-start gap-5 mb-8 last:mb-0 relative transition-all duration-500 ease-out transform ${idx < shownCount ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: `${idx * 160}ms`}}>
+                  {/* Connection dot */}
+                  {idx > 0 && (
+                    <div className="absolute left-0 top-6 w-3 h-3 bg-[#43e09f] rounded-full border-2 border-[#181823] dark:border-[#181823] border-white z-10 transition-all duration-300"></div>
+                  )}
+                  <img
+                    src={itm.logo}
+                    alt={itm.company + " logo"}
+                    className="w-14 h-14 rounded-md bg-[#191921] dark:bg-[#191921] bg-white shadow border border-[#35373f] dark:border-[#35373f] border-gray-200 object-contain"
+                  />
+                  <div>
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <span className="font-bold text-[1.23rem] text-white dark:text-white text-gray-800">{itm.company}</span>
+                      <span className="text-gray-300 dark:text-gray-300 text-gray-600 text-xs">{itm.period} <span className="mx-1">({itm.duration})</span></span>
+                    </div>
+                    <div className="text-base font-bold text-[#43e09f] mb-0.5">{itm.role}
+                      <span className="text-xs text-gray-400 dark:text-gray-400 text-gray-500 ml-3">{itm.type} – {itm.location}</span>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mt-1 mb-1.5">
+                      {itm.tags.map(tag => (
+                        <div key={tag.name} className="flex items-center gap-1 bg-[#282b3e] dark:bg-[#282b3e] bg-blue-100 text-[#8dd7f2] dark:text-[#8dd7f2] text-blue-800 px-2 py-0.5 rounded text-xs font-medium">
+                          <img src={tag.logo} alt={tag.name} className="w-3 h-3 object-contain" />
+                          <span>{tag.name}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="text-xs text-gray-300 dark:text-gray-300 text-gray-600 max-w-xl">{itm.description}</div>
+                  </div>
+                </li>
+              ))}
+              {mode === "education" && EDUCATION.slice(0, shownCount).map((itm, idx) => (
+                <li key={itm.school} className={`flex items-start gap-5 mb-8 last:mb-0 relative transition-all duration-500 ease-out transform ${idx < shownCount ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: `${idx * 160}ms`}}>
+                  {/* Connection dot */}
+                  {idx > 0 && (
+                    <div className="absolute left-0 top-6 w-3 h-3 bg-[#5dc5d8] rounded-full border-2 border-[#181823] dark:border-[#181823] border-white z-10 transition-all duration-300"></div>
+                  )}
+                  <img
+                    src={itm.logo}
+                    alt={itm.school + " logo"}
+                    className="w-14 h-14 rounded-md bg-[#191921] dark:bg-[#191921] bg-white shadow border border-[#35373f] dark:border-[#35373f] border-gray-200 object-contain"
+                  />
+                  <div>
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <span className="font-bold text-[1.15rem] text-white dark:text-white text-gray-800">{itm.school}</span>
+                      <span className="text-gray-300 dark:text-gray-300 text-gray-600 text-xs">{itm.period}</span>
+                    </div>
+                    <div className="text-base font-bold text-[#5dc5d8] mb-0.5">{itm.degree}</div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        }
+      </div>
+      <style>{`
+        :root {
+          --terminal-bg: #181823;
+        }
+        
+        .light {
+          --terminal-bg: #f8f9fa;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 0.5em;
+          background: #22232c;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #31333c;
+          border-radius: 4px;
+        }
+        
+        .light .custom-scrollbar::-webkit-scrollbar {
+          background: #e5e7eb;
+        }
+        .light .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #9ca3af;
+        }
+      `}</style>
     </section>
   );
 };
