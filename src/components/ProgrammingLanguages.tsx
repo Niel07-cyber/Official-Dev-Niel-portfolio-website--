@@ -29,7 +29,7 @@ const languages = [
   },
   {
     name: "TailwindCSS",
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
   },
   {
     name: "Node.js",
@@ -41,7 +41,7 @@ const languages = [
   },
   {
     name: "GitHub",
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg",
   },
   {
     name: "Python",
@@ -91,7 +91,9 @@ const ProgrammingLanguages = () => {
               <img
                 src={lang.url}
                 alt={lang.name}
-                className="h-10 w-10 md:h-14 md:w-14 object-contain drop-shadow-md"
+                className={`h-10 w-10 md:h-14 md:w-14 object-contain drop-shadow-md ${
+                  lang.name === "GitHub" ? "filter invert dark:invert-0" : ""
+                }`}
                 draggable={false}
               />
               <span className="text-xs mt-2 text-gray-300 tracking-wide text-center whitespace-nowrap">
@@ -112,4 +114,3 @@ const ProgrammingLanguages = () => {
 };
 
 export default ProgrammingLanguages;
-

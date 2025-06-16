@@ -11,7 +11,13 @@ const EXPERIENCE = [
     duration: "5 months",
     type: "Full-time",
     location: "Barcelona, Spain",
-    tags: ["React", "GCP", "Framer Motion", "Gitlab CI/CD", "Agentic AI UI/UX"],
+    tags: [
+      { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "GCP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
+      { name: "Framer Motion", logo: "https://www.framer.com/images/favicons/favicon.svg" },
+      { name: "Gitlab CI/CD", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" },
+      { name: "Agentic AI UI/UX", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" }
+    ],
     description: "Implementing high-performance cartography and data visualization tools for the Kanop SaaS platform."
   },
   {
@@ -22,7 +28,14 @@ const EXPERIENCE = [
     duration: "8 months",
     type: "Full-time",
     location: "Barcelona, Spain",
-    tags: ["React", "REST", "Docker", "Django", "Redux", "i18n"],
+    tags: [
+      { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "REST", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+      { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+      { name: "Django", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" },
+      { name: "Redux", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
+      { name: "i18n", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" }
+    ],
     description: "Rewrote the entire front-end of the TalentYou platform. Containerized services, improved onboarding and UX."
   },
   {
@@ -33,7 +46,14 @@ const EXPERIENCE = [
     duration: "6 months",
     type: "Full-time",
     location: "Paris, France",
-    tags: ["R&D", "UI/UX", "Svelte", "GraphQL", "NodeJS", "Figma"],
+    tags: [
+      { name: "R&D", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" },
+      { name: "UI/UX", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+      { name: "Svelte", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg" },
+      { name: "GraphQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" },
+      { name: "NodeJS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+      { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" }
+    ],
     description: "Designed and built a Svelte component library based on the latest Material UI guidelines, greatly increasing development speed and design consistency."
   },
 ];
@@ -60,8 +80,8 @@ const EDUCATION = [
 ];
 
 const PROMPT_USER = "root";
-const PROMPT_HOST = "bsodium";
-const EXE = "bsodium.exe";
+const PROMPT_HOST = "devniel";
+const EXE = "devniel.exe";
 const TYPING_SPEED = 32; // ms per character
 const OUTPUT_DELAY = 370; // ms before writing first output
 const ENTRY_DELAY = 160; // delay (ms) between each item output
@@ -151,11 +171,11 @@ const TerminalSection = () => {
           <span className="w-3 h-3 bg-[#e75454] rounded-full" />
           <span className="w-3 h-3 bg-[#dfbb39] rounded-full" />
           <span className="w-3 h-3 bg-[#51cd4a] rounded-full" />
-          <span className="ml-4 text-base font-semibold text-gray-200 dark:text-gray-200 text-gray-700">pwsh in bsodium</span>
+          <span className="ml-4 text-base font-semibold text-gray-200 dark:text-gray-200 text-gray-700">pwsh in devniel</span>
         </div>
         <div className="flex gap-2 items-center">
           <span className="bg-[#191921] dark:bg-[#191921] bg-white text-gray-200 dark:text-gray-200 text-gray-700 px-3 py-1.5 rounded-t font-semibold text-xs select-none">
-            pwsh in bsodium
+            pwsh in devniel
           </span>
           <button
             className="ml-2 w-7 h-7 text-[#63646b] dark:text-[#63646b] text-gray-500 text-xl flex items-center justify-center rounded hover:bg-[#323235] dark:hover:bg-[#323235] hover:bg-gray-200"
@@ -246,7 +266,10 @@ const TerminalSection = () => {
                     </div>
                     <div className="flex flex-wrap gap-2 mt-1 mb-1.5">
                       {itm.tags.map(tag => (
-                        <span key={tag} className="bg-[#282b3e] dark:bg-[#282b3e] bg-blue-100 text-[#8dd7f2] dark:text-[#8dd7f2] text-blue-800 px-2 py-0.5 rounded text-xs font-medium">{tag}</span>
+                        <div key={tag.name} className="flex items-center gap-1 bg-[#282b3e] dark:bg-[#282b3e] bg-blue-100 text-[#8dd7f2] dark:text-[#8dd7f2] text-blue-800 px-2 py-0.5 rounded text-xs font-medium">
+                          <img src={tag.logo} alt={tag.name} className="w-3 h-3 object-contain" />
+                          <span>{tag.name}</span>
+                        </div>
                       ))}
                     </div>
                     <div className="text-xs text-gray-300 dark:text-gray-300 text-gray-600 max-w-xl">{itm.description}</div>

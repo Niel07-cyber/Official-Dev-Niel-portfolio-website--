@@ -10,6 +10,13 @@ const Header = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className="absolute top-0 left-0 right-0 z-20">
       <div className="container mx-auto px-4 py-8">
@@ -33,11 +40,31 @@ const Header = () => {
             `}
             style={{ transitionDelay: '220ms' }}
           >
-            <a href="#work" className="hover:text-brand-purple transition-colors">Work</a>
+            <button 
+              onClick={() => scrollToSection('terminal-section')} 
+              className="hover:text-brand-purple transition-colors cursor-pointer"
+            >
+              Work
+            </button>
             <a href="#about" className="hover:text-brand-purple transition-colors">About</a>
-            <a href="#education" className="hover:text-brand-purple transition-colors">Education</a>
-            <a href="/resume" className="hover:text-brand-purple transition-colors">Resume</a>
-            <a href="#contact" className="hover:text-brand-purple transition-colors">Contact</a>
+            <button 
+              onClick={() => scrollToSection('terminal-section')} 
+              className="hover:text-brand-purple transition-colors cursor-pointer"
+            >
+              Education
+            </button>
+            <button 
+              onClick={() => scrollToSection('resume-banner')} 
+              className="hover:text-brand-purple transition-colors cursor-pointer"
+            >
+              Resume
+            </button>
+            <button 
+              onClick={() => scrollToSection('contact-section')} 
+              className="hover:text-brand-purple transition-colors cursor-pointer"
+            >
+              Contact
+            </button>
           </nav>
           <div className="flex items-center space-x-2">
             <ThemeToggle />
