@@ -61,7 +61,7 @@ const Hero = () => {
             Hi, I'm <span className="text-brand-purple">Othniel</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Software Engineer specializing in creating exceptional digital experiences with modern web technologies
+            Frontend Developer specializing in creating exceptional digital experiences with modern web technologies
           </p>
           
           {/* Stats Section */}
