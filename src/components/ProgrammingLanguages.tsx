@@ -29,7 +29,7 @@ const languages = [
   },
   {
     name: "TailwindCSS",
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+    url: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
   },
   {
     name: "Node.js",
@@ -41,7 +41,7 @@ const languages = [
   },
   {
     name: "GitHub",
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    url: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg",
   },
   {
     name: "Python",
@@ -49,7 +49,7 @@ const languages = [
   },
   {
     name: "SQL",
-    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", // common for SQL
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
   },
   {
     name: "MongoDB",
@@ -58,14 +58,13 @@ const languages = [
 ];
 
 // To make the marquee seamless, the content needs to be repeated several times.
-// We'll triple the icons array so that even on wide screens, the scroll never ends and there is no gap.
 const marqueeIcons = [];
 for (let i = 0; i < 5; i++) marqueeIcons.push(...languages);
 
 const ProgrammingLanguages = () => {
   return (
     <div className="relative overflow-hidden py-8 md:py-12 mb-0 mt-0 rounded-none">
-      {/* Blending: top fade overlay (kept thinner and subtle, optional) */}
+      {/* Blending: top fade overlay */}
       <div
         className="pointer-events-none absolute top-0 left-0 w-full h-4 z-10"
         style={{
@@ -91,8 +90,11 @@ const ProgrammingLanguages = () => {
               <img
                 src={lang.url}
                 alt={lang.name}
-                className="h-10 w-10 md:h-14 md:w-14 object-contain drop-shadow-md"
+                className="h-10 w-10 md:h-14 md:w-14 object-contain drop-shadow-md filter dark:invert-0 invert"
                 draggable={false}
+                style={{
+                  filter: lang.name === "GitHub" ? "invert(1)" : "none"
+                }}
               />
               <span className="text-xs mt-2 text-gray-300 tracking-wide text-center whitespace-nowrap">
                 {lang.name}
@@ -112,4 +114,3 @@ const ProgrammingLanguages = () => {
 };
 
 export default ProgrammingLanguages;
-
