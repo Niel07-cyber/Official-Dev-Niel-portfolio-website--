@@ -25,12 +25,13 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
     --radius: 0.5rem;
+    --brand-purple: 239 84% 67%;
   }
 
   .dark {
-    --background: 0 0% 5%; /* #0D0D0D */
-    --foreground: 0 0% 98%; /* #FAFAFA */
-    --card: 0 0% 5%;
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 8%;
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 5%;
     --popover-foreground: 0 0% 98%;
@@ -44,9 +45,10 @@
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 15%; /* #262626 */
+    --border: 0 0% 15%;
     --input: 0 0% 15%;
     --ring: 0 0% 83.1%;
+    --brand-purple: 239 84% 67%;
   }
 }
 
@@ -65,25 +67,26 @@
     scroll-behavior: smooth;
   }
 
-  /* Light mode improvements */
+  /* Light mode optimized styles */
   .light {
-    --background: 250 100% 99%; /* Very light blue-white */
-    --foreground: 222.2 84% 4.9%; /* Dark text */
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --background: 255 255 255; /* Pure white */
+    --foreground: 15 23 42; /* Slate 800 - Dark text */
+    --card: 255 255 255; /* White cards */
+    --card-foreground: 15 23 42;
+    --popover: 255 255 255;
+    --popover-foreground: 15 23 42;
     --primary: 239 84% 67%; /* Brand purple */
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 239 84% 67%;
+    --primary-foreground: 255 255 255;
+    --secondary: 248 250 252; /* Slate 50 */
+    --secondary-foreground: 30 41 59; /* Slate 700 */
+    --muted: 248 250 252; /* Slate 50 */
+    --muted-foreground: 100 116 139; /* Slate 500 */
+    --accent: 241 245 249; /* Slate 100 */
+    --accent-foreground: 15 23 42; /* Slate 800 */
+    --border: 226 232 240; /* Slate 200 */
+    --input: 241 245 249; /* Slate 100 */
+    --ring: 239 84% 67%; /* Brand purple */
+    --brand-purple: 239 84% 67%;
   }
 
   /* Smooth transitions for all theme-aware elements */

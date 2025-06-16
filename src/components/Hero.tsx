@@ -15,7 +15,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 dark:from-slate-900 dark:via-purple-900 dark:to-slate-900">
       <div className="container mx-auto px-4 z-10">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 text-center md:text-left">
@@ -26,7 +26,7 @@ const Hero = () => {
               `}
               style={{transitionDelay: '150ms'}}
             >
-              <h1 className="text-6xl md:text-8xl font-bold text-white dark:text-white text-gray-900 leading-tight">
+              <h1 className="text-6xl md:text-8xl font-bold text-white leading-tight">
                 Software
                 <br />
                 Engineer
@@ -39,7 +39,7 @@ const Hero = () => {
               `}
               style={{transitionDelay: '330ms'}}
             >
-              <p className="text-lg text-gray-300 dark:text-gray-300 text-gray-600 mt-6 max-w-xl">
+              <p className="text-lg text-gray-300 mt-6 max-w-xl">
                 Transforming ideas into robust, scalable software solutions. I specialize in full-stack development and creating applications that make a difference.
               </p>
             </div>
@@ -50,14 +50,13 @@ const Hero = () => {
               `}
               style={{transitionDelay: '510ms'}}
             >
-              <a href="#contact" className="inline-flex items-center mt-8 px-6 py-3 border border-gray-600 dark:border-gray-600 border-gray-300 rounded-full text-white dark:text-white text-gray-700 hover:bg-brand-purple hover:border-brand-purple hover:text-white transition-colors">
+              <a href="#contact" className="inline-flex items-center mt-8 px-6 py-3 border border-white/20 rounded-full text-white hover:bg-white hover:text-slate-900 transition-all">
                 Let's discuss <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </div>
           </div>
         </div>
       </div>
-      {/* Replace man's image with Lottie */}
       <div className="absolute inset-0 z-0 flex justify-end items-end pointer-events-none select-none">
         <div className="w-full md:w-1/2 h-full flex items-end justify-end">
           <DotLottieReact
@@ -75,7 +74,7 @@ const Hero = () => {
             }}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent"></div>
       </div>
     </section>
   );
