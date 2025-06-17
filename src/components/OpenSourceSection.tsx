@@ -18,7 +18,7 @@ const OpenSourceSection = () => {
       stars: "856",
       forks: "234",
       language: "TypeScript",
-      url: "https://github.com/devniel/portfolio"
+      url: "https://github.com/username/portfolio-template"
     },
     {
       name: "UI Components",
@@ -26,7 +26,7 @@ const OpenSourceSection = () => {
       stars: "432",
       forks: "89",
       language: "TypeScript",
-      url: "https://github.com/devniel/ui-components"
+      url: "https://github.com/username/ui-components"
     }
   ];
 

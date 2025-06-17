@@ -1,81 +1,64 @@
 
-import React, { useEffect, useState } from 'react';
-import { ArrowRight } from 'lucide-react';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-
-const HERO_LOTTIE =
-  "https://lottie.host/4c9a4b46-ca80-4fa5-8ec5-f57ea6c865c8/OxAE8hI3SQ.lottie";
+import React from "react";
+import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setMounted(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      <div className="container mx-auto px-4 z-10">
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 text-center md:text-left">
-            <div
-              className={`
-                transition-all duration-700
-                ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'}
-              `}
-              style={{transitionDelay: '150ms'}}
-            >
-              <h1 className="text-6xl md:text-8xl font-bold text-white dark:text-white text-gray-900 leading-tight">
-                Software
-                <br />
-                Engineer
-              </h1>
-            </div>
-            <div
-              className={`
-                transition-all duration-700
-                ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'}
-              `}
-              style={{transitionDelay: '330ms'}}
-            >
-              <p className="text-lg text-gray-300 dark:text-gray-300 text-gray-600 mt-6 max-w-xl">
-                Transforming ideas into robust, scalable software solutions. I specialize in full-stack development and creating applications that make a difference.
-              </p>
-            </div>
-            <div
-              className={`
-                transition-all duration-700
-                ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'}
-              `}
-              style={{transitionDelay: '510ms'}}
-            >
-              <a href="#contact" className="inline-flex items-center mt-8 px-6 py-3 border border-gray-600 dark:border-gray-600 border-gray-300 rounded-full text-white dark:text-white text-gray-700 hover:bg-brand-purple hover:border-brand-purple hover:text-white transition-colors">
-                Let's discuss <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
-            </div>
+    <section className="relative min-h-screen flex items-center justify-center py-20">
+      <div className="text-center space-y-8 max-w-4xl mx-auto px-4">
+        {/* Main heading */}
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
+          <span className="text-white">Transforming ideas into</span>
+          <br />
+          <span className="text-brand-purple">digital experiences</span>
+          <br />
+          <span className="text-white text-3xl md:text-4xl lg:text-5xl font-normal mt-4 block">
+            making the difference
+          </span>
+        </h1>
+
+        {/* Description */}
+        <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          I'm a full-stack developer passionate about creating innovative web applications
+          that solve real-world problems and deliver exceptional user experiences.
+        </p>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+          <a
+            href="/#contact-section"
+            className="group inline-flex items-center px-8 py-4 bg-brand-purple hover:bg-brand-purple/90 text-white rounded-full font-medium transition-all duration-300 hover:scale-105"
+          >
+            Request a consultation
+            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          </a>
+          <a
+            href="/#contact-section"
+            className="inline-flex items-center px-8 py-4 border border-gray-600 text-white hover:border-brand-purple hover:text-brand-purple rounded-full font-medium transition-colors"
+          >
+            Let's discuss your project
+          </a>
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-16 border-t border-gray-800 mt-16">
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-brand-purple mb-2">04+</div>
+            <div className="text-gray-400 text-sm">Years Experience</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-brand-purple mb-2">10+</div>
+            <div className="text-gray-400 text-sm">Projects Completed</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-brand-purple mb-2">20+</div>
+            <div className="text-gray-400 text-sm">Total Clients</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-brand-purple mb-2">50%</div>
+            <div className="text-gray-400 text-sm">Client Revenue Increase</div>
           </div>
         </div>
-      </div>
-      {/* Replace man's image with Lottie */}
-      <div className="absolute inset-0 z-0 flex justify-end items-end pointer-events-none select-none">
-        <div className="w-full md:w-1/2 h-full flex items-end justify-end">
-          <DotLottieReact
-            src={HERO_LOTTIE}
-            loop
-            autoplay
-            style={{
-              width: "100%",
-              height: "100%",
-              maxWidth: "600px",
-              minWidth: "220px",
-              maxHeight: "90vh",
-              marginRight: 0,
-              marginBottom: 0,
-            }}
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
       </div>
     </section>
   );

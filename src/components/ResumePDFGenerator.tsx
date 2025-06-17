@@ -1,470 +1,293 @@
 
 import React from 'react';
-import { Document, Page, Text, View, StyleSheet, pdf } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet, Font, pdf } from '@react-pdf/renderer';
 
-// Define the resume data structure
-interface ResumeData {
-  name: string;
-  title: string;
-  description: string;
-  contact: {
-    location: string;
-    email: string;
-    phone: string;
-    website: string;
-  };
-  experience: Array<{
-    company: string;
-    role: string;
-    period: string;
-    duration: string;
-    type: string;
-    location: string;
-    technologies: string[];
-    description: string;
-    achievements?: string[];
-  }>;
-  education: Array<{
-    school: string;
-    degree: string;
-    period: string;
-  }>;
-  languages: Array<{
-    language: string;
-    level: string;
-  }>;
-}
+// Register fonts
+Font.register({
+  family: 'Inter',
+  src: 'https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2',
+});
 
-// PDF Styles - Redesigned for one-page layout
+Font.register({
+  family: 'Inter-Bold',
+  src: 'https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa2ZL7SUc.woff2',
+  fontWeight: 'bold',
+});
+
+// Create styles
 const styles = StyleSheet.create({
   page: {
-    flexDirection: 'column',
-    backgroundColor: '#FFFFFF',
-    padding: 30,
-    fontFamily: 'Helvetica',
+    fontFamily: 'Inter',
     fontSize: 9,
+    lineHeight: 1.3,
+    padding: 25,
+    backgroundColor: '#ffffff',
+    color: '#333333',
   },
   header: {
-    marginBottom: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
-    paddingBottom: 15,
+    marginBottom: 15,
   },
   name: {
+    fontFamily: 'Inter-Bold',
     fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 4,
-    color: '#1F2937',
+    marginBottom: 3,
+    color: '#1a1a1a',
   },
   title: {
     fontSize: 14,
     marginBottom: 8,
-    color: '#6B7280',
+    color: '#666666',
   },
   description: {
     fontSize: 9,
     lineHeight: 1.4,
-    marginBottom: 12,
-    color: '#374151',
+    marginBottom: 10,
+    color: '#444444',
   },
-  contactGrid: {
+  contactInfo: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 15,
+    fontSize: 8,
   },
   contactItem: {
+    flexDirection: 'column',
     flex: 1,
-    marginRight: 15,
   },
   contactLabel: {
-    fontSize: 8,
-    fontWeight: 'bold',
-    color: '#1F2937',
-    marginBottom: 1,
+    fontFamily: 'Inter-Bold',
+    marginBottom: 2,
+    color: '#333333',
   },
   contactValue: {
-    fontSize: 8,
-    color: '#6B7280',
+    color: '#666666',
   },
   mainContent: {
     flexDirection: 'row',
-    flex: 1,
+    gap: 20,
   },
   leftColumn: {
-    flex: 2,
-    marginRight: 20,
+    flex: 1.2,
   },
   rightColumn: {
-    flex: 1,
+    flex: 0.8,
   },
   sectionTitle: {
-    fontSize: 11,
-    fontWeight: 'bold',
+    fontFamily: 'Inter-Bold',
+    fontSize: 12,
     marginBottom: 8,
-    marginTop: 12,
-    color: '#1F2937',
-    borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
+    marginTop: 15,
+    color: '#1a1a1a',
+    borderBottom: '1px solid #e0e0e0',
     paddingBottom: 3,
   },
-  sectionTitleFirst: {
-    fontSize: 11,
-    fontWeight: 'bold',
-    marginBottom: 8,
+  firstSectionTitle: {
     marginTop: 0,
-    color: '#1F2937',
-    borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
-    paddingBottom: 3,
   },
   experienceItem: {
     marginBottom: 12,
-    flexDirection: 'row',
-  },
-  companyLogo: {
-    width: 24,
-    height: 24,
-    backgroundColor: '#3B82F6',
-    marginRight: 8,
-    borderRadius: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logoText: {
-    color: '#FFFFFF',
-    fontSize: 6,
-    fontWeight: 'bold',
-  },
-  experienceContent: {
-    flex: 1,
-  },
-  companyHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    marginBottom: 2,
   },
   companyName: {
+    fontFamily: 'Inter-Bold',
     fontSize: 10,
-    fontWeight: 'bold',
-    color: '#1F2937',
+    marginBottom: 2,
+    color: '#1a1a1a',
   },
-  period: {
-    fontSize: 7,
-    color: '#6B7280',
-  },
-  role: {
+  jobTitle: {
     fontSize: 9,
-    fontWeight: 'bold',
-    color: '#059669',
     marginBottom: 1,
+    color: '#0066cc',
+    fontWeight: 'bold',
   },
   jobDetails: {
-    fontSize: 7,
-    color: '#6B7280',
-    marginBottom: 4,
+    fontSize: 8,
+    marginBottom: 3,
+    color: '#666666',
   },
-  technologies: {
+  techStack: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginBottom: 4,
+    gap: 3,
+    marginBottom: 5,
   },
-  techTag: {
-    backgroundColor: '#F3F4F6',
-    color: '#1F2937',
-    fontSize: 6,
-    paddingHorizontal: 4,
-    paddingVertical: 1,
-    marginRight: 3,
+  techItem: {
+    backgroundColor: '#f0f4f8',
+    color: '#0066cc',
+    fontSize: 7,
+    padding: '2 6',
+    borderRadius: 8,
+  },
+  bulletPoint: {
+    fontSize: 8,
     marginBottom: 2,
-    borderRadius: 2,
-  },
-  jobDescription: {
-    fontSize: 8,
-    color: '#374151',
-    lineHeight: 1.3,
-  },
-  achievementItem: {
-    fontSize: 8,
-    color: '#374151',
-    lineHeight: 1.3,
-    marginBottom: 1,
+    color: '#444444',
+    paddingLeft: 8,
   },
   educationItem: {
     marginBottom: 8,
-    flexDirection: 'row',
-  },
-  schoolContent: {
-    flex: 1,
-  },
-  schoolHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    marginBottom: 2,
   },
   schoolName: {
+    fontFamily: 'Inter-Bold',
     fontSize: 9,
-    fontWeight: 'bold',
-    color: '#1F2937',
+    marginBottom: 1,
+    color: '#1a1a1a',
   },
   degree: {
     fontSize: 8,
-    color: '#2563EB',
-    lineHeight: 1.2,
+    marginBottom: 1,
+    color: '#0066cc',
   },
-  languagesContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  languageTag: {
-    backgroundColor: '#2563EB',
-    color: '#FFFFFF',
+  educationDates: {
     fontSize: 7,
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    marginRight: 4,
+    color: '#666666',
+  },
+  languageItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginBottom: 4,
-    borderRadius: 8,
+    fontSize: 8,
   },
-  kanopLogo: {
-    backgroundColor: '#059669',
+  languageName: {
+    color: '#333333',
   },
-  talentYouLogo: {
-    backgroundColor: '#7C3AED',
-  },
-  escapeLogo: {
-    backgroundColor: '#1F2937',
-  },
-  enseeihtLogo: {
-    backgroundColor: '#2563EB',
-  },
-  aauLogo: {
-    backgroundColor: '#3B82F6',
-  },
-  cpgeLogo: {
-    backgroundColor: '#6B7280',
+  languageLevel: {
+    color: '#666666',
   },
 });
 
-// Resume data
-const resumeData: ResumeData = {
-  name: "Othniel Nii Dodou Aryee",
-  title: "Software Engineer",
-  description: "Skilled full-stack developer with expertise in diverse programming languages and frameworks. Proven ability to deliver impactful projects on GitHub, fostering a collaborative environment. Adept at tackling complex challenges and thriving in team settings. Seeking to leverage skills in a dynamic role.",
-  contact: {
-    location: "Barcelona, España",
-    email: "contact@bsodium.fr",
-    phone: "+33 7 83 79 29 25",
-    website: "https://www.bsodium.fr"
-  },
-  experience: [
-    {
-      company: "Kanop",
-      role: "Front-end engineer",
-      period: "Feb 2025 - Present",
-      duration: "5 months",
-      type: "Full-time",
-      location: "Barcelona, Spain",
-      technologies: ["React", "GCP", "Framer Motion", "Gitlab CI/CD", "Agentic AI UI/UX"],
-      description: "Implementing high-performance cartography and data visualization tools for the Kanop SaaS platform."
-    },
-    {
-      company: "TalentYou.ai",
-      role: "Full-stack engineer",
-      period: "Jul 2024 - Feb 2025",
-      duration: "8 months",
-      type: "Full-time",
-      location: "Barcelona, Spain",
-      technologies: ["React", "REST", "Docker", "Django", "Redux", "i18n"],
-      description: "Rewrote the entire front-end of the TalentYou platform using React, Redux, and i18n, greatly improving performance and user experience.",
-      achievements: [
-        "Rewrote the entire front-end of the TalentYou platform using React, Redux, and i18n, greatly improving performance and user experience.",
-        "Containerized the back-end services using Docker and VS Code Dev Containers, reducing the onboarding time for new developers by up to 70%."
-      ]
-    },
-    {
-      company: "Escape technologies",
-      role: "Full-stack engineer",
-      period: "Nov 2023 - May 2024",
-      duration: "6 months",
-      type: "Full-time",
-      location: "Paris, France",
-      technologies: ["R&D", "UI/UX", "Svelte", "GraphQL", "NodeJS", "Figma"],
-      description: "Designed and built a Svelte component library based on the latest Material UI guidelines, greatly increasing development speed and design consistency.",
-      achievements: [
-        "Designed and built a Svelte component library based on the latest Material UI guidelines, greatly increasing development speed and design consistency.",
-        "Researched and implemented a contrast-aware palette generation algorithm which significantly improved aesthetics and accessibility.",
-        "Redesigned the company website to improve SEO and user experience, leading to a 30% increase in traffic and a 20% increase in conversion rate."
-      ]
-    }
-  ],
-  education: [
-    {
-      school: "ENSEEIHT",
-      degree: "Master's degree in engineering - Computer Science and Applied Mathematics",
-      period: "Sep 2020 - May 2023"
-    },
-    {
-      school: "AAU Klagenfurt",
-      degree: "Master's degree in computer science - Computer Graphics and Vision",
-      period: "Sep 2022 - Mar 2023"
-    },
-    {
-      school: "CPGE Lycée Déodat de Séverac",
-      degree: "PTSI/PSI* (Bachelor equivalent) - Mathematics and Physics",
-      period: "Sep 2018 - Jul 2020"
-    }
-  ],
-  languages: [
-    { language: "French", level: "C2 (native)" },
-    { language: "English", level: "C1" },
-    { language: "German", level: "B1" }
-  ]
-};
-
-// Helper function to get company logo style
-const getCompanyLogoStyle = (company: string) => {
-  switch (company) {
-    case 'Kanop':
-      return [styles.companyLogo, styles.kanopLogo];
-    case 'TalentYou.ai':
-      return [styles.companyLogo, styles.talentYouLogo];
-    case 'Escape technologies':
-      return [styles.companyLogo, styles.escapeLogo];
-    default:
-      return styles.companyLogo;
-  }
-};
-
-// Helper function to get school logo style
-const getSchoolLogoStyle = (school: string) => {
-  switch (school) {
-    case 'ENSEEIHT':
-      return [styles.companyLogo, styles.enseeihtLogo];
-    case 'AAU Klagenfurt':
-      return [styles.companyLogo, styles.aauLogo];
-    case 'CPGE Lycée Déodat de Séverac':
-      return [styles.companyLogo, styles.cpgeLogo];
-    default:
-      return styles.companyLogo;
-  }
-};
-
-// Helper function to get logo text
-const getLogoText = (name: string) => {
-  switch (name) {
-    case 'Kanop':
-      return 'K';
-    case 'TalentYou.ai':
-      return 'TY';
-    case 'Escape technologies':
-      return 'ESC';
-    case 'ENSEEIHT':
-      return 'N7';
-    case 'AAU Klagenfurt':
-      return 'AAU';
-    case 'CPGE Lycée Déodat de Séverac':
-      return '📐';
-    default:
-      return name.charAt(0);
-  }
-};
-
-// PDF Document Component
-const ResumePDFDocument: React.FC = () => (
+const ResumePDFDocument = () => (
   <Document>
     <Page size="A4" style={styles.page}>
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.name}>{resumeData.name}</Text>
-        <Text style={styles.title}>{resumeData.title}</Text>
-        <Text style={styles.description}>{resumeData.description}</Text>
+        <Text style={styles.name}>Othniel Nii Dodou Aryee</Text>
+        <Text style={styles.title}>Software Engineer</Text>
+        <Text style={styles.description}>
+          Skilled full-stack developer with expertise in diverse programming languages and frameworks. 
+          Proven ability to deliver impactful projects on GitHub, fostering a collaborative environment. 
+          Adept at tackling complex challenges and thriving in team settings. Seeking to leverage skills 
+          in a dynamic role. I am seeking an alternance starting September 2025 for one year.
+        </Text>
         
         {/* Contact Information */}
-        <View style={styles.contactGrid}>
+        <View style={styles.contactInfo}>
           <View style={styles.contactItem}>
             <Text style={styles.contactLabel}>Location</Text>
-            <Text style={styles.contactValue}>{resumeData.contact.location}</Text>
+            <Text style={styles.contactValue}>Barcelona, España</Text>
           </View>
           <View style={styles.contactItem}>
             <Text style={styles.contactLabel}>Email</Text>
-            <Text style={styles.contactValue}>{resumeData.contact.email}</Text>
+            <Text style={styles.contactValue}>contact@bsodium.fr</Text>
           </View>
           <View style={styles.contactItem}>
             <Text style={styles.contactLabel}>Phone</Text>
-            <Text style={styles.contactValue}>{resumeData.contact.phone}</Text>
+            <Text style={styles.contactValue}>+33 7 83 79 29 25</Text>
           </View>
           <View style={styles.contactItem}>
             <Text style={styles.contactLabel}>Website</Text>
-            <Text style={styles.contactValue}>{resumeData.contact.website}</Text>
+            <Text style={styles.contactValue}>https://www.bsodium.fr</Text>
           </View>
         </View>
       </View>
 
-      {/* Main Content */}
+      {/* Main Content - Two Columns */}
       <View style={styles.mainContent}>
         {/* Left Column - Work Experience */}
         <View style={styles.leftColumn}>
-          <Text style={styles.sectionTitleFirst}>💼 Work experience</Text>
-          {resumeData.experience.map((exp, index) => (
-            <View key={index} style={styles.experienceItem}>
-              <View style={getCompanyLogoStyle(exp.company)}>
-                <Text style={styles.logoText}>{getLogoText(exp.company)}</Text>
-              </View>
-              <View style={styles.experienceContent}>
-                <View style={styles.companyHeader}>
-                  <Text style={styles.companyName}>{exp.company}</Text>
-                  <Text style={styles.period}>{exp.period} ({exp.duration})</Text>
-                </View>
-                <Text style={styles.role}>{exp.role}</Text>
-                <Text style={styles.jobDetails}>{exp.type} - {exp.location}</Text>
-                
-                <View style={styles.technologies}>
-                  {exp.technologies.map((tech, techIndex) => (
-                    <Text key={techIndex} style={styles.techTag}>{tech}</Text>
-                  ))}
-                </View>
-                
-                {exp.achievements ? (
-                  exp.achievements.map((achievement, achIndex) => (
-                    <Text key={achIndex} style={styles.achievementItem}>- {achievement}</Text>
-                  ))
-                ) : (
-                  <Text style={styles.jobDescription}>{exp.description}</Text>
-                )}
-              </View>
+          <Text style={[styles.sectionTitle, styles.firstSectionTitle]}>Work Experience</Text>
+          
+          {/* Kanop */}
+          <View style={styles.experienceItem}>
+            <Text style={styles.companyName}>Kanop</Text>
+            <Text style={styles.jobTitle}>Front-end engineer</Text>
+            <Text style={styles.jobDetails}>Feb 2025 - Present (5 months) • Full-time • Barcelona, Spain</Text>
+            <View style={styles.techStack}>
+              {["React", "GCP", "Framer Motion", "Gitlab CI/CD", "Agentic AI UI/UX"].map((tech, index) => (
+                <Text key={index} style={styles.techItem}>{tech}</Text>
+              ))}
             </View>
-          ))}
+            <Text style={styles.bulletPoint}>
+              • Implementing high-performance cartography and data visualization tools for the Kanop SaaS platform.
+            </Text>
+          </View>
+
+          {/* TalentYou.ai */}
+          <View style={styles.experienceItem}>
+            <Text style={styles.companyName}>TalentYou.ai</Text>
+            <Text style={styles.jobTitle}>Full-stack engineer</Text>
+            <Text style={styles.jobDetails}>Jul 2024 - Feb 2025 (8 months) • Full-time • Barcelona, Spain</Text>
+            <View style={styles.techStack}>
+              {["React", "REST", "Docker", "Django", "Redux", "i18n"].map((tech, index) => (
+                <Text key={index} style={styles.techItem}>{tech}</Text>
+              ))}
+            </View>
+            <Text style={styles.bulletPoint}>
+              • Rewrote the entire front-end of the TalentYou platform using React, Redux, and i18n, greatly improving performance and user experience.
+            </Text>
+            <Text style={styles.bulletPoint}>
+              • Containerized the back-end services using Docker and VS Code Dev Containers, reducing the onboarding time for new developers by up to 70%.
+            </Text>
+          </View>
+
+          {/* Escape Technologies */}
+          <View style={styles.experienceItem}>
+            <Text style={styles.companyName}>Escape technologies</Text>
+            <Text style={styles.jobTitle}>Full-stack engineer</Text>
+            <Text style={styles.jobDetails}>Nov 2023 - May 2024 (6 months) • Full-time • Paris, France</Text>
+            <View style={styles.techStack}>
+              {["R&D", "UI/UX", "Svelte", "GraphQL", "NodeJS", "Figma"].map((tech, index) => (
+                <Text key={index} style={styles.techItem}>{tech}</Text>
+              ))}
+            </View>
+            <Text style={styles.bulletPoint}>
+              • Designed and built a Svelte component library based on the latest Material UI guidelines.
+            </Text>
+            <Text style={styles.bulletPoint}>
+              • Researched and implemented a contrast-aware palette generation algorithm.
+            </Text>
+            <Text style={styles.bulletPoint}>
+              • Redesigned the company website improving SEO, leading to 30% traffic increase and 20% conversion increase.
+            </Text>
+          </View>
         </View>
 
         {/* Right Column - Education & Languages */}
         <View style={styles.rightColumn}>
-          {/* Education */}
-          <Text style={styles.sectionTitleFirst}>🎓 Education</Text>
-          {resumeData.education.map((edu, index) => (
-            <View key={index} style={styles.educationItem}>
-              <View style={getSchoolLogoStyle(edu.school)}>
-                <Text style={styles.logoText}>{getLogoText(edu.school)}</Text>
-              </View>
-              <View style={styles.schoolContent}>
-                <View style={styles.schoolHeader}>
-                  <Text style={styles.schoolName}>{edu.school}</Text>
-                  <Text style={styles.period}>{edu.period}</Text>
-                </View>
-                <Text style={styles.degree}>{edu.degree}</Text>
-              </View>
-            </View>
-          ))}
+          <Text style={[styles.sectionTitle, styles.firstSectionTitle]}>Education</Text>
+          
+          <View style={styles.educationItem}>
+            <Text style={styles.schoolName}>ENSEEIHT</Text>
+            <Text style={styles.degree}>Master's degree in engineering - Computer Science and Applied Mathematics</Text>
+            <Text style={styles.educationDates}>Sep 2020 - May 2023</Text>
+          </View>
 
-          {/* Languages */}
-          <Text style={styles.sectionTitle}>🌐 Languages</Text>
-          <View style={styles.languagesContainer}>
-            {resumeData.languages.map((lang, index) => (
-              <Text key={index} style={styles.languageTag}>
-                {lang.level} {lang.language}
-              </Text>
-            ))}
+          <View style={styles.educationItem}>
+            <Text style={styles.schoolName}>AAU Klagenfurt</Text>
+            <Text style={styles.degree}>Master's degree in computer science - Computer Graphics and Vision</Text>
+            <Text style={styles.educationDates}>Sep 2022 - Mar 2023</Text>
+          </View>
+
+          <View style={styles.educationItem}>
+            <Text style={styles.schoolName}>CPGE Lycée Déodat de Séverac</Text>
+            <Text style={styles.degree}>PTSI/PSI* (Bachelor equivalent) - Mathematics and Physics</Text>
+            <Text style={styles.educationDates}>Sep 2018 - Jul 2020</Text>
+          </View>
+
+          <Text style={styles.sectionTitle}>Languages</Text>
+          
+          <View style={styles.languageItem}>
+            <Text style={styles.languageName}>French</Text>
+            <Text style={styles.languageLevel}>C2 (Native)</Text>
+          </View>
+          
+          <View style={styles.languageItem}>
+            <Text style={styles.languageName}>English</Text>
+            <Text style={styles.languageLevel}>C1</Text>
+          </View>
+          
+          <View style={styles.languageItem}>
+            <Text style={styles.languageName}>German</Text>
+            <Text style={styles.languageLevel}>B1</Text>
           </View>
         </View>
       </View>
@@ -472,7 +295,6 @@ const ResumePDFDocument: React.FC = () => (
   </Document>
 );
 
-// Function to generate and download PDF
 export const generateResumePDF = async () => {
   const blob = await pdf(<ResumePDFDocument />).toBlob();
   const url = URL.createObjectURL(blob);
