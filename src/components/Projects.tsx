@@ -63,71 +63,113 @@ const Projects = () => {
           </h1>
         </div>
         
-        <Carousel 
-          className="w-full"
-          opts={{
-            align: "center",
-            loop: true,
-          }}
-        >
-          <CarouselContent className="-ml-2 md:-ml-4">
-            {projectsList.map((project, index) => (
-              <CarouselItem key={index} className="pl-2 md:pl-4 basis-4/5 md:basis-2/3 lg:basis-1/2">
-                <div className="relative w-full h-[400px] rounded-2xl overflow-hidden bg-gray-900 border border-gray-800 group">
-                  {/* Background Image */}
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                  {/* Dark Overlay */}
-                  <div className="absolute inset-0 bg-black/70" />
-                  
-                  {/* Content */}
-                  <div className="relative z-10 h-full flex flex-col justify-between p-6">
-                    {/* Top Section */}
-                    <div>
-                      <h2 className="text-2xl font-bold text-white mb-2">
-                        {project.title}
-                      </h2>
-                      <p className="text-gray-300 text-sm mb-4 leading-relaxed">
-                        {project.description}
-                      </p>
-                    </div>
-
-                    {/* Bottom Section */}
-                    <div className="space-y-4">
-                      {/* Company Info */}
+        {/* Custom Stacked Carousel */}
+        <div className="relative w-full max-w-5xl mx-auto mb-12">
+          <div className="relative h-[500px] flex items-center justify-center overflow-hidden">
+            {projectsList.map((project, index) => {
+              const isActive = index === currentIndex;
+              const isPrev = index === (currentIndex - 1 + projectsList.length) % projectsList.length;
+              const isNext = index === (currentIndex + 1) % projectsList.length;
+              
+              let transform = 'translateX(100%) scale(0.8)';
+              let zIndex = 1;
+              let opacity = 0;
+              
+              if (isActive) {
+                transform = 'translateX(0%) scale(1)';
+                zIndex = 10;
+                opacity = 1;
+              } else if (isPrev) {
+                transform = 'translateX(-80%) scale(0.8)';
+                zIndex = 5;
+                opacity = 0.6;
+              } else if (isNext) {
+                transform = 'translateX(80%) scale(0.8)';
+                zIndex = 5;
+                opacity = 0.6;
+              }
+              
+              return (
+                <div
+                  key={index}
+                  className="absolute w-[400px] h-[400px] transition-all duration-700 ease-in-out"
+                  style={{
+                    transform,
+                    zIndex,
+                    opacity,
+                  }}
+                >
+                  <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gray-900 border border-gray-800 group">
+                    {/* Background Image */}
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    {/* Dark Overlay */}
+                    <div className="absolute inset-0 bg-black/70" />
+                    
+                    {/* Content */}
+                    <div className="relative z-10 h-full flex flex-col justify-between p-6">
+                      {/* Top Section */}
                       <div>
-                        <h3 className="text-lg font-semibold text-white">{project.company}</h3>
-                        <p className="text-gray-400 text-sm">{project.location} | {project.period}</p>
+                        <h2 className="text-2xl font-bold text-white mb-2">
+                          {project.title}
+                        </h2>
+                        <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                          {project.description}
+                        </p>
                       </div>
 
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-2">
-                        {project.tags.map((tag, tagIndex) => (
-                          <span
-                            key={tagIndex}
-                            className="px-3 py-1 bg-brand-purple/20 backdrop-blur-sm border border-brand-purple/30 rounded-full text-brand-purple text-xs font-medium"
-                          >
-                            {tag}
-                          </span>
-                        ))}
+                      {/* Bottom Section */}
+                      <div className="space-y-4">
+                        {/* Company Info */}
+                        <div>
+                          <h3 className="text-lg font-semibold text-white">{project.company}</h3>
+                          <p className="text-gray-400 text-sm">{project.location} | {project.period}</p>
+                        </div>
+
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags.map((tag, tagIndex) => (
+                            <span
+                              key={tagIndex}
+                              className="px-3 py-1 bg-brand-purple/20 backdrop-blur-sm border border-brand-purple/30 rounded-full text-brand-purple text-xs font-medium"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
+              );
+            })}
+          </div>
           
           {/* Navigation Arrows */}
-          <CarouselPrevious className="left-4 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20" />
-          <CarouselNext className="right-4 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20" />
-        </Carousel>
+          <button
+            onClick={() => setCurrentIndex((prev) => (prev - 1 + projectsList.length) % projectsList.length)}
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 rounded-full flex items-center justify-center transition-colors z-20"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          
+          <button
+            onClick={() => setCurrentIndex((prev) => (prev + 1) % projectsList.length)}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 rounded-full flex items-center justify-center transition-colors z-20"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
 
         {/* Dots Indicator */}
-        <div className="flex justify-center gap-2 mt-8">
+        <div className="flex justify-center gap-2 mb-12">
           {projectsList.map((_, index) => (
             <button
               key={index}
@@ -140,7 +182,7 @@ const Projects = () => {
         </div>
 
         {/* Explore Projects Button */}
-        <div className="text-center mt-12">
+        <div className="text-center">
           <Button 
             asChild
             className="bg-transparent border border-gray-500 text-white hover:bg-brand-purple hover:border-brand-purple transition-colors px-8 py-3 rounded-full"
