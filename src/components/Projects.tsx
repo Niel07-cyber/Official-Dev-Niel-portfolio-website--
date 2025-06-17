@@ -1,96 +1,155 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
-// Certificates list (only 3 certificates)
-const certificateList = [
+// Projects list (3 projects)
+const projectsList = [
   {
-    title: "Google UX Design Certificate",
-    desc: "Credential demonstrating advanced knowledge in user experience design, best practices, and accessibility.",
-    organization: "Google",
-    issued: "March 2024",
-    location: "Online",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800&auto=format&fit=crop",
-    credentialUrl: "https://www.coursera.org/account/accomplishments/specialization/abc123"
+    title: "HERO PRODUCTS",
+    subtitle: "E-commerce Platform",
+    company: "TechStart Solutions",
+    description: "AI-driven ecommerce solution integrated into platforms for enhanced user experience, providing real-time product recommendations and personalized shopping journeys.",
+    image: "https://images.unsplash.com/photo-1551739440-5dd934d3a94a?q=80&w=1964&auto=format&fit=crop",
+    tags: ["E-commerce", "AI", "React", "Real-time"],
+    link: "/projects"
   },
   {
-    title: "Meta Front-End Developer Certificate",
-    desc: "Completed comprehensive coursework on modern front-end development and web accessibility.",
-    organization: "Meta",
-    issued: "January 2023",
-    location: "Remote",
+    title: "FIRECAT SYSTEM",
+    subtitle: "6th SENSE Safety Platform",
+    company: "FireCat Group",
+    description: "Smart safety R&D platform aiming to revolutionize development, monitoring, and testing of safety systems in high-risk environments.",
     image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop",
-    credentialUrl: "https://www.coursera.org/account/accomplishments/specialization/xyz456"
+    tags: ["Safety", "IoT", "Monitoring", "Real-time"],
+    link: "/projects"
   },
   {
-    title: "AWS Certified Solutions Architect",
-    desc: "Validated expertise in cloud architecture, IAM, and security design.",
-    organization: "Amazon Web Services",
-    issued: "June 2022",
-    location: "Accra, Ghana",
+    title: "NEURAL NETWORK",
+    subtitle: "AI Learning Framework",
+    company: "DeepTech Labs",
+    description: "Advanced machine learning framework built from scratch using modern algorithms for deep learning applications and neural network training.",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800&auto=format&fit=crop",
-    credentialUrl: "https://aws.amazon.com/verification"
+    tags: ["AI", "Machine Learning", "Python", "Neural Networks"],
+    link: "/projects"
   }
 ];
 
-const Certificates = () => (
-  <section id="certificates" className="py-20 bg-background">
-    <div className="container mx-auto px-4">
-      <p className="text-gray-400 mb-10 tracking-widest text-base">(CERTIFICATES)</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {certificateList.map((cert, i) => (
-          <div
-            key={i}
-            className="relative rounded-2xl overflow-hidden border border-gray-800 shadow-lg bg-[#161616] transition-all animate-fade-in min-h-[220px] group hover:scale-105 hover:shadow-2xl duration-200"
-            style={{ animationDelay: `${0.2 + i * 0.07}s` }}
-          >
-            {/* Background Image */}
-            <img
-              src={cert.image}
-              alt={cert.title}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/60" />
-            {/* Card Content */}
-            <div className="relative z-10 flex flex-col justify-between h-full px-7 py-7">
-              {/* Top Part: Title, Description */}
-              <div>
-                <h2 className="text-2xl font-bold text-white mb-1 drop-shadow-md">{cert.title}</h2>
-                <p className="text-gray-200 text-base mb-4">{cert.desc}</p>
-                <div className="flex items-center flex-wrap gap-3 mb-1">
-                  <span className="font-semibold text-gray-200">{cert.organization}</span>
-                  <span className="text-gray-300 text-sm">•</span>
-                  <span className="text-gray-300 text-sm">{cert.location}</span>
-                  <span className="text-gray-300 text-sm">|</span>
-                  <span className="text-gray-300 text-sm">{cert.issued}</span>
-                </div>
-              </div>
-              {/* Bottom: Credential URL */}
-              <div className="flex items-center gap-3 mt-6">
-                <a
-                  href={cert.credentialUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-brand-purple/40 text-brand-purple px-3 py-1 rounded-full text-xs font-medium hover:bg-brand-purple/70 hover:text-white transition"
-                >
-                  View Credential
-                </a>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      {/* Certificates button */}
-      <div className="text-center mt-12 animate-fade-in">
-        <a
-          href="#certificates"
-          className="inline-flex items-center px-6 py-3 border border-gray-600 rounded-full text-white hover:bg-brand-purple hover:border-brand-purple transition-colors"
-        >
-          View All Certificates
-        </a>
-      </div>
-    </div>
-  </section>
-);
+const Projects = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-export default Certificates;
+  // Auto-rotate every 20 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === projectsList.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 20000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section id="projects" className="py-20 bg-background">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <p className="text-gray-400 mb-10 tracking-widest text-base text-center">(PROJECTS)</p>
+        
+        <Carousel className="w-full">
+          <CarouselContent>
+            {projectsList.map((project, index) => (
+              <CarouselItem key={index}>
+                <div className="relative w-full h-[500px] rounded-2xl overflow-hidden bg-gray-900 border border-gray-800">
+                  {/* Background Image */}
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  {/* Dark Overlay */}
+                  <div className="absolute inset-0 bg-black/70" />
+                  
+                  {/* Content */}
+                  <div className="relative z-10 h-full flex flex-col justify-between p-8">
+                    {/* Top Section */}
+                    <div className="text-center">
+                      <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-wide">
+                        {project.title}
+                      </h1>
+                      <div className="w-16 h-1 bg-brand-purple mx-auto mb-4"></div>
+                      <h2 className="text-xl text-gray-300 mb-6">{project.subtitle}</h2>
+                    </div>
+
+                    {/* Bottom Section */}
+                    <div className="space-y-6">
+                      {/* Company */}
+                      <div className="text-center">
+                        <h3 className="text-2xl font-bold text-white mb-2">{project.company}</h3>
+                        <p className="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
+                          {project.description}
+                        </p>
+                      </div>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap justify-center gap-3">
+                        {project.tags.map((tag, tagIndex) => (
+                          <span
+                            key={tagIndex}
+                            className="px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-sm font-medium"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Learn More Button */}
+                      <div className="text-center">
+                        <a
+                          href={project.link}
+                          className="inline-flex items-center gap-2 text-white hover:text-brand-purple transition-colors group"
+                        >
+                          <span className="text-lg">Learn more</span>
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            className="group-hover:translate-x-1 transition-transform"
+                          >
+                            <path
+                              d="M5 12H19M19 12L12 5M19 12L12 19"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          
+          {/* Navigation Arrows */}
+          <CarouselPrevious className="left-4 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20" />
+          <CarouselNext className="right-4 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20" />
+        </Carousel>
+
+        {/* Dots Indicator */}
+        <div className="flex justify-center gap-2 mt-8">
+          {projectsList.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-3 h-3 rounded-full transition-colors ${
+                index === currentIndex ? 'bg-brand-purple' : 'bg-gray-600'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Projects;
