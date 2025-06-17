@@ -1,7 +1,9 @@
+
 import React, { useState } from "react";
 import { ArrowLeft, Eye, Download, X } from "lucide-react";
 import { generateResumePDF } from "../components/ResumePDFGenerator";
 import { Document, Page, pdfjs } from 'react-pdf';
+import { pdf } from '@react-pdf/renderer';
 import ResumePDFDocument from "../components/ResumePDFGenerator";
 
 // Set up PDF.js worker
@@ -9,9 +11,19 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 export default function Resume() {
   const [showPDFPreview, setShowPDFPreview] = useState(false);
+  const [pdfUrl, setPdfUrl] = useState<string>('');
+  const [numPages, setNumPages] = useState<number>();
 
-  const handleViewPDF = () => {
-    setShowPDFPreview(true);
+  const handleViewPDF = async () => {
+    try {
+      // Generate PDF blob
+      const blob = await pdf(<ResumePDFDocument />).toBlob();
+      const url = URL.createObjectURL(blob);
+      setPdfUrl(url);
+      setShowPDFPreview(true);
+    } catch (error) {
+      console.error('Error generating PDF preview:', error);
+    }
   };
 
   const handleDownloadPDF = async () => {
@@ -31,6 +43,14 @@ export default function Resume() {
 
   const closePDFPreview = () => {
     setShowPDFPreview(false);
+    if (pdfUrl) {
+      URL.revokeObjectURL(pdfUrl);
+      setPdfUrl('');
+    }
+  };
+
+  const onDocumentLoadSuccess = ({ numPages }: { numPages: number }) => {
+    setNumPages(numPages);
   };
 
   return (
@@ -298,7 +318,7 @@ export default function Resume() {
       {showPDFPreview && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-auto relative">
-            <div className="sticky top-0 bg-white border-b p-4 flex justify-between items-center">
+            <div className="sticky top-0 bg-white border-b p-4 flex justify-between items-center z-10">
               <h3 className="text-lg font-semibold text-black">Resume Preview</h3>
               <button
                 onClick={closePDFPreview}
@@ -307,8 +327,23 @@ export default function Resume() {
                 <X size={20} className="text-gray-600" />
               </button>
             </div>
-            <div className="p-4">
-              <ResumePDFDocument />
+            <div className="p-4 flex justify-center">
+              {pdfUrl && (
+                <Document
+                  file={pdfUrl}
+                  onLoadSuccess={onDocumentLoadSuccess}
+                  className="flex flex-col items-center"
+                >
+                  {Array.from(new Array(numPages), (el, index) => (
+                    <Page
+                      key={`page_${index + 1}`}
+                      pageNumber={index + 1}
+                      scale={1.2}
+                      className="mb-4 shadow-lg"
+                    />
+                  ))}
+                </Document>
+              )}
             </div>
           </div>
         </div>
