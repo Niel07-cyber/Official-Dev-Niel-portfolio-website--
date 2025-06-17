@@ -35,104 +35,108 @@ interface ResumeData {
   }>;
 }
 
-// PDF Styles - Redesigned for one-page layout
+// PDF Styles - Full page layout
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'column',
     backgroundColor: '#FFFFFF',
-    padding: 30,
+    padding: 40,
     fontFamily: 'Helvetica',
-    fontSize: 9,
+    fontSize: 10,
+    lineHeight: 1.4,
   },
   header: {
-    marginBottom: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
-    paddingBottom: 15,
+    marginBottom: 25,
+    borderBottomWidth: 2,
+    borderBottomColor: '#2563EB',
+    paddingBottom: 20,
   },
   name: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
-    marginBottom: 4,
+    marginBottom: 6,
     color: '#1F2937',
   },
   title: {
-    fontSize: 14,
-    marginBottom: 8,
-    color: '#6B7280',
+    fontSize: 16,
+    marginBottom: 12,
+    color: '#2563EB',
+    fontWeight: 'bold',
   },
   description: {
-    fontSize: 9,
-    lineHeight: 1.4,
-    marginBottom: 12,
+    fontSize: 10,
+    lineHeight: 1.5,
+    marginBottom: 15,
     color: '#374151',
+    textAlign: 'justify',
   },
   contactGrid: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 15,
+    marginTop: 10,
   },
   contactItem: {
     flex: 1,
-    marginRight: 15,
+    marginRight: 20,
   },
   contactLabel: {
-    fontSize: 8,
+    fontSize: 9,
     fontWeight: 'bold',
     color: '#1F2937',
-    marginBottom: 1,
+    marginBottom: 2,
   },
   contactValue: {
-    fontSize: 8,
+    fontSize: 9,
     color: '#6B7280',
   },
   mainContent: {
     flexDirection: 'row',
     flex: 1,
+    gap: 30,
   },
   leftColumn: {
-    flex: 2,
-    marginRight: 20,
+    flex: 3,
   },
   rightColumn: {
-    flex: 1,
+    flex: 2,
   },
   sectionTitle: {
-    fontSize: 11,
+    fontSize: 14,
     fontWeight: 'bold',
-    marginBottom: 8,
-    marginTop: 12,
+    marginBottom: 15,
+    marginTop: 20,
     color: '#1F2937',
     borderBottomWidth: 1,
     borderBottomColor: '#E5E7EB',
-    paddingBottom: 3,
+    paddingBottom: 5,
   },
   sectionTitleFirst: {
-    fontSize: 11,
+    fontSize: 14,
     fontWeight: 'bold',
-    marginBottom: 8,
+    marginBottom: 15,
     marginTop: 0,
     color: '#1F2937',
     borderBottomWidth: 1,
     borderBottomColor: '#E5E7EB',
-    paddingBottom: 3,
+    paddingBottom: 5,
   },
   experienceItem: {
-    marginBottom: 12,
+    marginBottom: 20,
     flexDirection: 'row',
+    alignItems: 'flex-start',
   },
   companyLogo: {
-    width: 24,
-    height: 24,
-    backgroundColor: '#3B82F6',
-    marginRight: 8,
-    borderRadius: 2,
+    width: 30,
+    height: 30,
+    marginRight: 12,
+    borderRadius: 4,
     alignItems: 'center',
     justifyContent: 'center',
+    flexShrink: 0,
   },
   logoText: {
     color: '#FFFFFF',
-    fontSize: 6,
+    fontSize: 8,
     fontWeight: 'bold',
   },
   experienceContent: {
@@ -142,57 +146,59 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    marginBottom: 2,
+    marginBottom: 4,
   },
   companyName: {
-    fontSize: 10,
+    fontSize: 12,
     fontWeight: 'bold',
     color: '#1F2937',
   },
   period: {
-    fontSize: 7,
+    fontSize: 9,
     color: '#6B7280',
   },
   role: {
-    fontSize: 9,
+    fontSize: 11,
     fontWeight: 'bold',
-    color: '#059669',
-    marginBottom: 1,
+    color: '#2563EB',
+    marginBottom: 3,
   },
   jobDetails: {
-    fontSize: 7,
+    fontSize: 9,
     color: '#6B7280',
-    marginBottom: 4,
+    marginBottom: 6,
   },
   technologies: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginBottom: 4,
+    marginBottom: 8,
   },
   techTag: {
     backgroundColor: '#F3F4F6',
     color: '#1F2937',
-    fontSize: 6,
-    paddingHorizontal: 4,
-    paddingVertical: 1,
-    marginRight: 3,
-    marginBottom: 2,
-    borderRadius: 2,
+    fontSize: 7,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    marginRight: 4,
+    marginBottom: 3,
+    borderRadius: 3,
   },
   jobDescription: {
-    fontSize: 8,
+    fontSize: 9,
     color: '#374151',
-    lineHeight: 1.3,
+    lineHeight: 1.4,
+    marginBottom: 2,
   },
   achievementItem: {
-    fontSize: 8,
+    fontSize: 9,
     color: '#374151',
-    lineHeight: 1.3,
-    marginBottom: 1,
+    lineHeight: 1.4,
+    marginBottom: 3,
   },
   educationItem: {
-    marginBottom: 8,
+    marginBottom: 15,
     flexDirection: 'row',
+    alignItems: 'flex-start',
   },
   schoolContent: {
     flex: 1,
@@ -201,31 +207,31 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    marginBottom: 2,
+    marginBottom: 4,
   },
   schoolName: {
-    fontSize: 9,
+    fontSize: 11,
     fontWeight: 'bold',
     color: '#1F2937',
   },
   degree: {
-    fontSize: 8,
+    fontSize: 9,
     color: '#2563EB',
-    lineHeight: 1.2,
+    lineHeight: 1.3,
   },
   languagesContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+    gap: 6,
   },
   languageTag: {
     backgroundColor: '#2563EB',
     color: '#FFFFFF',
-    fontSize: 7,
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    marginRight: 4,
-    marginBottom: 4,
-    borderRadius: 8,
+    fontSize: 8,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 10,
+    marginBottom: 6,
   },
   kanopLogo: {
     backgroundColor: '#059669',
@@ -251,7 +257,7 @@ const styles = StyleSheet.create({
 const resumeData: ResumeData = {
   name: "Othniel Nii Dodou Aryee",
   title: "Software Engineer",
-  description: "Skilled full-stack developer with expertise in diverse programming languages and frameworks. Proven ability to deliver impactful projects on GitHub, fostering a collaborative environment. Adept at tackling complex challenges and thriving in team settings. Seeking to leverage skills in a dynamic role.",
+  description: "Skilled full-stack developer with expertise in diverse programming languages and frameworks. Proven ability to deliver impactful projects on GitHub, fostering a collaborative environment. Adept at tackling complex challenges and thriving in team settings. Seeking to leverage skills in a dynamic role. I am seeking an alternance starting September 2025 for one year.",
   contact: {
     location: "Barcelona, España",
     email: "contact@bsodium.fr",
@@ -365,7 +371,7 @@ const getLogoText = (name: string) => {
     case 'AAU Klagenfurt':
       return 'AAU';
     case 'CPGE Lycée Déodat de Séverac':
-      return '📐';
+      return 'CPGE';
     default:
       return name.charAt(0);
   }
@@ -428,7 +434,7 @@ const ResumePDFDocument: React.FC = () => (
                 
                 {exp.achievements ? (
                   exp.achievements.map((achievement, achIndex) => (
-                    <Text key={achIndex} style={styles.achievementItem}>- {achievement}</Text>
+                    <Text key={achIndex} style={styles.achievementItem}>• {achievement}</Text>
                   ))
                 ) : (
                   <Text style={styles.jobDescription}>{exp.description}</Text>
