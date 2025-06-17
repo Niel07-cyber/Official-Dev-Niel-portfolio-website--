@@ -1,3 +1,4 @@
+
 import React from "react";
 
 // Experience/company/study entries
@@ -126,8 +127,9 @@ const TerminalSection = () => {
   // Animate typed command (prompt stays)
   const promptPart = useTypeWriter(` ${CommandMap[mode]}`, TYPING_SPEED, [mode, animeKey]);
   
-  // When the command finishes typing, print output line by line
+  // When the component mounts, start the initial animation for experience
   React.useEffect(() => {
+    // Start the initial animation immediately on mount
     let cancelled = false;
     setPhase("typing-command");
     setShownCount(0);
@@ -143,7 +145,6 @@ const TerminalSection = () => {
     }
     run();
     return () => { cancelled = true; };
-    // eslint-disable-next-line
   }, [mode, animeKey]);
 
   // Tab switch with erasing output (like closing and rerunning command)

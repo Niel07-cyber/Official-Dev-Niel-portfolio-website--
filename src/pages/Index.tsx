@@ -37,6 +37,9 @@ const Index = () => (
       <section>
         <SoftwarePhilosophySection />
       </section>
+      <section>
+        <Certificates />
+      </section>
       <section id="resume-banner">
         <ResumeBanner />
       </section>

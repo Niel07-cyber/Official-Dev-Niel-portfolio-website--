@@ -1,7 +1,7 @@
 
 import React from "react";
 
-// Certificates list (removing Scrum Master certificate)
+// Certificates list (only 3 certificates)
 const certificateList = [
   {
     title: "Google UX Design Certificate",
