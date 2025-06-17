@@ -1,5 +1,7 @@
+
 import React from "react";
 import { ArrowLeft, Eye, Download } from "lucide-react";
+import { generateResumePDF } from "../components/ResumePDFGenerator";
 
 export default function Resume() {
   const handleViewPDF = () => {
@@ -7,14 +9,20 @@ export default function Resume() {
     window.open("/Resume_Othniel_Nii_Dodou_Aryee.pdf", "_blank");
   };
 
-  const handleDownloadPDF = () => {
-    // Create download link
-    const link = document.createElement('a');
-    link.href = "/Resume_Othniel_Nii_Dodou_Aryee.pdf";
-    link.download = "Resume_Othniel_Nii_Dodou_Aryee.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleDownloadPDF = async () => {
+    // Generate and download PDF using react-pdf
+    try {
+      await generateResumePDF();
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+      // Fallback to original method if PDF generation fails
+      const link = document.createElement('a');
+      link.href = "/Resume_Othniel_Nii_Dodou_Aryee.pdf";
+      link.download = "Resume_Othniel_Nii_Dodou_Aryee.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
   };
 
   return (
