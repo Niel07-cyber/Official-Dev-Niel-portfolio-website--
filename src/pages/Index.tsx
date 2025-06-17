@@ -5,7 +5,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import ProgrammingLanguages from "@/components/ProgrammingLanguages";
 import Works from "./Works";
-import Certificates from "@/components/Projects";
+import Projects from "@/components/Projects";
 import ContactSocials from "@/components/ContactSocials";
 import TerminalSection from "@/components/TerminalSection";
 import ResumeBanner from "@/components/ResumeBanner";
@@ -29,6 +29,9 @@ const Index = () => (
         <TerminalSection />
       </section>
       <section>
+        <Projects />
+      </section>
+      <section>
         <Works />
       </section>
       <section>
@@ -36,9 +39,6 @@ const Index = () => (
       </section>
       <section>
         <SoftwarePhilosophySection />
-      </section>
-      <section>
-        <Certificates />
       </section>
       <section id="resume-banner">
         <ResumeBanner />

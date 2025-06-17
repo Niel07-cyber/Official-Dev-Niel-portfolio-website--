@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from "react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 
 // Projects list (3 projects)
@@ -40,19 +39,19 @@ const projectsList = [
 const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Auto-rotate every 20 seconds
+  // Auto-rotate every 15 seconds (changed from 20 seconds)
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => 
         prevIndex === projectsList.length - 1 ? 0 : prevIndex + 1
       );
-    }, 20000);
+    }, 15000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section id="projects" className="py-20 bg-black">
+    <section id="projects" className="py-20">
       <div className="container mx-auto px-4 max-w-7xl">
         <p className="text-gray-400 mb-10 tracking-widest text-base text-center">(PROJECTS)</p>
         
@@ -65,34 +64,34 @@ const Projects = () => {
         
         {/* Custom Stacked Carousel */}
         <div className="relative w-full max-w-5xl mx-auto mb-12">
-          <div className="relative h-[500px] flex items-center justify-center overflow-hidden">
+          <div className="relative h-[500px] flex items-center justify-center overflow-visible">
             {projectsList.map((project, index) => {
               const isActive = index === currentIndex;
               const isPrev = index === (currentIndex - 1 + projectsList.length) % projectsList.length;
               const isNext = index === (currentIndex + 1) % projectsList.length;
               
               let transform = 'translateX(100%) scale(0.8)';
-              let zIndex = 1;
+              let zIndex = 0;
               let opacity = 0;
               
               if (isActive) {
                 transform = 'translateX(0%) scale(1)';
-                zIndex = 10;
+                zIndex = 30;
                 opacity = 1;
               } else if (isPrev) {
-                transform = 'translateX(-80%) scale(0.8)';
-                zIndex = 5;
-                opacity = 0.6;
+                transform = 'translateX(-70%) scale(0.8)';
+                zIndex = 20;
+                opacity = 0.7;
               } else if (isNext) {
-                transform = 'translateX(80%) scale(0.8)';
-                zIndex = 5;
-                opacity = 0.6;
+                transform = 'translateX(70%) scale(0.8)';
+                zIndex = 20;
+                opacity = 0.7;
               }
               
               return (
                 <div
                   key={index}
-                  className="absolute w-[400px] h-[400px] transition-all duration-700 ease-in-out"
+                  className="absolute w-[400px] h-[400px] transition-all duration-700 ease-in-out hover:scale-[1.02]"
                   style={{
                     transform,
                     zIndex,
@@ -151,7 +150,7 @@ const Projects = () => {
           {/* Navigation Arrows */}
           <button
             onClick={() => setCurrentIndex((prev) => (prev - 1 + projectsList.length) % projectsList.length)}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 rounded-full flex items-center justify-center transition-colors z-20"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 rounded-full flex items-center justify-center transition-colors z-40 hover:scale-110 transition-transform"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -160,7 +159,7 @@ const Projects = () => {
           
           <button
             onClick={() => setCurrentIndex((prev) => (prev + 1) % projectsList.length)}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 rounded-full flex items-center justify-center transition-colors z-20"
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 rounded-full flex items-center justify-center transition-colors z-40 hover:scale-110 transition-transform"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -174,7 +173,7 @@ const Projects = () => {
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
+              className={`w-3 h-3 rounded-full transition-colors hover:scale-125 transition-transform ${
                 index === currentIndex ? 'bg-brand-purple' : 'bg-gray-600'
               }`}
             />
@@ -185,7 +184,7 @@ const Projects = () => {
         <div className="text-center">
           <Button 
             asChild
-            className="bg-transparent border border-gray-500 text-white hover:bg-brand-purple hover:border-brand-purple transition-colors px-8 py-3 rounded-full"
+            className="bg-transparent border border-gray-500 text-white hover:bg-brand-purple hover:border-brand-purple transition-colors px-8 py-3 rounded-full hover:scale-110 transition-transform"
           >
             <a href="/projects">
               Explore Projects →

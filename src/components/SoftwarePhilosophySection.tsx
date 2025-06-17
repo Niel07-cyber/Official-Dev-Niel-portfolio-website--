@@ -1,8 +1,12 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Code, Lightbulb, Users, Rocket } from 'lucide-react';
+import { useInView } from '@/hooks/useInView';
 
 const SoftwarePhilosophySection = () => {
+  const [ref, inView] = useInView({ threshold: 0.2 });
+  const [visibleCards, setVisibleCards] = useState<number[]>([]);
+
   const principles = [
     {
       icon: Code,
@@ -26,8 +30,28 @@ const SoftwarePhilosophySection = () => {
     }
   ];
 
+  // Sequential animation for cards
+  useEffect(() => {
+    if (inView) {
+      const timer = setTimeout(() => {
+        // Show first card immediately when in view
+        setVisibleCards([0]);
+        
+        // Show remaining cards with a delay
+        principles.slice(1).forEach((_, index) => {
+          const actualIndex = index + 1;
+          setTimeout(() => {
+            setVisibleCards(prev => [...prev, actualIndex]);
+          }, 300 * actualIndex);
+        });
+      }, 100);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [inView, principles.length]);
+
   return (
-    <section className="py-16 bg-background">
+    <section ref={ref} className="py-16 bg-background">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white text-gray-900 mb-4">
@@ -42,7 +66,16 @@ const SoftwarePhilosophySection = () => {
           {principles.map((principle, index) => (
             <div
               key={index}
-              className="group bg-gray-900/30 dark:bg-gray-900/30 bg-white border border-gray-800 dark:border-gray-800 border-gray-200 rounded-xl p-8 hover:border-brand-purple/50 hover:bg-gray-900/50 dark:hover:bg-gray-900/50 hover:bg-gray-50 transition-all duration-300 shadow-sm"
+              className={`group bg-gray-900/30 dark:bg-gray-900/30 bg-white border border-gray-800 dark:border-gray-800 border-gray-200 rounded-xl p-8 hover:border-brand-purple/50 hover:bg-gray-900/50 dark:hover:bg-gray-900/50 hover:bg-gray-50 transition-all duration-300 shadow-sm hover:scale-105 transform ${
+                visibleCards.includes(index) 
+                  ? "opacity-100 translate-y-0" 
+                  : "opacity-0 translate-y-10"
+              }`}
+              style={{ 
+                transitionProperty: "opacity, transform, border-color, background-color", 
+                transitionDuration: "0.5s",
+                transitionDelay: `${index * 0.1}s`
+              }}
             >
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-brand-purple/10 rounded-lg flex items-center justify-center group-hover:bg-brand-purple/20 transition-colors">
@@ -62,7 +95,7 @@ const SoftwarePhilosophySection = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <div className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 dark:from-gray-900/50 dark:to-gray-800/50 from-gray-100/50 to-gray-200/50 rounded-2xl p-8 border border-gray-800 dark:border-gray-800 border-gray-200">
+          <div className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 dark:from-gray-900/50 dark:to-gray-800/50 from-gray-100/50 to-gray-200/50 rounded-2xl p-8 border border-gray-800 dark:border-gray-800 border-gray-200 hover:scale-[1.02] transition-transform">
             <blockquote className="text-xl md:text-2xl text-white dark:text-white text-gray-900 font-medium italic mb-4">
               "The best code is not just functional, but beautiful, maintainable, and empowering for both developers and users."
             </blockquote>
