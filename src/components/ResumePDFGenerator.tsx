@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Document, Page, Text, View, StyleSheet, Font, pdf } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet, pdf } from '@react-pdf/renderer';
 
 // Define the resume data structure
 interface ResumeData {
@@ -35,131 +35,163 @@ interface ResumeData {
   }>;
 }
 
-// PDF Styles
+// PDF Styles - Redesigned for one-page layout
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'column',
     backgroundColor: '#FFFFFF',
-    padding: 40,
+    padding: 30,
     fontFamily: 'Helvetica',
+    fontSize: 9,
   },
   header: {
-    marginBottom: 30,
+    marginBottom: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E7EB',
+    paddingBottom: 15,
   },
   name: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 8,
-    color: '#1f2937',
+    marginBottom: 4,
+    color: '#1F2937',
   },
   title: {
-    fontSize: 16,
-    marginBottom: 15,
-    color: '#6b7280',
+    fontSize: 14,
+    marginBottom: 8,
+    color: '#6B7280',
   },
   description: {
-    fontSize: 11,
-    lineHeight: 1.6,
-    marginBottom: 20,
+    fontSize: 9,
+    lineHeight: 1.4,
+    marginBottom: 12,
     color: '#374151',
   },
-  contactRow: {
+  contactGrid: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 25,
+    marginBottom: 15,
   },
   contactItem: {
-    flexDirection: 'column',
     flex: 1,
+    marginRight: 15,
   },
   contactLabel: {
-    fontSize: 10,
+    fontSize: 8,
     fontWeight: 'bold',
-    color: '#1f2937',
-    marginBottom: 2,
+    color: '#1F2937',
+    marginBottom: 1,
   },
   contactValue: {
-    fontSize: 9,
-    color: '#6b7280',
+    fontSize: 8,
+    color: '#6B7280',
+  },
+  mainContent: {
+    flexDirection: 'row',
+    flex: 1,
+  },
+  leftColumn: {
+    flex: 2,
+    marginRight: 20,
+  },
+  rightColumn: {
+    flex: 1,
   },
   sectionTitle: {
-    fontSize: 14,
+    fontSize: 11,
     fontWeight: 'bold',
-    marginBottom: 15,
-    marginTop: 20,
-    color: '#1f2937',
+    marginBottom: 8,
+    marginTop: 12,
+    color: '#1F2937',
     borderBottomWidth: 1,
-    borderBottomColor: '#e5e7eb',
-    paddingBottom: 5,
+    borderBottomColor: '#E5E7EB',
+    paddingBottom: 3,
+  },
+  sectionTitleFirst: {
+    fontSize: 11,
+    fontWeight: 'bold',
+    marginBottom: 8,
+    marginTop: 0,
+    color: '#1F2937',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E7EB',
+    paddingBottom: 3,
   },
   experienceItem: {
-    marginBottom: 20,
+    marginBottom: 12,
     flexDirection: 'row',
   },
   companyLogo: {
-    width: 40,
-    height: 40,
-    backgroundColor: '#f3f4f6',
-    marginRight: 15,
-    borderRadius: 4,
+    width: 24,
+    height: 24,
+    backgroundColor: '#3B82F6',
+    marginRight: 8,
+    borderRadius: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  logoText: {
+    color: '#FFFFFF',
+    fontSize: 6,
+    fontWeight: 'bold',
   },
   experienceContent: {
     flex: 1,
   },
   companyHeader: {
     flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 3,
-  },
-  companyName: {
-    fontSize: 12,
-    fontWeight: 'bold',
-    color: '#1f2937',
-    marginRight: 10,
-  },
-  period: {
-    fontSize: 9,
-    color: '#6b7280',
-  },
-  role: {
-    fontSize: 10,
-    fontWeight: 'bold',
-    color: '#059669',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
     marginBottom: 2,
   },
-  jobDetails: {
+  companyName: {
+    fontSize: 10,
+    fontWeight: 'bold',
+    color: '#1F2937',
+  },
+  period: {
+    fontSize: 7,
+    color: '#6B7280',
+  },
+  role: {
     fontSize: 9,
-    color: '#6b7280',
-    marginBottom: 8,
+    fontWeight: 'bold',
+    color: '#059669',
+    marginBottom: 1,
+  },
+  jobDetails: {
+    fontSize: 7,
+    color: '#6B7280',
+    marginBottom: 4,
   },
   technologies: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginBottom: 8,
+    marginBottom: 4,
   },
   techTag: {
-    backgroundColor: '#f3f4f6',
-    color: '#1f2937',
-    fontSize: 8,
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    marginRight: 4,
-    marginBottom: 4,
+    backgroundColor: '#F3F4F6',
+    color: '#1F2937',
+    fontSize: 6,
+    paddingHorizontal: 4,
+    paddingVertical: 1,
+    marginRight: 3,
+    marginBottom: 2,
     borderRadius: 2,
   },
   jobDescription: {
-    fontSize: 9,
+    fontSize: 8,
     color: '#374151',
-    lineHeight: 1.4,
+    lineHeight: 1.3,
   },
   achievementItem: {
-    fontSize: 9,
+    fontSize: 8,
     color: '#374151',
-    lineHeight: 1.4,
-    marginBottom: 2,
+    lineHeight: 1.3,
+    marginBottom: 1,
   },
   educationItem: {
-    marginBottom: 15,
+    marginBottom: 8,
     flexDirection: 'row',
   },
   schoolContent: {
@@ -167,37 +199,55 @@ const styles = StyleSheet.create({
   },
   schoolHeader: {
     flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 3,
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: 2,
   },
   schoolName: {
-    fontSize: 11,
+    fontSize: 9,
     fontWeight: 'bold',
-    color: '#1f2937',
-    marginRight: 10,
+    color: '#1F2937',
   },
   degree: {
-    fontSize: 10,
-    fontWeight: 'bold',
-    color: '#2563eb',
+    fontSize: 8,
+    color: '#2563EB',
+    lineHeight: 1.2,
   },
   languagesContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
   languageTag: {
-    backgroundColor: '#2563eb',
-    color: '#ffffff',
-    fontSize: 9,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    marginRight: 6,
-    marginBottom: 6,
-    borderRadius: 12,
+    backgroundColor: '#2563EB',
+    color: '#FFFFFF',
+    fontSize: 7,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    marginRight: 4,
+    marginBottom: 4,
+    borderRadius: 8,
+  },
+  kanopLogo: {
+    backgroundColor: '#059669',
+  },
+  talentYouLogo: {
+    backgroundColor: '#7C3AED',
+  },
+  escapeLogo: {
+    backgroundColor: '#1F2937',
+  },
+  enseeihtLogo: {
+    backgroundColor: '#2563EB',
+  },
+  aauLogo: {
+    backgroundColor: '#3B82F6',
+  },
+  cpgeLogo: {
+    backgroundColor: '#6B7280',
   },
 });
 
-// Resume data extracted from the page
+// Resume data
 const resumeData: ResumeData = {
   name: "Othniel Nii Dodou Aryee",
   title: "Software Engineer",
@@ -273,6 +323,54 @@ const resumeData: ResumeData = {
   ]
 };
 
+// Helper function to get company logo style
+const getCompanyLogoStyle = (company: string) => {
+  switch (company) {
+    case 'Kanop':
+      return [styles.companyLogo, styles.kanopLogo];
+    case 'TalentYou.ai':
+      return [styles.companyLogo, styles.talentYouLogo];
+    case 'Escape technologies':
+      return [styles.companyLogo, styles.escapeLogo];
+    default:
+      return styles.companyLogo;
+  }
+};
+
+// Helper function to get school logo style
+const getSchoolLogoStyle = (school: string) => {
+  switch (school) {
+    case 'ENSEEIHT':
+      return [styles.companyLogo, styles.enseeihtLogo];
+    case 'AAU Klagenfurt':
+      return [styles.companyLogo, styles.aauLogo];
+    case 'CPGE Lycée Déodat de Séverac':
+      return [styles.companyLogo, styles.cpgeLogo];
+    default:
+      return styles.companyLogo;
+  }
+};
+
+// Helper function to get logo text
+const getLogoText = (name: string) => {
+  switch (name) {
+    case 'Kanop':
+      return 'K';
+    case 'TalentYou.ai':
+      return 'TY';
+    case 'Escape technologies':
+      return 'ESC';
+    case 'ENSEEIHT':
+      return 'N7';
+    case 'AAU Klagenfurt':
+      return 'AAU';
+    case 'CPGE Lycée Déodat de Séverac':
+      return '📐';
+    default:
+      return name.charAt(0);
+  }
+};
+
 // PDF Document Component
 const ResumePDFDocument: React.FC = () => (
   <Document>
@@ -284,7 +382,7 @@ const ResumePDFDocument: React.FC = () => (
         <Text style={styles.description}>{resumeData.description}</Text>
         
         {/* Contact Information */}
-        <View style={styles.contactRow}>
+        <View style={styles.contactGrid}>
           <View style={styles.contactItem}>
             <Text style={styles.contactLabel}>Location</Text>
             <Text style={styles.contactValue}>{resumeData.contact.location}</Text>
@@ -304,59 +402,71 @@ const ResumePDFDocument: React.FC = () => (
         </View>
       </View>
 
-      {/* Work Experience */}
-      <Text style={styles.sectionTitle}>💼 Work experience</Text>
-      {resumeData.experience.map((exp, index) => (
-        <View key={index} style={styles.experienceItem}>
-          <View style={styles.companyLogo} />
-          <View style={styles.experienceContent}>
-            <View style={styles.companyHeader}>
-              <Text style={styles.companyName}>{exp.company}</Text>
-              <Text style={styles.period}>{exp.period} ({exp.duration})</Text>
+      {/* Main Content */}
+      <View style={styles.mainContent}>
+        {/* Left Column - Work Experience */}
+        <View style={styles.leftColumn}>
+          <Text style={styles.sectionTitleFirst}>💼 Work experience</Text>
+          {resumeData.experience.map((exp, index) => (
+            <View key={index} style={styles.experienceItem}>
+              <View style={getCompanyLogoStyle(exp.company)}>
+                <Text style={styles.logoText}>{getLogoText(exp.company)}</Text>
+              </View>
+              <View style={styles.experienceContent}>
+                <View style={styles.companyHeader}>
+                  <Text style={styles.companyName}>{exp.company}</Text>
+                  <Text style={styles.period}>{exp.period} ({exp.duration})</Text>
+                </View>
+                <Text style={styles.role}>{exp.role}</Text>
+                <Text style={styles.jobDetails}>{exp.type} - {exp.location}</Text>
+                
+                <View style={styles.technologies}>
+                  {exp.technologies.map((tech, techIndex) => (
+                    <Text key={techIndex} style={styles.techTag}>{tech}</Text>
+                  ))}
+                </View>
+                
+                {exp.achievements ? (
+                  exp.achievements.map((achievement, achIndex) => (
+                    <Text key={achIndex} style={styles.achievementItem}>- {achievement}</Text>
+                  ))
+                ) : (
+                  <Text style={styles.jobDescription}>{exp.description}</Text>
+                )}
+              </View>
             </View>
-            <Text style={styles.role}>{exp.role}</Text>
-            <Text style={styles.jobDetails}>{exp.type} - {exp.location}</Text>
-            
-            <View style={styles.technologies}>
-              {exp.technologies.map((tech, techIndex) => (
-                <Text key={techIndex} style={styles.techTag}>{tech}</Text>
-              ))}
+          ))}
+        </View>
+
+        {/* Right Column - Education & Languages */}
+        <View style={styles.rightColumn}>
+          {/* Education */}
+          <Text style={styles.sectionTitleFirst}>🎓 Education</Text>
+          {resumeData.education.map((edu, index) => (
+            <View key={index} style={styles.educationItem}>
+              <View style={getSchoolLogoStyle(edu.school)}>
+                <Text style={styles.logoText}>{getLogoText(edu.school)}</Text>
+              </View>
+              <View style={styles.schoolContent}>
+                <View style={styles.schoolHeader}>
+                  <Text style={styles.schoolName}>{edu.school}</Text>
+                  <Text style={styles.period}>{edu.period}</Text>
+                </View>
+                <Text style={styles.degree}>{edu.degree}</Text>
+              </View>
             </View>
-            
-            {exp.achievements ? (
-              exp.achievements.map((achievement, achIndex) => (
-                <Text key={achIndex} style={styles.achievementItem}>- {achievement}</Text>
-              ))
-            ) : (
-              <Text style={styles.jobDescription}>{exp.description}</Text>
-            )}
+          ))}
+
+          {/* Languages */}
+          <Text style={styles.sectionTitle}>🌐 Languages</Text>
+          <View style={styles.languagesContainer}>
+            {resumeData.languages.map((lang, index) => (
+              <Text key={index} style={styles.languageTag}>
+                {lang.level} {lang.language}
+              </Text>
+            ))}
           </View>
         </View>
-      ))}
-
-      {/* Education */}
-      <Text style={styles.sectionTitle}>🎓 Education</Text>
-      {resumeData.education.map((edu, index) => (
-        <View key={index} style={styles.educationItem}>
-          <View style={styles.companyLogo} />
-          <View style={styles.schoolContent}>
-            <View style={styles.schoolHeader}>
-              <Text style={styles.schoolName}>{edu.school}</Text>
-              <Text style={styles.period}>{edu.period}</Text>
-            </View>
-            <Text style={styles.degree}>{edu.degree}</Text>
-          </View>
-        </View>
-      ))}
-
-      {/* Languages */}
-      <Text style={styles.sectionTitle}>🌐 Languages</Text>
-      <View style={styles.languagesContainer}>
-        {resumeData.languages.map((lang, index) => (
-          <Text key={index} style={styles.languageTag}>
-            {lang.level} {lang.language}
-          </Text>
-        ))}
       </View>
     </Page>
   </Document>
