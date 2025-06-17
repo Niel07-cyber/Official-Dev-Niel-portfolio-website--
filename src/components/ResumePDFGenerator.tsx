@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     borderRadius: 2,
   },
-  description: {
+  jobDescription: {
     fontSize: 9,
     color: '#374151',
     lineHeight: 1.4,
@@ -328,7 +328,7 @@ const ResumePDFDocument: React.FC = () => (
                 <Text key={achIndex} style={styles.achievementItem}>- {achievement}</Text>
               ))
             ) : (
-              <Text style={styles.description}>{exp.description}</Text>
+              <Text style={styles.jobDescription}>{exp.description}</Text>
             )}
           </View>
         </View>
