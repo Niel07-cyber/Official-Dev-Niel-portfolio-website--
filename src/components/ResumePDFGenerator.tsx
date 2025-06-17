@@ -35,108 +35,107 @@ interface ResumeData {
   }>;
 }
 
-// PDF Styles - Full page layout
+// PDF Styles - Clean, readable layout
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'column',
     backgroundColor: '#FFFFFF',
-    padding: 40,
+    padding: 30,
     fontFamily: 'Helvetica',
-    fontSize: 10,
+    fontSize: 11,
     lineHeight: 1.4,
   },
   header: {
-    marginBottom: 25,
-    borderBottomWidth: 2,
-    borderBottomColor: '#2563EB',
-    paddingBottom: 20,
+    marginBottom: 20,
+    paddingBottom: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E0E0E0',
   },
   name: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 6,
-    color: '#1F2937',
+    marginBottom: 5,
+    color: '#1a1a1a',
   },
   title: {
-    fontSize: 16,
+    fontSize: 14,
     marginBottom: 12,
     color: '#2563EB',
-    fontWeight: 'bold',
+    fontWeight: 'normal',
   },
   description: {
-    fontSize: 10,
+    fontSize: 11,
     lineHeight: 1.5,
     marginBottom: 15,
-    color: '#374151',
+    color: '#4a4a4a',
     textAlign: 'justify',
   },
-  contactGrid: {
+  contactRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 10,
   },
   contactItem: {
     flex: 1,
-    marginRight: 20,
   },
   contactLabel: {
-    fontSize: 9,
+    fontSize: 10,
     fontWeight: 'bold',
-    color: '#1F2937',
+    color: '#1a1a1a',
     marginBottom: 2,
   },
   contactValue: {
-    fontSize: 9,
-    color: '#6B7280',
+    fontSize: 10,
+    color: '#666666',
   },
   mainContent: {
     flexDirection: 'row',
     flex: 1,
-    gap: 30,
+    gap: 25,
   },
   leftColumn: {
-    flex: 3,
+    flex: 1.8,
   },
   rightColumn: {
-    flex: 2,
+    flex: 1.2,
   },
   sectionTitle: {
     fontSize: 14,
     fontWeight: 'bold',
-    marginBottom: 15,
+    marginBottom: 12,
     marginTop: 20,
-    color: '#1F2937',
+    color: '#1a1a1a',
+    paddingBottom: 3,
     borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
-    paddingBottom: 5,
+    borderBottomColor: '#E0E0E0',
   },
   sectionTitleFirst: {
     fontSize: 14,
     fontWeight: 'bold',
-    marginBottom: 15,
+    marginBottom: 12,
     marginTop: 0,
-    color: '#1F2937',
+    color: '#1a1a1a',
+    paddingBottom: 3,
     borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
-    paddingBottom: 5,
+    borderBottomColor: '#E0E0E0',
   },
   experienceItem: {
-    marginBottom: 20,
+    marginBottom: 18,
     flexDirection: 'row',
     alignItems: 'flex-start',
   },
   companyLogo: {
-    width: 30,
-    height: 30,
+    width: 35,
+    height: 35,
     marginRight: 12,
-    borderRadius: 4,
+    borderRadius: 6,
     alignItems: 'center',
     justifyContent: 'center',
     flexShrink: 0,
   },
   logoText: {
     color: '#FFFFFF',
-    fontSize: 8,
+    fontSize: 10,
     fontWeight: 'bold',
   },
   experienceContent: {
@@ -146,16 +145,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    marginBottom: 4,
+    marginBottom: 5,
   },
   companyName: {
     fontSize: 12,
     fontWeight: 'bold',
-    color: '#1F2937',
+    color: '#1a1a1a',
   },
   period: {
-    fontSize: 9,
-    color: '#6B7280',
+    fontSize: 10,
+    color: '#666666',
   },
   role: {
     fontSize: 11,
@@ -164,9 +163,9 @@ const styles = StyleSheet.create({
     marginBottom: 3,
   },
   jobDetails: {
-    fontSize: 9,
-    color: '#6B7280',
-    marginBottom: 6,
+    fontSize: 10,
+    color: '#666666',
+    marginBottom: 8,
   },
   technologies: {
     flexDirection: 'row',
@@ -174,9 +173,9 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   techTag: {
-    backgroundColor: '#F3F4F6',
-    color: '#1F2937',
-    fontSize: 7,
+    backgroundColor: '#F0F0F0',
+    color: '#333333',
+    fontSize: 8,
     paddingHorizontal: 6,
     paddingVertical: 2,
     marginRight: 4,
@@ -184,16 +183,16 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
   jobDescription: {
-    fontSize: 9,
-    color: '#374151',
-    lineHeight: 1.4,
-    marginBottom: 2,
-  },
-  achievementItem: {
-    fontSize: 9,
-    color: '#374151',
+    fontSize: 10,
+    color: '#4a4a4a',
     lineHeight: 1.4,
     marginBottom: 3,
+  },
+  achievementItem: {
+    fontSize: 10,
+    color: '#4a4a4a',
+    lineHeight: 1.4,
+    marginBottom: 4,
   },
   educationItem: {
     marginBottom: 15,
@@ -207,15 +206,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    marginBottom: 4,
+    marginBottom: 5,
   },
   schoolName: {
     fontSize: 11,
     fontWeight: 'bold',
-    color: '#1F2937',
+    color: '#1a1a1a',
   },
   degree: {
-    fontSize: 9,
+    fontSize: 10,
     color: '#2563EB',
     lineHeight: 1.3,
   },
@@ -227,10 +226,10 @@ const styles = StyleSheet.create({
   languageTag: {
     backgroundColor: '#2563EB',
     color: '#FFFFFF',
-    fontSize: 8,
-    paddingHorizontal: 8,
-    paddingVertical: 3,
-    borderRadius: 10,
+    fontSize: 9,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 12,
     marginBottom: 6,
   },
   kanopLogo: {
@@ -388,7 +387,7 @@ const ResumePDFDocument: React.FC = () => (
         <Text style={styles.description}>{resumeData.description}</Text>
         
         {/* Contact Information */}
-        <View style={styles.contactGrid}>
+        <View style={styles.contactRow}>
           <View style={styles.contactItem}>
             <Text style={styles.contactLabel}>Location</Text>
             <Text style={styles.contactValue}>{resumeData.contact.location}</Text>
@@ -412,7 +411,7 @@ const ResumePDFDocument: React.FC = () => (
       <View style={styles.mainContent}>
         {/* Left Column - Work Experience */}
         <View style={styles.leftColumn}>
-          <Text style={styles.sectionTitleFirst}>💼 Work experience</Text>
+          <Text style={styles.sectionTitleFirst}>Work experience</Text>
           {resumeData.experience.map((exp, index) => (
             <View key={index} style={styles.experienceItem}>
               <View style={getCompanyLogoStyle(exp.company)}>
@@ -447,7 +446,7 @@ const ResumePDFDocument: React.FC = () => (
         {/* Right Column - Education & Languages */}
         <View style={styles.rightColumn}>
           {/* Education */}
-          <Text style={styles.sectionTitleFirst}>🎓 Education</Text>
+          <Text style={styles.sectionTitleFirst}>Education</Text>
           {resumeData.education.map((edu, index) => (
             <View key={index} style={styles.educationItem}>
               <View style={getSchoolLogoStyle(edu.school)}>
@@ -464,7 +463,7 @@ const ResumePDFDocument: React.FC = () => (
           ))}
 
           {/* Languages */}
-          <Text style={styles.sectionTitle}>🌐 Languages</Text>
+          <Text style={styles.sectionTitle}>Languages</Text>
           <View style={styles.languagesContainer}>
             {resumeData.languages.map((lang, index) => (
               <Text key={index} style={styles.languageTag}>
