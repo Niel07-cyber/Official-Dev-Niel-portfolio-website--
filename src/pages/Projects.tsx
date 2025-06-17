@@ -10,8 +10,8 @@ const projects = [
     lang: "TypeScript",
     logo: <Github size={36} />,
     info: "project published to GitHub 2 years ago, updated 8 months ago",
-    exploreUrl: "https://github.com/username/amaze-me",
-    demoUrl: "https://amaze-me-demo.vercel.app",
+    exploreUrl: "#",
+    demoUrl: "#",
   },
   {
     title: "lidar",
@@ -20,8 +20,8 @@ const projects = [
     lang: "JavaScript",
     logo: <Github size={36} />,
     info: "project published to GitHub 2 years ago, updated 8 months ago",
-    exploreUrl: "https://github.com/username/lidar-vr",
-    demoUrl: "https://lidar-vr-demo.netlify.app",
+    exploreUrl: "#",
+    demoUrl: "#",
   },
   {
     title: "avatar",
@@ -30,8 +30,8 @@ const projects = [
     lang: "TypeScript",
     logo: <Github size={36} />,
     info: "project published to GitHub a year ago, updated a year ago",
-    exploreUrl: "https://github.com/username/avatar-generator",
-    demoUrl: "https://avatar-generator-demo.vercel.app",
+    exploreUrl: "#",
+    demoUrl: "#",
   },
   {
     title: "Post Apocalyptic Paradox",
@@ -40,8 +40,8 @@ const projects = [
     lang: "Photoshop 2021",
     logo: <ExternalLink size={32} />,
     info: "",
-    exploreUrl: "https://github.com/username/post-apocalyptic-art",
-    demoUrl: "https://post-apocalyptic-gallery.vercel.app",
+    exploreUrl: "#",
+    demoUrl: "#",
   },
   {
     title: "neural-network",
@@ -50,8 +50,8 @@ const projects = [
     lang: "Python",
     logo: <Github size={36} />,
     info: "project published to GitHub 10 months ago, updated 6 months ago",
-    exploreUrl: "https://github.com/username/neural-network",
-    demoUrl: "https://neural-network-demo.herokuapp.com",
+    exploreUrl: "#",
+    demoUrl: "#",
   },
   {
     title: "blockchain-explorer",
@@ -60,8 +60,8 @@ const projects = [
     lang: "React",
     logo: <ExternalLink size={32} />,
     info: "project deployed 8 months ago, updated 3 months ago",
-    exploreUrl: "https://github.com/username/blockchain-explorer",
-    demoUrl: "https://blockchain-explorer-demo.vercel.app",
+    exploreUrl: "#",
+    demoUrl: "#",
   },
   {
     title: "ai-chatbot",
@@ -70,8 +70,8 @@ const projects = [
     lang: "Node.js",
     logo: <Github size={36} />,
     info: "project published to GitHub 6 months ago, updated 2 months ago",
-    exploreUrl: "https://github.com/username/ai-chatbot",
-    demoUrl: "https://ai-chatbot-demo.netlify.app",
+    exploreUrl: "#",
+    demoUrl: "#",
   },
   {
     title: "cryptography-suite",
@@ -80,8 +80,8 @@ const projects = [
     lang: "Rust",
     logo: <Github size={36} />,
     info: "project published to GitHub 1 year ago, updated 4 months ago",
-    exploreUrl: "https://github.com/username/cryptography-suite",
-    demoUrl: "https://cryptography-suite-demo.vercel.app",
+    exploreUrl: "#",
+    demoUrl: "#",
   }
 ];
 

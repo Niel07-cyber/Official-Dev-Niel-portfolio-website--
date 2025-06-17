@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { ArrowLeft, Download, X } from "lucide-react";
+import { ArrowLeft, Eye, Download, X } from "lucide-react";
 import { generateResumePDF } from "../components/ResumePDFGenerator";
 import { Document, Page, pdfjs } from 'react-pdf';
 import { pdf } from '@react-pdf/renderer';
@@ -13,6 +13,18 @@ export default function Resume() {
   const [showPDFPreview, setShowPDFPreview] = useState(false);
   const [pdfUrl, setPdfUrl] = useState<string>('');
   const [numPages, setNumPages] = useState<number>();
+
+  const handleViewPDF = async () => {
+    try {
+      // Generate PDF blob
+      const blob = await pdf(<ResumePDFDocument />).toBlob();
+      const url = URL.createObjectURL(blob);
+      setPdfUrl(url);
+      setShowPDFPreview(true);
+    } catch (error) {
+      console.error('Error generating PDF preview:', error);
+    }
+  };
 
   const handleDownloadPDF = async () => {
     try {
@@ -27,6 +39,18 @@ export default function Resume() {
       link.click();
       document.body.removeChild(link);
     }
+  };
+
+  const closePDFPreview = () => {
+    setShowPDFPreview(false);
+    if (pdfUrl) {
+      URL.revokeObjectURL(pdfUrl);
+      setPdfUrl('');
+    }
+  };
+
+  const onDocumentLoadSuccess = ({ numPages }: { numPages: number }) => {
+    setNumPages(numPages);
   };
 
   return (
@@ -56,7 +80,7 @@ export default function Resume() {
               <p className="text-gray-300 text-lg leading-relaxed mb-8">
                 Skilled <span className="font-semibold text-white">full-stack developer</span> with expertise in diverse programming languages and frameworks. Proven ability to deliver impactful 
                 projects on GitHub, fostering a <span className="font-semibold text-white">collaborative environment</span>. Adept at tackling <span className="font-semibold text-white">complex challenges</span> and thriving in team settings. 
-                Seeking to leverage skills in a dynamic role. I am seeking an alternance starting September 2025 for one year.
+                Seeking to leverage skills in a dynamic role.
               </p>
 
               {/* Contact Info */}
@@ -272,6 +296,13 @@ export default function Resume() {
                 <span className="font-medium">Resume_Othniel_Nii_Dodou_Aryee.pdf</span>
               </div>
               <button
+                onClick={handleViewPDF}
+                className="flex items-center gap-2 px-4 py-2 border border-gray-600 rounded-lg text-gray-300 hover:text-white hover:border-gray-400 transition-colors"
+              >
+                <Eye size={16} />
+                View
+              </button>
+              <button
                 onClick={handleDownloadPDF}
                 className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
               >
@@ -282,6 +313,41 @@ export default function Resume() {
           </div>
         </div>
       </div>
+
+      {/* PDF Preview Modal */}
+      {showPDFPreview && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-auto relative">
+            <div className="sticky top-0 bg-white border-b p-4 flex justify-between items-center z-10">
+              <h3 className="text-lg font-semibold text-black">Resume Preview</h3>
+              <button
+                onClick={closePDFPreview}
+                className="p-2 hover:bg-gray-100 rounded-full"
+              >
+                <X size={20} className="text-gray-600" />
+              </button>
+            </div>
+            <div className="p-4 flex justify-center">
+              {pdfUrl && (
+                <Document
+                  file={pdfUrl}
+                  onLoadSuccess={onDocumentLoadSuccess}
+                  className="flex flex-col items-center"
+                >
+                  {Array.from(new Array(numPages), (el, index) => (
+                    <Page
+                      key={`page_${index + 1}`}
+                      pageNumber={index + 1}
+                      scale={1.2}
+                      className="mb-4 shadow-lg"
+                    />
+                  ))}
+                </Document>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
