@@ -29,6 +29,7 @@ const Hero = () => {
               <h1 className="text-6xl md:text-8xl font-bold text-white dark:text-white text-gray-900 leading-tight">
                 Software
                 <br />
+                <br />
                 Engineer
               </h1>
             </div>
@@ -50,7 +51,7 @@ const Hero = () => {
               `}
               style={{transitionDelay: '510ms'}}
             >
-              <a href="#contact" className="inline-flex items-center mt-8 px-6 py-3 border border-gray-600 dark:border-gray-600 border-gray-300 rounded-full text-white dark:text-white text-gray-700 hover:bg-brand-purple hover:border-brand-purple hover:text-white transition-colors">
+              <a href="#contact-section" className="inline-flex items-center mt-8 px-6 py-3 border border-gray-600 dark:border-gray-600 border-gray-300 rounded-full text-white dark:text-white text-gray-700 hover:bg-brand-purple hover:border-brand-purple hover:text-white transition-colors">
                 Let's discuss <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </div>

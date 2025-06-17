@@ -102,6 +102,26 @@ export default function Resume() {
                   <p className="text-gray-300">https://www.bsodium.fr</p>
                 </div>
               </div>
+
+              {/* Statistics */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 p-6 bg-gray-900 rounded-xl">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-white mb-2">04+</div>
+                  <div className="text-sm text-gray-400">YEARS EXPERIENCES</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-white mb-2">10+</div>
+                  <div className="text-sm text-gray-400">TOTAL CLIENTS</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-white mb-2">20+</div>
+                  <div className="text-sm text-gray-400">PROJECTS</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-white mb-2">50%</div>
+                  <div className="text-sm text-gray-400">CLIENT REVENUE</div>
+                </div>
+              </div>
             </div>
 
             {/* Work Experience Section */}
@@ -225,10 +245,8 @@ export default function Resume() {
                     N7
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-1">
-                      <h3 className="text-lg font-bold">ENSEEIHT</h3>
-                      <span className="text-gray-400 text-sm">Sep 2020 - May 2023</span>
-                    </div>
+                    <h3 className="text-lg font-bold mb-1">ENSEEIHT</h3>
+                    <span className="text-gray-400 text-sm block mb-2">Sep 2020 - May 2023</span>
                     <p className="text-blue-400 font-semibold">Master's degree in engineering - Computer Science and Applied Mathematics</p>
                   </div>
                 </div>
@@ -241,10 +259,8 @@ export default function Resume() {
                     |||
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-1">
-                      <h3 className="text-lg font-bold">AAU Klagenfurt</h3>
-                      <span className="text-gray-400 text-sm">Sep 2022 - Mar 2023</span>
-                    </div>
+                    <h3 className="text-lg font-bold mb-1">AAU Klagenfurt</h3>
+                    <span className="text-gray-400 text-sm block mb-2">Sep 2022 - Mar 2023</span>
                     <p className="text-blue-400 font-semibold">Master's degree in computer science - Computer Graphics and Vision</p>
                   </div>
                 </div>
@@ -257,10 +273,8 @@ export default function Resume() {
                     📐
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-1">
-                      <h3 className="text-lg font-bold">CPGE Lycée Déodat de Séverac</h3>
-                      <span className="text-gray-400 text-sm">Sep 2018 - Jul 2020</span>
-                    </div>
+                    <h3 className="text-lg font-bold mb-1">CPGE Lycée Déodat de Séverac</h3>
+                    <span className="text-gray-400 text-sm block mb-2">Sep 2018 - Jul 2020</span>
                     <p className="text-blue-400 font-semibold">PTSI/PSI* (Bachelor equivalent) - Mathematics and Physics</p>
                   </div>
                 </div>

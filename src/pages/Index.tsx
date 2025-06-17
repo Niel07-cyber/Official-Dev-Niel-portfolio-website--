@@ -32,9 +32,6 @@ const Index = () => (
         <Works />
       </section>
       <section>
-        <Certificates />
-      </section>
-      <section>
         <OpenSourceSection />
       </section>
       <section>
