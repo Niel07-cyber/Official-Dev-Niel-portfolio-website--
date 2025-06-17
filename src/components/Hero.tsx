@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
@@ -28,7 +27,6 @@ const Hero = () => {
             >
               <h1 className="text-6xl md:text-8xl font-bold text-white dark:text-white text-gray-900 leading-tight">
                 Software
-                <br />
                 <br />
                 Engineer
               </h1>
