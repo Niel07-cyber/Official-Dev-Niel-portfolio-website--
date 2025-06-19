@@ -33,7 +33,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
         <div className="flex flex-col items-start justify-center min-h-screen py-20">
           {/* Main Content */}
-          <div className="w-full max-w-4xl ml-20 sm:ml-28 lg:ml-32">
+          <div className="w-full max-w-4xl ml-32 sm:ml-40 lg:ml-48">
             <div
               className={`
                 transition-all duration-700

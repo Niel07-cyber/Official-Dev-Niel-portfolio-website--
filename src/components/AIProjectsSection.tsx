@@ -57,14 +57,7 @@ const AIProjectsSection = () => {
   const currentProject = projects[activeProject];
 
   return (
-    <section id="projects" className="py-16 sm:py-20 lg:py-24 bg-gray-800 relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-40 right-40 w-80 h-80 bg-gradient-to-l from-purple-600/10 to-pink-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-gradient-to-br from-cyan-500/5 to-blue-500/5 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-      </div>
-
+    <section id="projects" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
       <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-20 2xl:px-60 relative z-10 max-w-7xl mx-auto">
         <p className="text-gray-400 mb-6 sm:mb-8 lg:mb-10 tracking-widest text-sm sm:text-base text-center">(AI & MACHINE LEARNING)</p>
         
@@ -101,11 +94,11 @@ const AIProjectsSection = () => {
             </div>
           </div>
 
-          {/* Project Cards Arranged in Arc */}
-          <div className="relative h-60 sm:h-80">
+          {/* Project Cards Arranged in Arc with More Spacing */}
+          <div className="relative h-80 sm:h-96">
             {projects.map((project, index) => {
-              const angle = (index - 1) * 60; // -60, 0, 60 degrees
-              const radius = 160;
+              const angle = (index - 1) * 80; // Increased from 60 to 80 degrees for more spacing
+              const radius = 200; // Increased radius for more spacing
               const x = Math.sin((angle * Math.PI) / 180) * radius;
               const y = -Math.cos((angle * Math.PI) / 180) * radius * 0.4;
               
