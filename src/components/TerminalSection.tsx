@@ -159,26 +159,26 @@ const TerminalSection = () => {
 
   return (
     <section
-      className="w-full mx-auto mt-16 mb-20 relative select-none rounded-2xl overflow-hidden shadow-[0_8px_32px_0_rgba(0,0,0,0.80)] border border-neutral-800"
+      className="w-full mx-auto mt-8 sm:mt-16 mb-12 sm:mb-20 relative select-none rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_8px_32px_0_rgba(0,0,0,0.80)] border border-neutral-800"
       style={{
         fontFamily: "Consolas, 'Menlo', 'Monaco', 'Fira Mono', 'monospace'",
         background: "var(--terminal-bg)"
       }}
     >
       {/* Terminal Top */}
-      <div className="flex items-center h-11 px-3 bg-[#22232c] border-b border-[#31333c] justify-between">
-        <div className="flex items-center gap-2">
-          <span className="w-3 h-3 bg-[#e75454] rounded-full" />
-          <span className="w-3 h-3 bg-[#dfbb39] rounded-full" />
-          <span className="w-3 h-3 bg-[#51cd4a] rounded-full" />
-          <span className="ml-4 text-base font-semibold text-gray-200">pwsh in devniel</span>
+      <div className="flex items-center h-9 sm:h-11 px-2 sm:px-3 bg-[#22232c] border-b border-[#31333c] justify-between">
+        <div className="flex items-center gap-1 sm:gap-2">
+          <span className="w-2 h-2 sm:w-3 sm:h-3 bg-[#e75454] rounded-full" />
+          <span className="w-2 h-2 sm:w-3 sm:h-3 bg-[#dfbb39] rounded-full" />
+          <span className="w-2 h-2 sm:w-3 sm:h-3 bg-[#51cd4a] rounded-full" />
+          <span className="ml-2 sm:ml-4 text-sm sm:text-base font-semibold text-gray-200 hidden sm:block">pwsh in devniel</span>
         </div>
-        <div className="flex gap-2 items-center">
-          <span className="bg-[#191921] text-gray-200 px-3 py-1.5 rounded-t font-semibold text-xs select-none">
+        <div className="flex gap-1 sm:gap-2 items-center">
+          <span className="bg-[#191921] text-gray-200 px-2 sm:px-3 py-1 sm:py-1.5 rounded-t font-semibold text-xs select-none">
             pwsh in devniel
           </span>
           <button
-            className="ml-2 w-7 h-7 text-[#63646b] text-xl flex items-center justify-center rounded hover:bg-[#323235]"
+            className="ml-1 sm:ml-2 w-6 h-6 sm:w-7 sm:h-7 text-[#63646b] text-lg sm:text-xl flex items-center justify-center rounded hover:bg-[#323235]"
             tabIndex={-1}
             title="New Tab"
             aria-label="New tab"
@@ -189,28 +189,28 @@ const TerminalSection = () => {
       
       {/* Terminal inner */}
       <div
-        className="flex flex-col px-4 md:px-10 py-7 md:py-12 overflow-hidden"
-        style={{ minHeight: 520, background: "var(--terminal-bg)" }}
+        className="flex flex-col px-3 sm:px-4 md:px-10 py-4 sm:py-7 md:py-12 overflow-hidden"
+        style={{ minHeight: "400px", background: "var(--terminal-bg)" }}
       >
-        <div className="text-[#c7c6c6] text-[13px] mb-1">Powershell 7.3.4</div>
-        <div className="text-[#9d9d9f] text-xs mb-5">Loading personal and system profiles took 281ms.</div>
-        <div className="flex flex-row items-center text-lg md:text-xl font-semibold mb-2 whitespace-pre">
+        <div className="text-[#c7c6c6] text-xs sm:text-[13px] mb-1">Powershell 7.3.4</div>
+        <div className="text-[#9d9d9f] text-xs mb-3 sm:mb-5">Loading personal and system profiles took 281ms.</div>
+        <div className="flex flex-row items-center text-sm sm:text-lg md:text-xl font-semibold mb-2 whitespace-pre overflow-x-auto">
           <span className="text-brand-purple font-bold">{PROMPT_USER}</span>
           <span className="text-white">@</span>
           <span className="text-[#01c2c2]">{PROMPT_HOST}:</span>
           <span className="text-white">~$</span>
           {phase === "typing-command" &&
-            <span className="ml-2" style={{ fontWeight: 500 }}>{promptPart}<span className="animate-pulse">|</span></span>
+            <span className="ml-2 min-w-0" style={{ fontWeight: 500 }}>{promptPart}<span className="animate-pulse">|</span></span>
           }
           {phase !== "typing-command" &&
-            <span className="ml-2" style={{ fontWeight: 500 }}> {CommandMap[mode]}<span className="animate-pulse">|</span></span>
+            <span className="ml-2 min-w-0" style={{ fontWeight: 500 }}> {CommandMap[mode]}<span className="animate-pulse">|</span></span>
           }
         </div>
         
         {/* Tabs - Experience/Education switch with more spacing */}
-        <div className="flex flex-row gap-4 mb-8 mt-4">
+        <div className="flex flex-row gap-2 sm:gap-4 mb-4 sm:mb-8 mt-2 sm:mt-4">
           <button
-            className={`px-6 py-2 rounded-md text-base font-bold transition-all duration-300 ${mode === "experience"
+            className={`px-3 sm:px-6 py-1.5 sm:py-2 rounded-md text-sm sm:text-base font-bold transition-all duration-300 ${mode === "experience"
               ? "bg-white text-[#181823] shadow border border-white"
               : "bg-[#262738] border border-[#31333c] text-gray-300 hover:bg-[#2a2a37] hover:text-white"} transition-all`}
             disabled={mode === "experience"}
@@ -220,7 +220,7 @@ const TerminalSection = () => {
             experience
           </button>
           <button
-            className={`px-6 py-2 rounded-md text-base font-bold transition-all duration-300 ${mode === "education"
+            className={`px-3 sm:px-6 py-1.5 sm:py-2 rounded-md text-sm sm:text-base font-bold transition-all duration-300 ${mode === "education"
               ? "bg-white text-[#181823] shadow border border-white"
               : "bg-[#262738] border border-[#31333c] text-gray-300 hover:bg-[#2a2a37] hover:text-white"} transition-all`}
             disabled={mode === "education"}
@@ -232,42 +232,42 @@ const TerminalSection = () => {
         </div>
         
         {/* Blank/clear phase for tab switch (erase previous output) */}
-        {phase === "idle" && <div className="h-56" />}
+        {phase === "idle" && <div className="h-32 sm:h-56" />}
         
         {/* Terminal main output: experiences or education, reveal one-by-one */}
         {phase !== "idle" &&
-          <div className="flex-1 w-full overflow-y-auto max-h-[365px] pr-1 custom-scrollbar relative">
+          <div className="flex-1 w-full overflow-y-auto max-h-[300px] sm:max-h-[365px] pr-1 custom-scrollbar relative">
             {/* Vertical connecting line */}
             {shownCount > 1 && (
               <div 
-                className="absolute left-7 top-16 w-px bg-[#31333c] transition-all duration-500 ease-out" 
-                style={{height: `${(shownCount - 1) * 140}px`}}
+                className="absolute left-5 sm:left-7 top-12 sm:top-16 w-px bg-[#31333c] transition-all duration-500 ease-out" 
+                style={{height: `${(shownCount - 1) * (window.innerWidth < 640 ? 120 : 140)}px`}}
               ></div>
             )}
             <ul>
               {mode === "experience" && EXPERIENCE.slice(0, shownCount).map((itm, idx) => (
-                <li key={itm.company} className={`flex items-start gap-5 mb-8 last:mb-0 relative transition-all duration-500 ease-out transform ${idx < shownCount ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: `${idx * 160}ms`}}>
+                <li key={itm.company} className={`flex items-start gap-3 sm:gap-5 mb-6 sm:mb-8 last:mb-0 relative transition-all duration-500 ease-out transform ${idx < shownCount ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: `${idx * 160}ms`}}>
                   {/* Connection dot */}
                   {idx > 0 && (
-                    <div className="absolute left-0 top-6 w-3 h-3 bg-[#43e09f] rounded-full border-2 border-[#181823] z-10 transition-all duration-300"></div>
+                    <div className="absolute left-0 top-4 sm:top-6 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-[#43e09f] rounded-full border-2 border-[#181823] z-10 transition-all duration-300"></div>
                   )}
                   <img
                     src={itm.logo}
                     alt={itm.company + " logo"}
-                    className="w-14 h-14 rounded-md bg-[#191921] shadow border border-[#35373f] object-cover"
+                    className="w-10 h-10 sm:w-14 sm:h-14 rounded-md bg-[#191921] shadow border border-[#35373f] object-cover flex-shrink-0"
                   />
-                  <div>
-                    <div className="flex items-center gap-2 mb-0.5">
-                      <span className="font-bold text-[1.23rem] text-white">{itm.company}</span>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-0.5">
+                      <span className="font-bold text-base sm:text-[1.23rem] text-white">{itm.company}</span>
                       <span className="text-gray-300 text-xs">{itm.period} <span className="mx-1">({itm.duration})</span></span>
                     </div>
-                    <div className="text-base font-bold text-[#43e09f] mb-0.5">{itm.role}
-                      <span className="text-xs text-gray-400 ml-3">{itm.type} – {itm.location}</span>
+                    <div className="text-sm sm:text-base font-bold text-[#43e09f] mb-0.5">{itm.role}
+                      <span className="text-xs text-gray-400 block sm:inline sm:ml-3">{itm.type} – {itm.location}</span>
                     </div>
-                    <div className="flex flex-wrap gap-2 mt-1 mb-1.5">
+                    <div className="flex flex-wrap gap-1 sm:gap-2 mt-1 mb-1.5">
                       {itm.tags.map(tag => (
-                        <div key={tag.name} className="flex items-center gap-1 bg-[#282b3e] text-[#8dd7f2] px-2 py-0.5 rounded text-xs font-medium">
-                          <img src={tag.logo} alt={tag.name} className="w-3 h-3 object-contain" />
+                        <div key={tag.name} className="flex items-center gap-1 bg-[#282b3e] text-[#8dd7f2] px-1.5 sm:px-2 py-0.5 rounded text-xs font-medium">
+                          <img src={tag.logo} alt={tag.name} className="w-2.5 h-2.5 sm:w-3 sm:h-3 object-contain" />
                           <span>{tag.name}</span>
                         </div>
                       ))}
@@ -277,22 +277,22 @@ const TerminalSection = () => {
                 </li>
               ))}
               {mode === "education" && EDUCATION.slice(0, shownCount).map((itm, idx) => (
-                <li key={itm.school} className={`flex items-start gap-5 mb-8 last:mb-0 relative transition-all duration-500 ease-out transform ${idx < shownCount ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: `${idx * 160}ms`}}>
+                <li key={itm.school} className={`flex items-start gap-3 sm:gap-5 mb-6 sm:mb-8 last:mb-0 relative transition-all duration-500 ease-out transform ${idx < shownCount ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: `${idx * 160}ms`}}>
                   {/* Connection dot */}
                   {idx > 0 && (
-                    <div className="absolute left-0 top-6 w-3 h-3 bg-[#5dc5d8] rounded-full border-2 border-[#181823] z-10 transition-all duration-300"></div>
+                    <div className="absolute left-0 top-4 sm:top-6 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-[#5dc5d8] rounded-full border-2 border-[#181823] z-10 transition-all duration-300"></div>
                   )}
                   <img
                     src={itm.logo}
                     alt={itm.school + " logo"}
-                    className="w-14 h-14 rounded-md bg-[#191921] shadow border border-[#35373f] object-cover"
+                    className="w-10 h-10 sm:w-14 sm:h-14 rounded-md bg-[#191921] shadow border border-[#35373f] object-cover flex-shrink-0"
                   />
-                  <div>
-                    <div className="flex items-center gap-2 mb-0.5">
-                      <span className="font-bold text-[1.15rem] text-white">{itm.school}</span>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-0.5">
+                      <span className="font-bold text-base sm:text-[1.15rem] text-white">{itm.school}</span>
                       <span className="text-gray-300 text-xs">{itm.period}</span>
                     </div>
-                    <div className="text-base font-bold text-[#5dc5d8] mb-0.5">{itm.degree}</div>
+                    <div className="text-sm sm:text-base font-bold text-[#5dc5d8] mb-0.5">{itm.degree}</div>
                   </div>
                 </li>
               ))}
