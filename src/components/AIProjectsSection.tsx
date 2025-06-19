@@ -58,72 +58,62 @@ const AIProjectsSection = () => {
 
   return (
     <section id="projects" className="py-8 sm:py-12 lg:py-16 relative overflow-hidden">
-      <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-20 2xl:px-60 relative z-10 max-w-7xl mx-auto">
+      <div className="w-full px-8 sm:px-16 lg:px-24 xl:px-32 2xl:px-40 relative z-10 max-w-7xl mx-auto">
         <p className="text-gray-400 mb-4 sm:mb-6 tracking-widest text-sm sm:text-base text-center">(AI & MACHINE LEARNING)</p>
         
-        {/* Main Title - Reduced size */}
-        <div className="text-center mb-8 sm:mb-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4">
-            <span className="bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Redefining
-            </span>
-          </h1>
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3">
-            THE FUTURE WITH
-          </h2>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
-            <span className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-              AI INNOVATION
-            </span>
-          </h3>
-        </div>
-
-        {/* Interactive Dashboard - Reduced size */}
-        <div className="relative mb-6 sm:mb-8">
-          {/* Central Hub with Robot Image - Smaller */}
-          <div className="flex justify-center mb-6">
-            <div className="relative">
-              <div className="w-24 h-24 sm:w-28 sm:h-28 bg-black rounded-full flex items-center justify-center border-2 border-emerald-500/50 backdrop-blur-sm overflow-hidden">
-                <img 
-                  src="/lovable-uploads/af0deefa-9b40-4b71-ac2d-a43a7a74dd53.png" 
-                  alt="AI Robot" 
-                  className="w-20 h-20 sm:w-24 sm:h-24 object-cover object-center rounded-full"
-                />
-              </div>
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-400/20 to-blue-400/20 animate-ping"></div>
-            </div>
+        {/* Main Layout - Desktop: Text left, Cards right; Mobile: Stacked */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+          {/* Left Side - Title and Description */}
+          <div className="text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4">
+              <span className="bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Redefining
+              </span>
+            </h1>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-bold text-white mb-3">
+              THE FUTURE WITH
+            </h2>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold mb-8">
+              <span className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+                AI INNOVATION
+              </span>
+            </h3>
           </div>
 
-          {/* Project Cards Arranged in Arc - Reduced size */}
-          <div className="relative h-48 sm:h-56">
-            {projects.map((project, index) => {
-              const angle = (index - 1) * 80; // Spread out cards
-              const radius = 140; // Smaller radius
-              const x = Math.sin((angle * Math.PI) / 180) * radius;
-              const y = -Math.cos((angle * Math.PI) / 180) * radius * 0.4;
-              
-              const IconComponent = project.icon;
-              const isActive = activeProject === index;
-              
-              return (
-                <div key={project.id}>
-                  {/* Project Card - Smaller */}
-                  <div
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500"
-                    style={{
-                      transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) ${isActive ? 'scale(1.1)' : 'scale(1)'}`
-                    }}
-                  >
+          {/* Right Side - Interactive Elements */}
+          <div className="relative">
+            {/* Robot Image positioned above cards */}
+            <div className="flex justify-center mb-8">
+              <div className="relative">
+                <div className="w-32 h-32 sm:w-36 sm:h-36 lg:w-40 lg:h-40 bg-black rounded-full flex items-center justify-center border-2 border-emerald-500/50 backdrop-blur-sm overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/af0deefa-9b40-4b71-ac2d-a43a7a74dd53.png" 
+                    alt="AI Robot" 
+                    className="w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 object-cover object-center rounded-full"
+                  />
+                </div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-400/20 to-blue-400/20 animate-ping"></div>
+              </div>
+            </div>
+
+            {/* Project Cards in horizontal line with more spacing */}
+            <div className="flex justify-center items-center gap-8 sm:gap-12 lg:gap-16 mb-8">
+              {projects.map((project, index) => {
+                const IconComponent = project.icon;
+                const isActive = activeProject === index;
+                
+                return (
+                  <div key={project.id}>
                     <button
                       onClick={() => setActiveProject(index)}
-                      className={`group relative w-16 h-16 sm:w-18 sm:h-18 rounded-xl transition-all duration-300 ${
+                      className={`group relative w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 rounded-xl transition-all duration-300 ${
                         isActive 
-                          ? `bg-gradient-to-r ${project.color} shadow-2xl` 
+                          ? `bg-gradient-to-r ${project.color} shadow-2xl scale-110` 
                           : 'bg-gray-700/90 hover:bg-gray-600/90 shadow-lg border border-gray-500'
                       } backdrop-blur-sm`}
                     >
                       <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                      <IconComponent className={`w-5 h-5 sm:w-6 sm:h-6 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
+                      <IconComponent className={`w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
                         isActive ? 'text-white' : 'text-gray-300'
                       }`} />
                       {isActive && (
@@ -131,35 +121,14 @@ const AIProjectsSection = () => {
                       )}
                     </button>
                   </div>
-                  
-                  {/* Connecting Lines from center to cards */}
-                  <svg 
-                    className="absolute top-1/2 left-1/2 pointer-events-none w-full h-full"
-                    style={{ transform: `translate(-50%, -50%)` }}
-                  >
-                    <defs>
-                      <pattern id={`dots-${index}`} patternUnits="userSpaceOnUse" width="8" height="8">
-                        <circle cx="4" cy="4" r="1" fill={isActive ? "#10b981" : "#6b7280"} />
-                      </pattern>
-                    </defs>
-                    <line
-                      x1="50%"
-                      y1="50%"
-                      x2={`calc(50% + ${x}px)`}
-                      y2={`calc(50% + ${y}px)`}
-                      stroke={`url(#dots-${index})`}
-                      strokeWidth="2"
-                      className="animate-pulse"
-                    />
-                  </svg>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
 
-        {/* Project Details Panel - Compact */}
-        <div className="bg-gray-700/70 backdrop-blur-sm border border-gray-600/60 rounded-xl p-4 sm:p-6 mb-6 sm:mb-8 shadow-lg">
+        {/* Project Details Panel */}
+        <div className="bg-gray-700/70 backdrop-blur-sm border border-gray-600/60 rounded-xl p-4 sm:p-6 mb-6 sm:mb-8 shadow-lg mt-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Left Panel */}
             <div>
@@ -203,7 +172,7 @@ const AIProjectsSection = () => {
           </div>
         </div>
 
-        {/* CTA Buttons - Compact */}
+        {/* CTA Buttons */}
         <div className="text-center space-y-3 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
           <Button 
             asChild

@@ -23,6 +23,7 @@ const ProjectsCarousel: React.FC = () => {
     <>
       {/* Projects Section Header */}
       <div className="text-center mb-12 sm:mb-16">
+        <p className="text-gray-400 mb-4 sm:mb-6 tracking-widest text-sm sm:text-base">(PROJECTS)</p>
         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
           <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
             Projects
