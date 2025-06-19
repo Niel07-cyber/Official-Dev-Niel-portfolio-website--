@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Github, ExternalLink, ArrowLeft, Search, ChevronDown, Shuffle, Sun } from "lucide-react";
 
@@ -87,21 +86,28 @@ const projects = [
 
 export default function Projects() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/30 text-white relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-40 right-40 w-80 h-80 bg-gradient-to-l from-purple-600/10 to-pink-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-gradient-to-br from-teal-500/5 to-blue-500/5 rounded-full blur-2xl"></div>
+      </div>
+
       {/* Hero Header Section */}
-      <div className="relative px-4 sm:px-8 md:px-16 py-8 sm:py-16">
+      <div className="relative px-4 sm:px-8 md:px-16 py-8 sm:py-16 z-10">
         <div className="mx-auto w-full max-w-7xl">
           {/* Top Controls */}
           <div className="flex items-center justify-between mb-12 sm:mb-20">
             <a 
               href="/"
-              className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 border border-gray-600 rounded-lg text-gray-300 hover:text-white hover:border-gray-400 transition-colors text-sm sm:text-base"
+              className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 border border-gray-600 rounded-lg text-gray-300 hover:text-white hover:border-gray-400 transition-colors text-sm sm:text-base backdrop-blur-sm bg-black/20"
             >
               <ArrowLeft size={16} className="sm:w-[18px] sm:h-[18px]" />
               <span>Back to homepage</span>
             </a>
             
-            <button className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 transition-colors">
+            <button className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-gray-800/50 hover:bg-gray-700/50 transition-colors backdrop-blur-sm">
               <Sun size={18} className="sm:w-5 sm:h-5 text-yellow-300" />
             </button>
           </div>
@@ -121,7 +127,7 @@ export default function Projects() {
             <div className="flex-1">
               <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-bold leading-none mb-8 sm:mb-12">
                 Projects &<br />
-                <span className="font-bold">Experiments</span>
+                <span className="font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Experiments</span>
               </h1>
             </div>
           </div>
@@ -136,20 +142,20 @@ export default function Projects() {
               <input
                 type="text"
                 placeholder="Search 8 projects"
-                className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 bg-gray-900/80 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 transition-colors text-sm sm:text-base"
+                className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 bg-gray-900/80 backdrop-blur-sm border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 transition-colors text-sm sm:text-base"
               />
             </div>
 
             {/* Filter Dropdown */}
             <div className="relative">
-              <button className="flex items-center justify-between gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 bg-gray-900/80 border border-gray-700 rounded-lg text-gray-300 hover:text-white hover:border-gray-500 transition-colors min-w-[180px] sm:min-w-[200px] text-sm sm:text-base">
+              <button className="flex items-center justify-between gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 bg-gray-900/80 backdrop-blur-sm border border-gray-700 rounded-lg text-gray-300 hover:text-white hover:border-gray-500 transition-colors min-w-[180px] sm:min-w-[200px] text-sm sm:text-base">
                 <span>Filter by platform</span>
                 <ChevronDown size={16} className="sm:w-[18px] sm:h-[18px]" />
               </button>
             </div>
 
             {/* Randomize Button */}
-            <button className="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors font-medium text-sm sm:text-base">
+            <button className="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 bg-white/90 backdrop-blur-sm text-black rounded-lg hover:bg-white transition-colors font-medium text-sm sm:text-base">
               <Shuffle size={16} className="sm:w-[18px] sm:h-[18px]" />
               <span>Randomize</span>
             </button>
@@ -158,17 +164,17 @@ export default function Projects() {
       </div>
 
       {/* Projects Grid */}
-      <div className="px-4 sm:px-8 md:px-16 pb-12 sm:pb-20">
+      <div className="px-4 sm:px-8 md:px-16 pb-12 sm:pb-20 relative z-10">
         <div className="mx-auto w-full max-w-7xl">
           <div className="flex flex-col gap-4 sm:gap-8">
             {projects.map((proj, i) => (
               <div
                 key={i}
-                className="relative group bg-[#121217] border border-[#22222A] rounded-xl sm:rounded-2xl flex flex-col sm:flex-row items-start sm:items-center px-4 sm:px-6 py-4 sm:py-7 shadow-lg transition-transform duration-200 hover:scale-[1.02] hover:border-brand-purple gap-3 sm:gap-0"
+                className="relative group bg-[#121217]/80 backdrop-blur-sm border border-[#22222A] rounded-xl sm:rounded-2xl flex flex-col sm:flex-row items-start sm:items-center px-4 sm:px-6 py-4 sm:py-7 shadow-lg transition-transform duration-200 hover:scale-[1.02] hover:border-brand-purple gap-3 sm:gap-0"
               >
                 {/* Logo */}
                 <div className="flex-shrink-0 sm:mr-5">
-                  <div className="bg-[#211F2A] rounded-lg sm:rounded-xl w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center text-brand-purple border border-[#282837] shadow-sm">
+                  <div className="bg-[#211F2A]/80 backdrop-blur-sm rounded-lg sm:rounded-xl w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center text-brand-purple border border-[#282837] shadow-sm">
                     {React.cloneElement(proj.logo, { size: window.innerWidth < 640 ? 24 : 36 })}
                   </div>
                 </div>

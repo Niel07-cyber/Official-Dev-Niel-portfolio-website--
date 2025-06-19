@@ -33,7 +33,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
         <div className="flex flex-col items-start justify-center min-h-screen py-20">
           {/* Main Content */}
-          <div className="w-full max-w-4xl">
+          <div className="w-full max-w-4xl ml-12 sm:ml-20 lg:ml-24">
             <div
               className={`
                 transition-all duration-700
@@ -64,10 +64,10 @@ const Hero = () => {
 
             {/* Social Links and CTA Container */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8">
-              {/* Social Links - shifted more to the right */}
+              {/* Social Links */}
               <div
                 className={`
-                  flex gap-6 ml-8 sm:ml-16
+                  flex gap-6
                   transition-all duration-700
                   ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
                 `}
@@ -99,10 +99,10 @@ const Hero = () => {
                 </a>
               </div>
 
-              {/* CTA Button - shifted more to the right */}
+              {/* CTA Button */}
               <div
                 className={`
-                  transition-all duration-700 mr-8 sm:mr-16
+                  transition-all duration-700 mr-4 sm:mr-8
                   ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
                 `}
                 style={{transitionDelay: '600ms'}}

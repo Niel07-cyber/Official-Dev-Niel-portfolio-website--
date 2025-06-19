@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { ArrowLeft, Eye, Download, X } from "lucide-react";
 import { generateResumePDF } from "../components/ResumePDFGenerator";
@@ -55,13 +54,20 @@ export default function Resume() {
 
   return (
     <>
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900/20 to-blue-900/30 text-white relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-32 left-32 w-96 h-96 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-l from-blue-600/10 to-teal-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-gradient-to-br from-pink-500/5 to-purple-500/5 rounded-full blur-2xl"></div>
+        </div>
+
         {/* Header */}
-        <div className="px-8 md:px-16 py-8">
+        <div className="px-8 md:px-16 py-8 relative z-10">
           <div className="mx-auto w-full max-w-4xl">
             <a 
               href="/"
-              className="flex items-center gap-3 px-4 py-2 border border-gray-600 rounded-lg text-gray-300 hover:text-white hover:border-gray-400 transition-colors w-fit"
+              className="flex items-center gap-3 px-4 py-2 border border-gray-600 rounded-lg text-gray-300 hover:text-white hover:border-gray-400 transition-colors w-fit backdrop-blur-sm bg-black/20"
             >
               <ArrowLeft size={18} />
               <span>Back to homepage</span>
@@ -70,12 +76,14 @@ export default function Resume() {
         </div>
 
         {/* Main Content */}
-        <div className="px-8 md:px-16 pb-16">
+        <div className="px-8 md:px-16 pb-16 relative z-10">
           <div className="mx-auto w-full max-w-4xl">
             {/* Header Section */}
-            <div className="mb-12">
-              <h1 className="text-5xl md:text-6xl font-bold mb-4">Othniel Nii Dodou Aryee</h1>
-              <h2 className="text-2xl text-gray-300 mb-6">Software Engineer</h2>
+            <div className="mb-12 bg-black/20 backdrop-blur-sm rounded-2xl p-8 border border-gray-800/50">
+              <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                Othniel Nii Dodou Aryee
+              </h1>
+              <h2 className="text-2xl text-blue-300 mb-6">Software Engineer</h2>
               
               <p className="text-gray-300 text-lg leading-relaxed mb-8">
                 Skilled <span className="font-semibold text-white">full-stack developer</span> with expertise in diverse programming languages and frameworks. Proven ability to deliver impactful 
@@ -104,33 +112,33 @@ export default function Resume() {
               </div>
 
               {/* Statistics */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 p-6 bg-gray-900 rounded-xl">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 p-6 bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-xl backdrop-blur-sm border border-gray-700/50">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white mb-2">04+</div>
+                  <div className="text-3xl font-bold text-blue-300 mb-2">04+</div>
                   <div className="text-sm text-gray-400">YEARS EXPERIENCES</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white mb-2">10+</div>
+                  <div className="text-3xl font-bold text-purple-300 mb-2">10+</div>
                   <div className="text-sm text-gray-400">TOTAL CLIENTS</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white mb-2">20+</div>
+                  <div className="text-3xl font-bold text-teal-300 mb-2">20+</div>
                   <div className="text-sm text-gray-400">PROJECTS</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white mb-2">50%</div>
+                  <div className="text-3xl font-bold text-green-300 mb-2">50%</div>
                   <div className="text-sm text-gray-400">CLIENT REVENUE</div>
                 </div>
               </div>
             </div>
 
             {/* Work Experience Section */}
-            <div className="mb-12 relative">
+            <div className="mb-12 relative bg-black/20 backdrop-blur-sm rounded-2xl p-8 border border-gray-800/50">
               {/* Vertical line connecting all experiences */}
-              <div className="absolute left-8 top-16 bottom-0 w-px bg-gray-700"></div>
+              <div className="absolute left-16 top-24 bottom-8 w-px bg-gradient-to-b from-blue-500 to-purple-500"></div>
               
               <div className="flex items-center gap-3 mb-8">
-                <div className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded flex items-center justify-center">
                   <span className="text-sm">💼</span>
                 </div>
                 <h2 className="text-2xl font-bold">Work experience</h2>
@@ -224,12 +232,12 @@ export default function Resume() {
             </div>
 
             {/* Education Section */}
-            <div className="mb-12 relative">
+            <div className="mb-12 relative bg-black/20 backdrop-blur-sm rounded-2xl p-8 border border-gray-800/50">
               {/* Vertical line connecting all education entries */}
-              <div className="absolute left-8 top-16 bottom-0 w-px bg-gray-700"></div>
+              <div className="absolute left-16 top-24 bottom-8 w-px bg-gradient-to-b from-purple-500 to-blue-500"></div>
               
               <div className="flex items-center gap-3 mb-8">
-                <div className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded flex items-center justify-center">
                   <span className="text-sm">🎓</span>
                 </div>
                 <h2 className="text-2xl font-bold">Education</h2>
@@ -282,43 +290,43 @@ export default function Resume() {
             </div>
 
             {/* Languages Section */}
-            <div className="mb-12">
+            <div className="mb-12 bg-black/20 backdrop-blur-sm rounded-2xl p-8 border border-gray-800/50">
               <div className="flex items-center gap-3 mb-8">
-                <div className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-r from-teal-500 to-green-500 rounded flex items-center justify-center">
                   <span className="text-sm">🌐</span>
                 </div>
                 <h2 className="text-2xl font-bold">Languages</h2>
               </div>
 
               <div className="flex flex-wrap gap-3">
-                <span className="bg-green-700 text-white px-4 py-2 rounded-full text-sm font-medium">
+                <span className="bg-gradient-to-r from-green-600 to-green-700 text-white px-4 py-2 rounded-full text-sm font-medium">
                   C2 French (native)
                 </span>
-                <span className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium">
+                <span className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium">
                   C1 English
                 </span>
-                <span className="bg-gray-600 text-white px-4 py-2 rounded-full text-sm font-medium">
+                <span className="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-4 py-2 rounded-full text-sm font-medium">
                   B1 German
                 </span>
               </div>
             </div>
 
             {/* PDF Actions */}
-            <div className="flex items-center justify-center gap-4 pt-8 border-t border-gray-800">
+            <div className="flex items-center justify-center gap-4 pt-8 border-t border-gray-800/50 bg-black/20 backdrop-blur-sm rounded-2xl p-6">
               <div className="flex items-center gap-3 text-gray-300">
                 <span className="text-lg">📄</span>
                 <span className="font-medium">Resume_Othniel_Nii_Dodou_Aryee.pdf</span>
               </div>
               <button
                 onClick={handleViewPDF}
-                className="flex items-center gap-2 px-4 py-2 border border-gray-600 rounded-lg text-gray-300 hover:text-white hover:border-gray-400 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 border border-gray-600 rounded-lg text-gray-300 hover:text-white hover:border-gray-400 transition-colors backdrop-blur-sm bg-black/20"
               >
                 <Eye size={16} />
                 View
               </button>
               <button
                 onClick={handleDownloadPDF}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg transition-colors"
               >
                 <Download size={16} />
                 Download
