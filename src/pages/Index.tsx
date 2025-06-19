@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import ProgrammingLanguages from "@/components/ProgrammingLanguages";
-import Works from "./Works";
 import Projects from "@/components/Projects";
 import ContactSocials from "@/components/ContactSocials";
 import TerminalSection from "@/components/TerminalSection";
@@ -30,9 +29,6 @@ const Index = () => (
       </section>
       <section className="w-full">
         <Projects />
-      </section>
-      <section className="w-full px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
-        <Works />
       </section>
       <section className="w-full px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
         <OpenSourceSection />
