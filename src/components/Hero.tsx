@@ -1,6 +1,10 @@
 
 import React, { useEffect, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+
+const HERO_LOTTIE =
+  "https://lottie.host/4c9a4b46-ca80-4fa5-8ec5-f57ea6c865c8/OxAE8hI3SQ.lottie";
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
@@ -65,90 +69,26 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* 3D Animated Sphere */}
+          {/* Lottie Animation */}
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-end items-center order-1 lg:order-2 relative">
-            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl h-[400px] sm:h-[500px] flex items-center justify-center">
-              {/* Main 3D Sphere */}
-              <div className="relative w-80 h-80 sm:w-96 sm:h-96">
-                <div 
-                  className="absolute inset-0 rounded-full animate-spin"
-                  style={{
-                    background: `
-                      conic-gradient(
-                        from 0deg,
-                        #ff6b35,
-                        #f7931e,
-                        #ffd700,
-                        #9d4edd,
-                        #6c5ce7,
-                        #00cec9,
-                        #0984e3,
-                        #6c5ce7,
-                        #e17055,
-                        #ff6b35
-                      )
-                    `,
-                    animationDuration: '20s',
-                    filter: 'blur(2px)',
-                  }}
-                />
-                <div 
-                  className="absolute inset-2 rounded-full"
-                  style={{
-                    background: `
-                      radial-gradient(
-                        circle at 30% 30%,
-                        rgba(255, 255, 255, 0.8),
-                        rgba(157, 78, 221, 0.9) 30%,
-                        rgba(108, 92, 231, 0.9) 50%,
-                        rgba(9, 132, 227, 0.9) 70%,
-                        rgba(0, 0, 0, 0.9) 100%
-                      )
-                    `,
-                    filter: 'drop-shadow(0 20px 40px rgba(157, 78, 221, 0.3))',
-                  }}
-                />
-                
-                {/* Floating Text Elements */}
-                <div className="absolute -top-8 -left-8 text-white/70 text-sm font-semibold animate-float">
-                  AI-powered
-                </div>
-                <div className="absolute -bottom-8 -right-8 text-white/70 text-sm font-semibold animate-float" style={{animationDelay: '1s'}}>
-                  insights
-                </div>
-                <div className="absolute top-1/2 -left-16 text-white/70 text-sm font-semibold animate-float" style={{animationDelay: '2s'}}>
-                  for smarter
-                </div>
-                <div className="absolute top-1/2 -right-16 text-white/70 text-sm font-semibold animate-float" style={{animationDelay: '3s'}}>
-                  decisions
-                </div>
-              </div>
-              
-              {/* Additional decorative elements */}
-              <div className="absolute top-20 right-10 w-4 h-4 bg-white/30 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
-              <div className="absolute bottom-24 left-8 w-2 h-2 bg-purple-400/50 rounded-full animate-pulse" style={{animationDelay: '1.5s'}}></div>
-              <div className="absolute top-32 left-16 w-3 h-3 bg-blue-400/40 rounded-full animate-pulse" style={{animationDelay: '2.5s'}}></div>
+            <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl">
+              <DotLottieReact
+                src={HERO_LOTTIE}
+                loop
+                autoplay
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  minHeight: "300px",
+                  maxHeight: "600px",
+                }}
+              />
             </div>
+            {/* Gradient overlay for better integration */}
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-background/20 pointer-events-none lg:block hidden"></div>
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0) rotate(0deg);
-            opacity: 0.7;
-          }
-          50% {
-            transform: translateY(-10px) rotate(5deg);
-            opacity: 1;
-          }
-        }
-        
-        .animate-float {
-          animation: float 4s ease-in-out infinite;
-        }
-      `}</style>
     </section>
   );
 };
