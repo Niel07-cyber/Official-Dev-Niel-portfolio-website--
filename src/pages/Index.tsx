@@ -15,35 +15,35 @@ import SoftwarePhilosophySection from "@/components/SoftwarePhilosophySection";
 const Index = () => (
   <div className="bg-background font-sans text-foreground relative w-full min-h-screen overflow-x-hidden">
     <Header />
-    <main className="w-full min-h-screen px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
-      <section>
+    <main className="w-full min-h-screen">
+      <section className="w-full">
         <Hero />
       </section>
-      <section>
+      <section className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
         <About />
       </section>
-      <section>
+      <section className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
         <ProgrammingLanguages />
       </section>
-      <section id="terminal-section">
+      <section id="terminal-section" className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
         <TerminalSection />
       </section>
-      <section>
+      <section className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
         <Projects />
       </section>
-      <section>
+      <section className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
         <Works />
       </section>
-      <section>
+      <section className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
         <OpenSourceSection />
       </section>
-      <section>
+      <section className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
         <SoftwarePhilosophySection />
       </section>
-      <section id="resume-banner">
+      <section id="resume-banner" className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
         <ResumeBanner />
       </section>
-      <section id="contact-section">
+      <section id="contact-section" className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
         <ContactSocials />
       </section>
     </main>

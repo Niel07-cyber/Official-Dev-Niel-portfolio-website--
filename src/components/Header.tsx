@@ -18,8 +18,8 @@ const Header = () => {
 
   return (
     <header className="absolute top-0 left-0 right-0 z-20">
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex justify-between items-center">
+      <div className="w-full px-8">
+        <div className="flex justify-between items-center py-8">
           <a
             href="/"
             className={`
@@ -33,7 +33,7 @@ const Header = () => {
           </a>
           <nav
             className={`
-              hidden md:flex items-center space-x-10 text-white
+              hidden md:flex items-center space-x-8 text-white mr-8
               transition-all duration-700
               ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'}
             `}
