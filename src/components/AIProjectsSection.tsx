@@ -57,7 +57,7 @@ const AIProjectsSection = () => {
   const currentProject = projects[activeProject];
 
   return (
-    <section id="projects" className="py-16 sm:py-20 lg:py-24 bg-gray-900 relative overflow-hidden">
+    <section id="projects" className="py-16 sm:py-20 lg:py-24 bg-gray-800 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -65,7 +65,7 @@ const AIProjectsSection = () => {
         <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-gradient-to-br from-cyan-500/5 to-blue-500/5 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
-      <div className="w-full px-6 sm:px-8 lg:px-12 relative z-10 max-w-7xl mx-auto">
+      <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-20 2xl:px-60 relative z-10 max-w-7xl mx-auto">
         <p className="text-gray-400 mb-6 sm:mb-8 lg:mb-10 tracking-widest text-sm sm:text-base text-center">(AI & MACHINE LEARNING)</p>
         
         {/* Main Title */}
@@ -92,9 +92,9 @@ const AIProjectsSection = () => {
             <div className="relative">
               <div className="w-32 h-32 sm:w-40 sm:h-40 bg-black rounded-full flex items-center justify-center border-2 border-emerald-500/50 backdrop-blur-sm overflow-hidden">
                 <img 
-                  src="/lovable-uploads/90979b35-2630-4508-9028-a530e14d4fa7.png" 
+                  src="/lovable-uploads/b3ff4a45-fe04-41fc-8578-d44b1e986463.png" 
                   alt="AI Robot" 
-                  className="w-24 h-24 sm:w-32 sm:h-32 object-cover object-top rounded-full"
+                  className="w-28 h-28 sm:w-36 sm:h-36 object-cover object-center rounded-full"
                 />
               </div>
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-400/20 to-blue-400/20 animate-ping"></div>
@@ -126,7 +126,7 @@ const AIProjectsSection = () => {
                       className={`group relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl transition-all duration-300 ${
                         isActive 
                           ? `bg-gradient-to-r ${project.color} shadow-2xl` 
-                          : 'bg-gray-800/90 hover:bg-gray-700/90 shadow-lg border border-gray-600'
+                          : 'bg-gray-700/90 hover:bg-gray-600/90 shadow-lg border border-gray-500'
                       } backdrop-blur-sm`}
                     >
                       <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -141,15 +141,11 @@ const AIProjectsSection = () => {
                   
                   {/* Connecting Lines from center to cards */}
                   <svg 
-                    className="absolute top-1/2 left-1/2 pointer-events-none"
-                    style={{
-                      transform: `translate(-50%, -50%)`,
-                      width: '100%',
-                      height: '100%',
-                    }}
+                    className="absolute top-1/2 left-1/2 pointer-events-none w-full h-full"
+                    style={{ transform: `translate(-50%, -50%)` }}
                   >
                     <defs>
-                      <pattern id="dots" patternUnits="userSpaceOnUse" width="8" height="8">
+                      <pattern id={`dots-${index}`} patternUnits="userSpaceOnUse" width="8" height="8">
                         <circle cx="4" cy="4" r="1" fill={isActive ? "#10b981" : "#6b7280"} />
                       </pattern>
                     </defs>
@@ -158,7 +154,7 @@ const AIProjectsSection = () => {
                       y1="50%"
                       x2={`calc(50% + ${x}px)`}
                       y2={`calc(50% + ${y}px)`}
-                      stroke="url(#dots)"
+                      stroke={`url(#dots-${index})`}
                       strokeWidth="2"
                       className="animate-pulse"
                     />
@@ -170,7 +166,7 @@ const AIProjectsSection = () => {
         </div>
 
         {/* Project Details Panel */}
-        <div className="bg-gray-800/70 backdrop-blur-sm border border-gray-700/60 rounded-2xl p-6 sm:p-8 mb-8 sm:mb-12 shadow-lg">
+        <div className="bg-gray-700/70 backdrop-blur-sm border border-gray-600/60 rounded-2xl p-6 sm:p-8 mb-8 sm:mb-12 shadow-lg">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left Panel */}
             <div>
@@ -191,7 +187,7 @@ const AIProjectsSection = () => {
                 {currentProject.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1 bg-gray-700/80 border border-gray-600 rounded-full text-gray-200 text-sm font-medium"
+                    className="px-3 py-1 bg-gray-600/80 border border-gray-500 rounded-full text-gray-200 text-sm font-medium"
                   >
                     {tag}
                   </span>
@@ -202,7 +198,7 @@ const AIProjectsSection = () => {
             {/* Right Panel - Metrics */}
             <div className="space-y-4">
               {currentProject.metrics.map((metric, index) => (
-                <div key={index} className="flex items-center justify-between p-4 bg-gray-700/80 rounded-xl border border-gray-600 shadow-sm">
+                <div key={index} className="flex items-center justify-between p-4 bg-gray-600/80 rounded-xl border border-gray-500 shadow-sm">
                   <div className="flex items-center gap-3">
                     <metric.icon className="w-5 h-5 text-gray-400" />
                     <span className="text-gray-300">{metric.label}</span>
@@ -228,7 +224,7 @@ const AIProjectsSection = () => {
           
           <Button 
             asChild
-            className="bg-transparent border-2 border-gray-500 text-gray-300 hover:bg-gray-800 hover:border-gray-400 px-8 py-3 rounded-full transition-all duration-300"
+            className="bg-transparent border-2 border-gray-400 text-gray-300 hover:bg-gray-700 hover:border-gray-300 px-8 py-3 rounded-full transition-all duration-300"
           >
             <a href="/projects">
               Discover More
