@@ -57,48 +57,48 @@ const AIProjectsSection = () => {
   const currentProject = projects[activeProject];
 
   return (
-    <section id="projects" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+    <section id="projects" className="py-8 sm:py-12 lg:py-16 relative overflow-hidden">
       <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-20 2xl:px-60 relative z-10 max-w-7xl mx-auto">
-        <p className="text-gray-400 mb-6 sm:mb-8 lg:mb-10 tracking-widest text-sm sm:text-base text-center">(AI & MACHINE LEARNING)</p>
+        <p className="text-gray-400 mb-4 sm:mb-6 tracking-widest text-sm sm:text-base text-center">(AI & MACHINE LEARNING)</p>
         
-        {/* Main Title */}
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4 sm:mb-6 lg:mb-8">
+        {/* Main Title - Reduced size */}
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4">
             <span className="bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
               Redefining
             </span>
           </h1>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3">
             THE FUTURE WITH
           </h2>
-          <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
             <span className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
               AI INNOVATION
             </span>
           </h3>
         </div>
 
-        {/* Interactive Dashboard */}
-        <div className="relative mb-8 sm:mb-12">
-          {/* Central Hub with Robot Image */}
-          <div className="flex justify-center mb-8">
+        {/* Interactive Dashboard - Reduced size */}
+        <div className="relative mb-6 sm:mb-8">
+          {/* Central Hub with Robot Image - Smaller */}
+          <div className="flex justify-center mb-6">
             <div className="relative">
-              <div className="w-32 h-32 sm:w-40 sm:h-40 bg-black rounded-full flex items-center justify-center border-2 border-emerald-500/50 backdrop-blur-sm overflow-hidden">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 bg-black rounded-full flex items-center justify-center border-2 border-emerald-500/50 backdrop-blur-sm overflow-hidden">
                 <img 
-                  src="/lovable-uploads/b3ff4a45-fe04-41fc-8578-d44b1e986463.png" 
+                  src="/lovable-uploads/af0deefa-9b40-4b71-ac2d-a43a7a74dd53.png" 
                   alt="AI Robot" 
-                  className="w-28 h-28 sm:w-36 sm:h-36 object-cover object-center rounded-full"
+                  className="w-20 h-20 sm:w-24 sm:h-24 object-cover object-center rounded-full"
                 />
               </div>
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-400/20 to-blue-400/20 animate-ping"></div>
             </div>
           </div>
 
-          {/* Project Cards Arranged in Arc with More Spacing */}
-          <div className="relative h-80 sm:h-96">
+          {/* Project Cards Arranged in Arc - Reduced size */}
+          <div className="relative h-48 sm:h-56">
             {projects.map((project, index) => {
-              const angle = (index - 1) * 80; // Increased from 60 to 80 degrees for more spacing
-              const radius = 200; // Increased radius for more spacing
+              const angle = (index - 1) * 80; // Spread out cards
+              const radius = 140; // Smaller radius
               const x = Math.sin((angle * Math.PI) / 180) * radius;
               const y = -Math.cos((angle * Math.PI) / 180) * radius * 0.4;
               
@@ -107,7 +107,7 @@ const AIProjectsSection = () => {
               
               return (
                 <div key={project.id}>
-                  {/* Project Card */}
+                  {/* Project Card - Smaller */}
                   <div
                     className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500"
                     style={{
@@ -116,18 +116,18 @@ const AIProjectsSection = () => {
                   >
                     <button
                       onClick={() => setActiveProject(index)}
-                      className={`group relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl transition-all duration-300 ${
+                      className={`group relative w-16 h-16 sm:w-18 sm:h-18 rounded-xl transition-all duration-300 ${
                         isActive 
                           ? `bg-gradient-to-r ${project.color} shadow-2xl` 
                           : 'bg-gray-700/90 hover:bg-gray-600/90 shadow-lg border border-gray-500'
                       } backdrop-blur-sm`}
                     >
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                      <IconComponent className={`w-6 h-6 sm:w-8 sm:h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
+                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                      <IconComponent className={`w-5 h-5 sm:w-6 sm:h-6 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
                         isActive ? 'text-white' : 'text-gray-300'
                       }`} />
                       {isActive && (
-                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-white/20 to-transparent animate-pulse"></div>
+                        <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/20 to-transparent animate-pulse"></div>
                       )}
                     </button>
                   </div>
@@ -158,29 +158,29 @@ const AIProjectsSection = () => {
           </div>
         </div>
 
-        {/* Project Details Panel */}
-        <div className="bg-gray-700/70 backdrop-blur-sm border border-gray-600/60 rounded-2xl p-6 sm:p-8 mb-8 sm:mb-12 shadow-lg">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Project Details Panel - Compact */}
+        <div className="bg-gray-700/70 backdrop-blur-sm border border-gray-600/60 rounded-xl p-4 sm:p-6 mb-6 sm:mb-8 shadow-lg">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Left Panel */}
             <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${currentProject.color} flex items-center justify-center shadow-lg`}>
-                  <currentProject.icon className="w-6 h-6 text-white" />
+              <div className="flex items-center gap-3 mb-3">
+                <div className={`w-10 h-10 rounded-lg bg-gradient-to-r ${currentProject.color} flex items-center justify-center shadow-lg`}>
+                  <currentProject.icon className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-white">{currentProject.title}</h3>
-                  <p className="text-gray-400">{currentProject.subtitle}</p>
+                  <h3 className="text-xl font-bold text-white">{currentProject.title}</h3>
+                  <p className="text-gray-400 text-sm">{currentProject.subtitle}</p>
                 </div>
               </div>
               
-              <p className="text-gray-300 mb-6 leading-relaxed">{currentProject.description}</p>
+              <p className="text-gray-300 mb-4 leading-relaxed text-sm">{currentProject.description}</p>
               
               {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {currentProject.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1 bg-gray-600/80 border border-gray-500 rounded-full text-gray-200 text-sm font-medium"
+                    className="px-2 py-1 bg-gray-600/80 border border-gray-500 rounded-full text-gray-200 text-xs font-medium"
                   >
                     {tag}
                   </span>
@@ -189,25 +189,25 @@ const AIProjectsSection = () => {
             </div>
 
             {/* Right Panel - Metrics */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               {currentProject.metrics.map((metric, index) => (
-                <div key={index} className="flex items-center justify-between p-4 bg-gray-600/80 rounded-xl border border-gray-500 shadow-sm">
-                  <div className="flex items-center gap-3">
-                    <metric.icon className="w-5 h-5 text-gray-400" />
-                    <span className="text-gray-300">{metric.label}</span>
+                <div key={index} className="flex items-center justify-between p-3 bg-gray-600/80 rounded-lg border border-gray-500 shadow-sm">
+                  <div className="flex items-center gap-2">
+                    <metric.icon className="w-4 h-4 text-gray-400" />
+                    <span className="text-gray-300 text-sm">{metric.label}</span>
                   </div>
-                  <span className="font-bold text-white text-lg">{metric.value}</span>
+                  <span className="font-bold text-white">{metric.value}</span>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* CTA Buttons */}
-        <div className="text-center space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
+        {/* CTA Buttons - Compact */}
+        <div className="text-center space-y-3 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
           <Button 
             asChild
-            className="bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white border-0 px-8 py-3 rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-emerald-500/25"
+            className="bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white border-0 px-6 py-2 rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-emerald-500/25"
           >
             <a href="/projects">
               <Zap className="w-4 h-4 mr-2" />
@@ -217,7 +217,7 @@ const AIProjectsSection = () => {
           
           <Button 
             asChild
-            className="bg-transparent border-2 border-gray-400 text-gray-300 hover:bg-gray-700 hover:border-gray-300 px-8 py-3 rounded-full transition-all duration-300"
+            className="bg-transparent border-2 border-gray-400 text-gray-300 hover:bg-gray-700 hover:border-gray-300 px-6 py-2 rounded-full transition-all duration-300"
           >
             <a href="/projects">
               Discover More

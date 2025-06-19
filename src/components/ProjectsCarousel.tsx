@@ -1,5 +1,7 @@
 
 import React, { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 import ProjectCard from "./ProjectCard";
 import { projectsList } from "@/data/projectsData";
 
@@ -19,6 +21,18 @@ const ProjectsCarousel: React.FC = () => {
 
   return (
     <>
+      {/* Projects Section Header */}
+      <div className="text-center mb-12 sm:mb-16">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+          <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+            Projects
+          </span>
+        </h2>
+        <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          Explore my latest work and innovations in software development
+        </p>
+      </div>
+
       {/* Custom Stacked Carousel */}
       <div className="relative w-full max-w-3xl sm:max-w-5xl mx-auto mb-8 sm:mb-12">
         <div className="relative h-[300px] sm:h-[500px] flex items-center justify-center overflow-visible">
@@ -88,6 +102,19 @@ const ProjectsCarousel: React.FC = () => {
             }`}
           />
         ))}
+      </div>
+
+      {/* Explore Projects Button */}
+      <div className="text-center">
+        <Button 
+          asChild
+          className="bg-gradient-to-r from-brand-purple to-blue-600 hover:from-purple-600 hover:to-brand-purple text-white border-0 px-8 py-3 rounded-full transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-brand-purple/25"
+        >
+          <a href="/projects">
+            Explore Projects
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </a>
+        </Button>
       </div>
     </>
   );
