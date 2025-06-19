@@ -64,10 +64,10 @@ const Hero = () => {
 
             {/* Social Links and CTA Container */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8">
-              {/* Social Links */}
+              {/* Social Links - shifted more to the right */}
               <div
                 className={`
-                  flex gap-6
+                  flex gap-6 ml-8 sm:ml-16
                   transition-all duration-700
                   ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
                 `}
@@ -99,10 +99,10 @@ const Hero = () => {
                 </a>
               </div>
 
-              {/* CTA Button */}
+              {/* CTA Button - shifted more to the right */}
               <div
                 className={`
-                  transition-all duration-700
+                  transition-all duration-700 mr-8 sm:mr-16
                   ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
                 `}
                 style={{transitionDelay: '600ms'}}

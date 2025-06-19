@@ -98,9 +98,9 @@ const ProgrammingLanguages = () => {
       </h2>
       <div className="relative w-full">
         <div
-          className="flex w-max animate-[marquee_40s_linear_infinite] gap-12 px-4 mx-auto"
+          className="flex w-max animate-[marquee_43s_linear_infinite] gap-12 px-4 mx-auto"
           style={{
-            animation: "marquee 40s linear infinite",
+            animation: "marquee 43s linear infinite",
           }}
         >
           {marqueeIcons.map((lang, i) => (

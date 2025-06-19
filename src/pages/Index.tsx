@@ -19,31 +19,31 @@ const Index = () => (
       <section className="w-full">
         <Hero />
       </section>
-      <section className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
+      <section className="w-full">
         <About />
       </section>
-      <section className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
+      <section className="w-full">
         <ProgrammingLanguages />
       </section>
-      <section id="terminal-section" className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
+      <section id="terminal-section" className="w-full">
         <TerminalSection />
       </section>
-      <section className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
+      <section className="w-full">
         <Projects />
       </section>
-      <section className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
+      <section className="w-full">
         <Works />
       </section>
-      <section className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
+      <section className="w-full">
         <OpenSourceSection />
       </section>
-      <section className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
+      <section className="w-full">
         <SoftwarePhilosophySection />
       </section>
       <section id="resume-banner" className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
         <ResumeBanner />
       </section>
-      <section id="contact-section" className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
+      <section id="contact-section" className="w-full">
         <ContactSocials />
       </section>
     </main>

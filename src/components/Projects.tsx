@@ -12,7 +12,7 @@ const Projects = () => {
         <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-l from-purple-600/10 to-pink-500/10 rounded-full blur-3xl opacity-40"></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+      <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
         <p className="text-gray-400 mb-6 sm:mb-8 lg:mb-10 tracking-widest text-sm sm:text-base text-center">(PROJECTS)</p>
         
         {/* Large Purple Projects Title */}
@@ -28,11 +28,11 @@ const Projects = () => {
           <ProjectsCarousel />
         </div>
 
-        {/* Explore Projects Button */}
+        {/* Explore Projects Button - made darker */}
         <div className="text-center">
           <Button 
             asChild
-            className="bg-gradient-to-r from-brand-purple/20 to-purple-600/20 border border-brand-purple text-white hover:bg-gradient-to-r hover:from-brand-purple hover:to-purple-600 hover:border-brand-purple transition-all duration-300 px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 rounded-full transform hover:scale-105 shadow-lg hover:shadow-brand-purple/25 text-sm sm:text-base backdrop-blur-sm"
+            className="bg-gradient-to-r from-gray-800 to-gray-700 border border-gray-600 text-white hover:bg-gradient-to-r hover:from-brand-purple hover:to-purple-600 hover:border-brand-purple transition-all duration-300 px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 rounded-full transform hover:scale-105 shadow-lg hover:shadow-brand-purple/25 text-sm sm:text-base backdrop-blur-sm"
           >
             <a href="/projects">
               Explore Projects →
