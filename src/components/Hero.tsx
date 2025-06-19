@@ -1,10 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { ArrowRight } from 'lucide-react';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-
-const HERO_LOTTIE =
-  "https://lottie.host/4c9a4b46-ca80-4fa5-8ec5-f57ea6c865c8/OxAE8hI3SQ.lottie";
+import { ArrowRight, Code, Palette, Rocket } from 'lucide-react';
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
@@ -23,69 +19,108 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        <div className="flex flex-col lg:flex-row items-center min-h-screen py-20 lg:py-0">
-          <div className="w-full lg:w-1/2 text-center lg:text-left order-2 lg:order-1 mt-8 lg:mt-0">
-            <div
-              className={`
-                transition-all duration-700
-                ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'}
-              `}
-              style={{transitionDelay: '150ms'}}
-            >
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight">
-                <span className="bg-gradient-to-r from-white via-purple-200 to-brand-purple bg-clip-text text-transparent">
-                  Software
-                </span>
-                <br />
-                <span className="bg-gradient-to-r from-brand-purple via-blue-400 to-purple-300 bg-clip-text text-transparent">
-                  Engineer
-                </span>
-              </h1>
-            </div>
-            <div
-              className={`
-                transition-all duration-700
-                ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'}
-              `}
-              style={{transitionDelay: '330ms'}}
-            >
-              <p className="text-base sm:text-lg text-gray-300 mt-4 sm:mt-6 max-w-xl mx-auto lg:mx-0 px-4 sm:px-0">
-                Transforming ideas into robust, scalable software solutions. I specialize in full-stack development and creating applications that make a difference.
-              </p>
-            </div>
-            <div
-              className={`
-                transition-all duration-700
-                ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'}
-              `}
-              style={{transitionDelay: '510ms'}}
-            >
-              <a 
-                href="#contact-section" 
-                className="inline-flex items-center mt-6 sm:mt-8 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-brand-purple to-blue-600 hover:from-purple-600 hover:to-brand-purple text-white rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-brand-purple/25 font-medium"
-              >
-                Let's discuss <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
+        <div className="flex flex-col items-center text-center min-h-screen py-20 justify-center">
+          {/* Main heading */}
+          <div
+            className={`
+              transition-all duration-700
+              ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+            `}
+            style={{transitionDelay: '150ms'}}
+          >
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white leading-tight mb-6">
+              <span className="bg-gradient-to-r from-white via-purple-200 to-brand-purple bg-clip-text text-transparent">
+                DevNiel
+              </span>
+            </h1>
+          </div>
+
+          {/* Subtitle */}
+          <div
+            className={`
+              transition-all duration-700
+              ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+            `}
+            style={{transitionDelay: '250ms'}}
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-8">
+              <span className="bg-gradient-to-r from-brand-purple via-blue-400 to-purple-300 bg-clip-text text-transparent">
+                Software Engineer
+              </span>
+            </h2>
+          </div>
+
+          {/* Description */}
+          <div
+            className={`
+              transition-all duration-700
+              ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+            `}
+            style={{transitionDelay: '350ms'}}
+          >
+            <p className="text-lg sm:text-xl text-gray-300 mb-12 max-w-3xl mx-auto px-4 leading-relaxed">
+              Transforming ideas into robust, scalable software solutions. I specialize in full-stack development and creating applications that make a difference.
+            </p>
+          </div>
+
+          {/* Feature cards */}
+          <div
+            className={`
+              transition-all duration-700
+              ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+            `}
+            style={{transitionDelay: '450ms'}}
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
+              <div className="bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-sm border border-gray-700/50 hover:border-brand-purple/50 p-6 rounded-xl transition-all duration-300 transform hover:scale-105">
+                <Code className="h-8 w-8 text-brand-purple mb-4 mx-auto" />
+                <h3 className="text-white font-semibold mb-2">Full-Stack Development</h3>
+                <p className="text-gray-400 text-sm">Building end-to-end solutions with modern technologies</p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-sm border border-gray-700/50 hover:border-brand-purple/50 p-6 rounded-xl transition-all duration-300 transform hover:scale-105">
+                <Palette className="h-8 w-8 text-brand-purple mb-4 mx-auto" />
+                <h3 className="text-white font-semibold mb-2">UI/UX Design</h3>
+                <p className="text-gray-400 text-sm">Creating intuitive and beautiful user experiences</p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-gray-900/80 to-gray-800/60 backdrop-blur-sm border border-gray-700/50 hover:border-brand-purple/50 p-6 rounded-xl transition-all duration-300 transform hover:scale-105">
+                <Rocket className="h-8 w-8 text-brand-purple mb-4 mx-auto" />
+                <h3 className="text-white font-semibold mb-2">Performance</h3>
+                <p className="text-gray-400 text-sm">Optimizing for speed and scalability</p>
+              </div>
             </div>
           </div>
 
-          {/* Lottie Animation */}
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-end items-center order-1 lg:order-2 relative">
-            <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl">
-              <DotLottieReact
-                src={HERO_LOTTIE}
-                loop
-                autoplay
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  minHeight: "300px",
-                  maxHeight: "600px",
-                }}
-              />
+          {/* CTA Button */}
+          <div
+            className={`
+              transition-all duration-700
+              ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+            `}
+            style={{transitionDelay: '550ms'}}
+          >
+            <a 
+              href="#contact-section" 
+              className="inline-flex items-center mt-6 sm:mt-8 px-8 py-4 bg-gradient-to-r from-brand-purple to-blue-600 hover:from-purple-600 hover:to-brand-purple text-white rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-brand-purple/25 font-medium text-lg"
+            >
+              Let's discuss <ArrowRight className="ml-2 h-5 w-5" />
+            </a>
+          </div>
+
+          {/* Scroll indicator */}
+          <div
+            className={`
+              absolute bottom-8 left-1/2 transform -translate-x-1/2
+              transition-all duration-700
+              ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+            `}
+            style={{transitionDelay: '650ms'}}
+          >
+            <div className="flex flex-col items-center">
+              <span className="text-gray-400 text-sm mb-2">Scroll down</span>
+              <div className="w-px h-8 bg-gradient-to-b from-brand-purple to-transparent"></div>
             </div>
-            {/* Gradient overlay for better integration */}
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-background/20 pointer-events-none lg:block hidden"></div>
           </div>
         </div>
       </div>
