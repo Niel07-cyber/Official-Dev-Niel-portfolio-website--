@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Github, ExternalLink, ArrowLeft, Search, ChevronDown, Shuffle, Sun } from "lucide-react";
 
@@ -86,16 +87,9 @@ const projects = [
 
 export default function Projects() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-950/20 to-gray-900 text-white relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-brand-purple/20 to-blue-500/20 rounded-full blur-3xl opacity-60"></div>
-        <div className="absolute bottom-40 right-20 w-80 h-80 bg-gradient-to-l from-purple-600/15 to-pink-500/15 rounded-full blur-3xl opacity-40"></div>
-        <div className="absolute top-1/2 left-1/3 w-48 h-48 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-2xl opacity-30"></div>
-      </div>
-
+    <div className="min-h-screen bg-black text-white">
       {/* Hero Header Section */}
-      <div className="relative px-4 sm:px-8 md:px-16 py-8 sm:py-16 z-10">
+      <div className="relative px-4 sm:px-8 md:px-16 py-8 sm:py-16">
         <div className="mx-auto w-full max-w-7xl">
           {/* Top Controls */}
           <div className="flex items-center justify-between mb-12 sm:mb-20">
@@ -164,7 +158,7 @@ export default function Projects() {
       </div>
 
       {/* Projects Grid */}
-      <div className="px-4 sm:px-8 md:px-16 pb-12 sm:pb-20 relative z-10">
+      <div className="px-4 sm:px-8 md:px-16 pb-12 sm:pb-20">
         <div className="mx-auto w-full max-w-7xl">
           <div className="flex flex-col gap-4 sm:gap-8">
             {projects.map((proj, i) => (
