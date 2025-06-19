@@ -15,7 +15,7 @@ import SoftwarePhilosophySection from "@/components/SoftwarePhilosophySection";
 const Index = () => (
   <div className="bg-background font-sans text-foreground relative w-full min-h-screen overflow-x-hidden">
     <Header />
-    <main className="w-full min-h-screen px-8 md:px-20 xl:px-60 max-w-screen-2xl mx-auto">
+    <main className="w-full min-h-screen px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 2xl:px-60 max-w-screen-2xl mx-auto">
       <section>
         <Hero />
       </section>
