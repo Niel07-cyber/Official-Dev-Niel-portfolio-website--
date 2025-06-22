@@ -4,42 +4,61 @@ import React from "react";
 // Experience/company/study entries
 const EXPERIENCE = [
   {
-    company: "Kanop",
-    logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=64&h=64&fit=crop&crop=center",
-    role: "Front-end engineer",
-    period: "Feb 2025 – Present",
-    duration: "5 months",
+    company: "Nightingale - Johannes Gutenberg",
+    logo: "https://64.media.tumblr.com/e3e2c90a3eb08e35896db2a1af47c874/4ea2118d8e1fb461-db/s128x128u_c1/fadc0f8c8daae7b8ff2acfeabd4b9c863f3ea23b.pnj",
+    role: "Medical AI Developer / Web Developer",
+    period: "April 2025 – Aug 2025",
+    duration: "4 months",
     type: "Full-time",
-    location: "Barcelona, Spain",
+    location: "Mainz, Germany",
     tags: [
       { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-      { name: "GCP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
-      { name: "Framer Motion", logo: "https://www.framer.com/images/favicons/favicon.svg" },
-      { name: "Gitlab CI/CD", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" },
-      { name: "Agentic AI UI/UX", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" }
+      { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { name: "Fast API", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+      { name: "Github", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+      
     ],
     description: "Implementing high-performance cartography and data visualization tools for the Kanop SaaS platform."
   },
   {
-    company: "TalentYou.ai",
-    logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=64&h=64&fit=crop&crop=center",
-    role: "Full-stack engineer",
-    period: "Jul 2024 – Feb 2025",
-    duration: "8 months",
-    type: "Full-time",
-    location: "Barcelona, Spain",
+    company: "Dreamosoft Ghana",
+    logo: "https://media.licdn.com/dms/image/v2/D4D0BAQHP09O6qCa4CA/company-logo_200_200/company-logo_200_200/0/1701710211486/dreamosoft_logo?e=1756339200&v=beta&t=md025eSFM_IPlfkd1ErIWLfOQqckBagCFiXelu2xL3Y",
+    role: "Mobile Developer",
+    period: "Dec 2024 – Aug 2025",
+    duration: "9 months",
+    type: "Contract",
+    location: "Remote",
     tags: [
-      { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "React Native", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
       { name: "REST", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
       { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-      { name: "Django", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" },
+      { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+    
       { name: "Redux", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
-      { name: "i18n", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" }
+      { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" }
     ],
     description: "Rewrote the entire front-end of the TalentYou platform. Containerized services, improved onboarding and UX."
   },
   {
-    company: "Escape technologies",
+    company: "Ministry of Information Systems",
+    logo: "https://earlypowerltd.com/wp-content/uploads/vra.jpg",
+    role: "Full-stack engineer",
+    period: "Aug 2023 – Jan 2024",
+    duration: "6 months",
+    type: "Full-time",
+    location: "Accra, Ghana",
+    tags: [
+      { name: "Php", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+      { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "Javascript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "HTML/CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+    
+    ],
+    description: "Designed and built a Svelte component library based on the latest Material UI guidelines, greatly increasing development speed and design consistency."
+  },
+   {
+    company: "Republic Bank Ghana",
     logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=64&h=64&fit=crop&crop=center",
     role: "Full-stack engineer",
     period: "Nov 2023 – May 2024",
