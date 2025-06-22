@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Brain, Eye, MessageSquare, ArrowRight, Zap, Target, Globe } from "lucide-react";
@@ -57,23 +56,23 @@ const AIProjectsSection = () => {
   const currentProject = projects[activeProject];
 
   return (
-    <section id="projects" className="py-8 sm:py-12 lg:py-16 relative overflow-hidden">
+    <section id="projects" className="py-8 sm:py-12 lg:py-16 relative overflow-hidden min-h-screen flex items-center">
       <div className="w-full px-8 sm:px-16 lg:px-24 xl:px-32 2xl:px-40 relative z-10 max-w-7xl mx-auto">
-        <p className="text-gray-400 mb-4 sm:mb-6 tracking-widest text-sm sm:text-base text-center">(AI & MACHINE LEARNING)</p>
+        <p className="text-gray-400 mb-6 sm:mb-8 tracking-widest text-sm sm:text-base text-center">(AI & MACHINE LEARNING)</p>
         
         {/* Main Layout - Desktop: Text left, Cards right; Mobile: Stacked */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Side - Title and Description */}
-          <div className="text-left">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4">
+          <div className="text-left lg:pr-8">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold mb-4 sm:mb-6 leading-tight">
               <span className="bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Redefining
               </span>
             </h1>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-bold text-white mb-3">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
               THE FUTURE WITH
             </h2>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold mb-8">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-8 sm:mb-12 leading-tight">
               <span className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
                 AI INNOVATION
               </span>
@@ -81,15 +80,15 @@ const AIProjectsSection = () => {
           </div>
 
           {/* Right Side - Interactive Elements */}
-          <div className="relative">
+          <div className="relative flex flex-col items-center">
             {/* Robot Image positioned above cards */}
-            <div className="flex justify-center mb-8">
+            <div className="flex justify-center mb-8 lg:mb-12">
               <div className="relative">
-                <div className="w-32 h-32 sm:w-36 sm:h-36 lg:w-40 lg:h-40 bg-black rounded-full flex items-center justify-center border-2 border-emerald-500/50 backdrop-blur-sm overflow-hidden">
+                <div className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 bg-black rounded-full flex items-center justify-center border-2 border-emerald-500/50 backdrop-blur-sm overflow-hidden">
                   <img 
-                    src="/lovable-uploads/af0deefa-9b40-4b71-ac2d-a43a7a74dd53.png" 
+                    src="/lovable-uploads/b2981d81-7407-4031-8216-a5b82d618a76.png" 
                     alt="AI Robot" 
-                    className="w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 object-cover object-center rounded-full"
+                    className="w-36 h-36 sm:w-44 sm:h-44 lg:w-52 lg:h-52 xl:w-60 xl:h-60 object-cover object-top rounded-full"
                   />
                 </div>
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-400/20 to-blue-400/20 animate-ping"></div>
@@ -97,7 +96,7 @@ const AIProjectsSection = () => {
             </div>
 
             {/* Project Cards in horizontal line with more spacing */}
-            <div className="flex justify-center items-center gap-8 sm:gap-12 lg:gap-16 mb-8">
+            <div className="flex justify-center items-center gap-8 sm:gap-12 lg:gap-16 xl:gap-20">
               {projects.map((project, index) => {
                 const IconComponent = project.icon;
                 const isActive = activeProject === index;
@@ -106,14 +105,14 @@ const AIProjectsSection = () => {
                   <div key={project.id}>
                     <button
                       onClick={() => setActiveProject(index)}
-                      className={`group relative w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 rounded-xl transition-all duration-300 ${
+                      className={`group relative w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 xl:w-24 xl:h-24 rounded-xl transition-all duration-300 ${
                         isActive 
                           ? `bg-gradient-to-r ${project.color} shadow-2xl scale-110` 
                           : 'bg-gray-700/90 hover:bg-gray-600/90 shadow-lg border border-gray-500'
                       } backdrop-blur-sm`}
                     >
                       <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                      <IconComponent className={`w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
+                      <IconComponent className={`w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 xl:w-10 xl:h-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${
                         isActive ? 'text-white' : 'text-gray-300'
                       }`} />
                       {isActive && (
@@ -128,7 +127,7 @@ const AIProjectsSection = () => {
         </div>
 
         {/* Project Details Panel */}
-        <div className="bg-gray-700/70 backdrop-blur-sm border border-gray-600/60 rounded-xl p-4 sm:p-6 mb-6 sm:mb-8 shadow-lg mt-8">
+        <div className="bg-gray-700/70 backdrop-blur-sm border border-gray-600/60 rounded-xl p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8 shadow-lg mt-8 lg:mt-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Left Panel */}
             <div>
