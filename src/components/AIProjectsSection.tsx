@@ -8,9 +8,9 @@ const AIProjectsSection = () => {
   const projects = [
     {
       id: 0,
-      title: "Neural Network Framework",
+      title: "Pneumonia Detection AI",
       subtitle: "Deep Learning Innovation",
-      description: "Advanced neural architectures with state-of-the-art optimization algorithms for next-generation AI applications.",
+      description: "Cutting-edge AI model for pneumonia detection using chest X-ray images, achieving high accuracy and efficiency.",
       icon: Brain,
       color: "from-emerald-500 to-cyan-600",
       metrics: [
@@ -23,8 +23,8 @@ const AIProjectsSection = () => {
     },
     {
       id: 1,
-      title: "Computer Vision AI",
-      subtitle: "Real-time Object Detection",
+      title: "MNIST-Character-Recognition",
+      subtitle: "Real-time Character Recognition",
       description: "Advanced computer vision system with real-time processing and multi-class object recognition capabilities.",
       icon: Eye,
       color: "from-orange-500 to-pink-600",
@@ -33,7 +33,7 @@ const AIProjectsSection = () => {
         { label: "Latency", value: "< 50ms", icon: Zap },
         { label: "Object Classes", value: "80+ types", icon: Globe }
       ],
-      tags: ["OpenCV", "YOLO", "CNN", "Python"],
+      tags: ["OpenCV", "Jupyter", "CNN", "Python"],
       link: "/projects"
     },
     {
@@ -86,7 +86,7 @@ const AIProjectsSection = () => {
               <div className="relative">
                 <div className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 bg-black rounded-full flex items-center justify-center border-2 border-emerald-500/50 backdrop-blur-sm overflow-hidden">
                   <img 
-                    src="/lovable-uploads/b2981d81-7407-4031-8216-a5b82d618a76.png" 
+                    src="../../src/assets/ai.webp" 
                     alt="AI Robot" 
                     className="w-36 h-36 sm:w-44 sm:h-44 lg:w-52 lg:h-52 xl:w-60 xl:h-60 object-cover object-top rounded-full"
                   />

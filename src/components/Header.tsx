@@ -23,7 +23,7 @@ const Header = () => {
           <a
             href="/"
             className={`
-              text-2xl font-bold text-white
+              text-2xl font-bold text-white ml-10 mt-4
               transition-all duration-700
               ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'}
             `}

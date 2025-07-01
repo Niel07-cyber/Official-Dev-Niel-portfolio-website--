@@ -18,7 +18,7 @@ const EXPERIENCE = [
       { name: "Github", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
       
     ],
-    description: "Implementing high-performance cartography and data visualization tools for the Kanop SaaS platform."
+    description: "Entraînement et implémentation de modèles de deep learning pour l’analyse de scanners cardiovasculaires, ayant permis une amélioration de 70 % de la précision diagnostique.Développement d’interfaces front-end et de fonctionnalités de gamification pour des services d’IA médicale."
   },
   {
     company: "Dreamosoft Ghana",
@@ -37,7 +37,7 @@ const EXPERIENCE = [
       { name: "Redux", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
       { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" }
     ],
-    description: "Rewrote the entire front-end of the TalentYou platform. Containerized services, improved onboarding and UX."
+    description: "Developing intuitive web and mobile applications for education, commerce, and events.Delivering tailored solutions by addressing sector-specific challenge"
   },
   {
     company: "Ministry of Information Systems",
@@ -55,47 +55,47 @@ const EXPERIENCE = [
       { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
     
     ],
-    description: "Designed and built a Svelte component library based on the latest Material UI guidelines, greatly increasing development speed and design consistency."
+    description: "Collaborated on the development of the Ministry of Information Systems document Tracking System for VRA, achieving a 60% reduction in physical storage and a 70% transition to cloud storage. Played a key role in designing a chatbot system, enabling 24 2hour MIS access for stakeholders via the VRA website"
   },
    {
     company: "Republic Bank Ghana",
-    logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=64&h=64&fit=crop&crop=center",
-    role: "Full-stack engineer",
-    period: "Nov 2023 – May 2024",
-    duration: "6 months",
-    type: "Full-time",
-    location: "Paris, France",
+    logo: "https://th.bing.com/th/id/OIP.rTg4oEzMFmppWSPW5jY7rAHaHa?rs=1&pid=ImgDetMain",
+    role: "Quality Assurance Trainee",
+    period: "Sept 2022 – Dec 2022",
+    duration: "4 months",
+    type: "Hybrid",
+    location: "Accra Ministries, Ghana",
     tags: [
-      { name: "R&D", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" },
-      { name: "UI/UX", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
-      { name: "Svelte", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg" },
-      { name: "GraphQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" },
-      { name: "NodeJS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-      { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" }
+      { name: "Jira", logo: "https://th.bing.com/th/id/OIP.6A7Spk2Wk_PPecWYEIWJCgHaHw?rs=1&pid=ImgDetMain" },
+      { name: "Selenium", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" },
+      { name: "Postman", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
+      { name: "Testrail", logo: "https://avatars.githubusercontent.com/u/3909953?s=280&v=4" },
+      
+      
     ],
-    description: "Designed and built a Svelte component library based on the latest Material UI guidelines, greatly increasing development speed and design consistency."
+    description: "Ensured data integrity using JIRA for defect tracking and TestRail for test management, improving software reliability by resolving complex bugs."
   },
 ];
 
 const EDUCATION = [
   {
-    school: "ENSEEIHT",
-    logo: "https://images.unsplash.com/photo-1562774053-701939374585?w=64&h=64&fit=crop&crop=center",
-    degree: "Master's degree in engineering - Computer Science and Applied Mathematics",
-    period: "Sep 2020 – May 2023",
+    school: "Junia ISEN Grande Ecole d'Ingénieurs",
+    logo: "https://th.bing.com/th/id/OIP.biqz_fQwJZtHuuokL1vyvQHaHa?rs=1&pid=ImgDetMain",
+    degree: "Master's degree - Software Engineering",
+    period: "Sep 2024 – Dec 2026",
   },
   {
-    school: "AAU Klagenfurt",
-    logo: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=64&h=64&fit=crop&crop=center",
-    degree: "Master's degree in computer science - Computer Graphics and Vision",
-    period: "Sep 2022 – Mar 2023",
+    school: "Kwame Nkrumah University of Science and Technology",
+    logo: "https://th.bing.com/th/id/OIP.B9DNtiqcOhHmA6_AEVOIxAAAAA?rs=1&pid=ImgDetMain",
+    degree: "Bachelor's degree - Computer Science",
+    period: "Jan 2022 – Aug 2024",
   },
-  {
-    school: "CPGE Lycée Déodat de Séverac",
-    logo: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=64&h=64&fit=crop&crop=center",
-    degree: "PTSI/PSI* (Bachelor equivalent) - Mathematics and Physics",
-    period: "Sep 2018 – Jul 2020"
-  }
+  // {
+  //   school: "Presbyterian Boys Senior High School",
+  //   logo: "https://dashboard.odadee.net/uploads/2015/10/odadeelogo%20(2).png",
+  //   degree: "WASSCE* (Bachelor equivalent) - General Science",
+  //   period: "Sep 2018 – Oct 2021"
+  // }
 ];
 
 const PROMPT_USER = "root";

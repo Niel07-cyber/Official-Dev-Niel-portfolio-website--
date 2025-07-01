@@ -95,19 +95,19 @@ export default function Resume() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                 <div>
                   <h3 className="font-semibold text-white mb-1">Location</h3>
-                  <p className="text-gray-300">Barcelona, España</p>
+                  <p className="text-gray-300">Lille, France</p>
                 </div>
                 <div>
                   <h3 className="font-semibold text-white mb-1">Email</h3>
-                  <p className="text-gray-300">contact@bsodium.fr</p>
+                  <p className="text-gray-300">aryeeothniel@gmail.com</p>
                 </div>
                 <div>
                   <h3 className="font-semibold text-white mb-1">Phone</h3>
-                  <p className="text-gray-300">+33 7 83 79 29 25</p>
+                  <p className="text-gray-300">+33 7 80 75 94 99</p>
                 </div>
                 <div>
                   <h3 className="font-semibold text-white mb-1">Website</h3>
-                  <p className="text-gray-300">https://www.bsodium.fr</p>
+                  <p className="text-gray-300">https://www.devniel.com</p>
                 </div>
               </div>
 
@@ -150,24 +150,24 @@ export default function Resume() {
                   {/* Connection dot */}
                   <div className="absolute left-2 top-6 w-3 h-3 bg-teal-600 rounded-full border-2 border-black z-10"></div>
                   <div className="w-16 h-16 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                    kanop
+                    
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-1">
-                      <h3 className="text-xl font-bold">Kanop</h3>
-                      <span className="text-gray-400 text-sm">Feb 2025 - Present (5 months)</span>
+                      <h3 className="text-xl font-bold">Nightingale - Johannes Gutenberg</h3>
+                      <span className="text-gray-400 text-sm">April 2025 – Aug 2025</span>
                     </div>
-                    <p className="text-teal-400 font-semibold mb-1">Front-end engineer</p>
-                    <p className="text-gray-400 text-sm mb-3">Full-time - Barcelona, Spain</p>
+                    <p className="text-teal-400 font-semibold mb-1">Medical AI Developer / Web Developer</p>
+                    <p className="text-gray-400 text-sm mb-3">Internship - Mainz,Germany</p>
                     <div className="flex flex-wrap gap-2 mb-3">
-                      {["React", "GCP", "Framer Motion", "Gitlab CI/CD", "Agentic AI UI/UX"].map(tech => (
+                      {["React", "Python", "FastAPI", "Github",].map(tech => (
                         <span key={tech} className="bg-gray-800 text-blue-300 px-3 py-1 rounded text-sm">
                           {tech}
                         </span>
                       ))}
                     </div>
                     <p className="text-gray-300 text-sm">
-                      Implementing high-performance cartography and data visualization tools for the Kanop SaaS platform.
+                      Entraînement et implémentation de modèles de deep learning pour l’analyse de scanners cardiovasculaires, ayant permis une amélioration de 70 % de la précision diagnostique.Développement d’interfaces front-end et de fonctionnalités de gamification pour des services d’IA médicale.
                     </p>
                   </div>
                 </div>
@@ -177,25 +177,25 @@ export default function Resume() {
                   {/* Connection dot */}
                   <div className="absolute left-2 top-6 w-3 h-3 bg-blue-600 rounded-full border-2 border-black z-10"></div>
                   <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
-                    TY
+                    
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-1">
-                      <h3 className="text-xl font-bold">TalentYou.ai</h3>
-                      <span className="text-gray-400 text-sm">Jul 2024 - Feb 2025 (8 months)</span>
+                      <h3 className="text-xl font-bold">Dreamosoft Ghana</h3>
+                      <span className="text-gray-400 text-sm">Dec 2024 – Aug 2025</span>
                     </div>
-                    <p className="text-blue-400 font-semibold mb-1">Full-stack engineer</p>
-                    <p className="text-gray-400 text-sm mb-3">Full-time - Barcelona, Spain</p>
+                    <p className="text-blue-400 font-semibold mb-1">Mobile Developer</p>
+                    <p className="text-gray-400 text-sm mb-3">Remote Contract - Kumasi, Ghana</p>
                     <div className="flex flex-wrap gap-2 mb-3">
-                      {["React", "REST", "Docker", "Django", "Redux", "i18n"].map(tech => (
+                      {["React Native", "REST", "Docker", "Git",].map(tech => (
                         <span key={tech} className="bg-gray-800 text-blue-300 px-3 py-1 rounded text-sm">
                           {tech}
                         </span>
                       ))}
                     </div>
                     <ul className="text-gray-300 text-sm space-y-1">
-                      <li>- Rewrote the entire front-end of the TalentYou platform using React, Redux, and i18n, greatly improving performance and user experience.</li>
-                      <li>- Containerized the back-end services using Docker and VS Code Dev Containers, reducing the onboarding time for new developers by up to 70%.</li>
+                      <li>- Developing intuitive web and mobile applications for education, commerce, and events.Delivering tailored solutions by addressing sector-specific challenge</li>
+                      
                     </ul>
                   </div>
                 </div>

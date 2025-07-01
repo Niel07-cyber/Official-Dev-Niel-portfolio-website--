@@ -5,28 +5,28 @@ import { Github, Star, GitFork } from 'lucide-react';
 const OpenSourceSection = () => {
   const projects = [
     {
-      name: "React DevTools",
-      description: "Browser extension for debugging React",
+      name: "Contacts App",
+      description: "Java based CRUD application for managing contacts",
       stars: "21.5k",
       forks: "4.2k",
-      language: "JavaScript",
-      url: "https://github.com/facebook/react-devtools"
+      language: "Java",
+      url: "https://github.com/dm-mensavi/contacts_app"
     },
     {
-      name: "Portfolio Template",
-      description: "Modern portfolio template with React & Tailwind",
+      name: "Pnuemonia Detection",
+      description: "Predict Normal or Pneumonia using X-ray images",
       stars: "856",
       forks: "234",
-      language: "TypeScript",
-      url: "https://github.com/devniel/portfolio"
+      language: "Pyhton",
+      url: "https://github.com/Niel07-cyber/PNEUMONIA-MACHINE-LEARNING-MODEL"
     },
     {
-      name: "UI Components",
-      description: "Reusable React components library",
+      name: "Prod-Own",
+      description: "Product Owner task manager",
       stars: "432",
       forks: "89",
       language: "TypeScript",
-      url: "https://github.com/devniel/ui-components"
+      url: "https://github.com/Niel07-cyber/ProductOwner--"
     }
   ];
 

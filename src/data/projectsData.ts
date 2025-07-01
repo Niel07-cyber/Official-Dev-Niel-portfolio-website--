@@ -1,13 +1,13 @@
 
 export const projectsList = [
   {
-    title: "Neural Network Framework",
-    description: "Deep learning framework built from scratch with advanced neural architectures and optimization algorithms.",
-    company: "AI Research Lab",
+    title: "Code with Niel",
+    description: "Programming Website with interactive courses, real-world projects, and expert mentorship. Start your journey to becoming a professional developer",
+    company: "DevNiel",
     location: "Remote",
-    period: "2023 - Present",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1964&auto=format&fit=crop",
-    tags: ["Python", "TensorFlow", "PyTorch"],
+    period: "Present",
+    image: "../../src/assets/ottt.png",
+    tags: ["TypeScript", "Vite", "Superbase", "TailwindCSS", ],
     link: "/projects",
     metrics: {
       accuracy: "94.2%",
@@ -16,13 +16,13 @@ export const projectsList = [
     }
   },
   {
-    title: "Computer Vision AI",
-    description: "Advanced computer vision system with real-time object detection and image classification capabilities.",
-    company: "VisionTech Solutions",
-    location: "San Francisco, CA",
-    period: "2022-2023",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800&auto=format&fit=crop",
-    tags: ["OpenCV", "YOLO", "CNN"],
+    title: "E-book Store -CodiBook",
+    description: "An end-to-end Library Book Management System designed in a team. This project showcases a complete MERN-like stack experience, combining a ReactJS frontend with a NestJS + TypeORM + SQLite backendS.",
+    company: "Junia ISEN Lille",
+    location: "Lille, France",
+    period: "2024",
+    image: "../../src/assets/cd.png",
+    tags: ["NestJS", "TypeORM", "SQlite", "TypeScript", "React"],
     link: "/projects",
     metrics: {
       detection: "99.1% accuracy",
@@ -31,13 +31,13 @@ export const projectsList = [
     }
   },
   {
-    title: "Natural Language AI",
-    description: "Intelligent NLP system with sentiment analysis, text generation, and conversational AI capabilities.",
-    company: "Language AI Corp",
+    title: "Junia Drive - Cloud Storage",
+    description: " Offers 100MB per user with file upload limits and lets users create folders, upload, and manage files easily. The app includes storage usage graphics and is containerized with Docker, providing a Google Drive-like experience.",
+    company: "Junia ISEN Lille",
     location: "Boston, MA",
-    period: "2021-2022",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop",
-    tags: ["Transformers", "BERT", "GPT"],
+    period: "2024",
+    image: "../../src/assets/drive.jpeg",
+    tags: ["Django", "Docker", "HTML", "Tailwindcss", "JavaScript"],
     link: "/projects",
     metrics: {
       languages: "12 supported",

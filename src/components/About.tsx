@@ -31,7 +31,7 @@ const About = () => {
             </div>
             <div className="md:col-span-2">
               <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                Hi, I'm Othniel, a passionate Software developer with a love for creating visually appealing and user-friendly web experiences. With a strong foundation in HTML, CSS, and JavaScript, I specialise in turning creative designs into fully responsive and interactive websites. I'm constantly learning new technologies and pushing the boundaries of what's possible in web development. Let's bring your ideas to life!
+               Hi, I’m Othniel — a passionate full-stack developer and quality assurance engineer who loves crafting visually stunning and user-friendly web and mobile experiences. I blend creativity with precision, ensuring quality throughout development while exploring innovations in AI and model training. Skilled in JavaScript, Java, and Python, I specialize in transforming designs into fully responsive, interactive interfaces. Always eager to learn and push tech boundaries, I’m excited to help bring your ideas to life!
               </p>
             </div>
           </div>
