@@ -194,7 +194,7 @@ export default function Resume() {
                       ))}
                     </div>
                     <ul className="text-gray-300 text-sm space-y-1">
-                      <li>- Developing intuitive web and mobile applications for education, commerce, and events.Delivering tailored solutions by addressing sector-specific challenge</li>
+                      <li>Developing intuitive web and mobile applications for education, commerce, and events.Delivering tailored solutions by addressing sector-specific challenge</li>
                       
                     </ul>
                   </div>
@@ -205,26 +205,25 @@ export default function Resume() {
                   {/* Connection dot */}
                   <div className="absolute left-2 top-6 w-3 h-3 bg-gray-700 rounded-full border-2 border-black z-10"></div>
                   <div className="w-16 h-16 bg-gray-700 rounded-lg flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
-                    ESC
+                    
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-1">
-                      <h3 className="text-xl font-bold">Escape technologies</h3>
-                      <span className="text-gray-400 text-sm">Nov 2023 - May 2024 (6 months)</span>
+                      <h3 className="text-xl font-bold">Ministry of Information Systems</h3>
+                      <span className="text-gray-400 text-sm">Aug 2023 – Jan 2024</span>
                     </div>
-                    <p className="text-blue-400 font-semibold mb-1">Full-stack engineer</p>
-                    <p className="text-gray-400 text-sm mb-3">Full-time - Paris, France</p>
+                    <p className="text-blue-400 font-semibold mb-1">Software engineer</p>
+                    <p className="text-gray-400 text-sm mb-3">Partime - Accra, Ghana</p>
                     <div className="flex flex-wrap gap-2 mb-3">
-                      {["R&D", "UI/UX", "Svelte", "GraphQL", "NodeJS", "Figma"].map(tech => (
+                      {["Php", "React", "JavaScript", "MYSQL", "HTML/CSS",].map(tech => (
                         <span key={tech} className="bg-gray-800 text-blue-300 px-3 py-1 rounded text-sm">
                           {tech}
                         </span>
                       ))}
                     </div>
                     <ul className="text-gray-300 text-sm space-y-1">
-                      <li>- Designed and built a Svelte component library based on the latest Material UI guidelines, greatly increasing development speed and design consistency.</li>
-                      <li>- Researched and implemented a contrast-aware palette generation algorithm which significantly improved aesthetics and accessibility.</li>
-                      <li>- Redesigned the company website to improve SEO and user experience, leading to a 30% increase in traffic and a 20% increase in conversion rate.</li>
+                      <li>Collaborated on the development of the Ministry of Information Systems document Tracking System for VRA, achieving a 60% reduction in physical storage and a 70% transition to cloud storage. Played a key role in designing a chatbot system, enabling 24 2hour MIS access for stakeholders via the VRA website.</li>
+                      
                     </ul>
                   </div>
                 </div>
