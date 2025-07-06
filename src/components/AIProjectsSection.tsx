@@ -86,7 +86,7 @@ const AIProjectsSection = () => {
               <div className="relative">
                 <div className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 bg-black rounded-full flex items-center justify-center border-2 border-emerald-500/50 backdrop-blur-sm overflow-hidden">
                   <img 
-                    src="../../src/assets/ai.webp" 
+                    src="/assets/ai.webp" 
                     alt="AI Robot" 
                     className="w-36 h-36 sm:w-44 sm:h-44 lg:w-52 lg:h-52 xl:w-60 xl:h-60 object-cover object-top rounded-full"
                   />
