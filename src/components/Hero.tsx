@@ -17,11 +17,11 @@ const Hero = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80')`,
+            backgroundImage: `url('src/assets/coder.jpg')`,
           }}
         />
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/70"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
       {/* Corner borders */}
@@ -33,7 +33,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
         <div className="flex flex-col items-start justify-center min-h-screen py-20">
           {/* Main Content */}
-          <div className="w-full max-w-4xl ml-48 sm:ml-56 lg:ml-64">
+          <div className="w-full max-w-4xl ml-20 sm:ml-22 lg:ml-20">
             <div
               className={`
                 transition-all duration-700
@@ -82,7 +82,7 @@ const Hero = () => {
                   </svg>
                 </a>
                 <a 
-                  href="#" 
+                  href="linkedin.com/in/othniel-aryee-9501a0239" 
                   className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -90,7 +90,7 @@ const Hero = () => {
                   </svg>
                 </a>
                 <a 
-                  href="mailto:contact@example.com" 
+                  href="aryeeothniel@gmail.com" 
                   className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -100,13 +100,13 @@ const Hero = () => {
               </div>
 
               {/* CTA Button */}
-              <div
-                className={`
-                  transition-all duration-700 mr-2 sm:mr-4
-                  ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-                `}
-                style={{transitionDelay: '600ms'}}
-              >
+             <div
+  className={`
+    transition-all duration-700 ml-2 sm:ml-4 lg:ml-6
+    ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+  `}
+  style={{ transitionDelay: '600ms' }}
+>
                 <a 
                   href="#contact-section" 
                   className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-brand-purple to-blue-600 hover:from-purple-600 hover:to-brand-purple text-white rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-brand-purple/25 font-medium text-lg"

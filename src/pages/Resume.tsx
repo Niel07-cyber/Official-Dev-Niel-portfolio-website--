@@ -147,10 +147,9 @@ export default function Resume() {
               <div className="space-y-8">
                 {/* Kanop */}
                 <div className="flex gap-6 relative">
-                  {/* Connection dot */}
-                  <div className="absolute left-2 top-6 w-3 h-3 bg-teal-600 rounded-full border-2 border-black z-10"></div>
+
                   <div className="w-16 h-16 bg-teal-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                    
+                    NG
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-1">
@@ -174,10 +173,9 @@ export default function Resume() {
 
                 {/* TalentYou.ai */}
                 <div className="flex gap-6 relative">
-                  {/* Connection dot */}
-                  <div className="absolute left-2 top-6 w-3 h-3 bg-blue-600 rounded-full border-2 border-black z-10"></div>
+                 
                   <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
-                    
+                    DG
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-1">
@@ -202,10 +200,9 @@ export default function Resume() {
 
                 {/* Escape technologies */}
                 <div className="flex gap-6 relative">
-                  {/* Connection dot */}
-                  <div className="absolute left-2 top-6 w-3 h-3 bg-gray-700 rounded-full border-2 border-black z-10"></div>
+                  
                   <div className="w-16 h-16 bg-gray-700 rounded-lg flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
-                    
+                    MIS
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-1">
@@ -245,46 +242,32 @@ export default function Resume() {
               <div className="space-y-6">
                 {/* ENSEEIHT */}
                 <div className="flex gap-6 relative">
-                  {/* Connection dot */}
-                  <div className="absolute left-2 top-6 w-3 h-3 bg-blue-600 rounded-full border-2 border-black z-10"></div>
+                  
                   <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
-                    INP
-                    N7
+                    ISEN
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-1">ENSEEIHT</h3>
-                    <span className="text-gray-400 text-sm block mb-2">Sep 2020 - May 2023</span>
-                    <p className="text-blue-400 font-semibold">Master's degree in engineering - Computer Science and Applied Mathematics</p>
+                    <h3 className="text-lg font-bold mb-1">Junia ISEN Grande Ecole </h3>
+                    <span className="text-gray-400 text-sm block mb-2">Sep 2024 - Dec 2026</span>
+                    <p className="text-blue-400 font-semibold">Master's degree in engineering - Software Engineering</p>
                   </div>
                 </div>
 
                 {/* AAU Klagenfurt */}
                 <div className="flex gap-6 relative">
-                  {/* Connection dot */}
-                  <div className="absolute left-2 top-6 w-3 h-3 bg-blue-400 rounded-full border-2 border-black z-10"></div>
+                  
                   <div className="w-16 h-16 bg-blue-400 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
-                    |||
+                    KNUST
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-1">AAU Klagenfurt</h3>
-                    <span className="text-gray-400 text-sm block mb-2">Sep 2022 - Mar 2023</span>
-                    <p className="text-blue-400 font-semibold">Master's degree in computer science - Computer Graphics and Vision</p>
+                    <h3 className="text-lg font-bold mb-1">Kwame Nkrumah University of Science and Technology</h3>
+                    <span className="text-gray-400 text-sm block mb-2">Jan 2022 - Aug 2024</span>
+                    <p className="text-blue-400 font-semibold">Bachelor's degree in computer science </p>
                   </div>
                 </div>
 
-                {/* CPGE */}
-                <div className="flex gap-6 relative">
-                  {/* Connection dot */}
-                  <div className="absolute left-2 top-6 w-3 h-3 bg-gray-600 rounded-full border-2 border-black z-10"></div>
-                  <div className="w-16 h-16 bg-gray-600 rounded-lg flex items-center justify-center text-white text-2xl flex-shrink-0">
-                    📐
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-1">CPGE Lycée Déodat de Séverac</h3>
-                    <span className="text-gray-400 text-sm block mb-2">Sep 2018 - Jul 2020</span>
-                    <p className="text-blue-400 font-semibold">PTSI/PSI* (Bachelor equivalent) - Mathematics and Physics</p>
-                  </div>
-                </div>
+                
+                
               </div>
             </div>
 
@@ -299,13 +282,13 @@ export default function Resume() {
 
               <div className="flex flex-wrap gap-3">
                 <span className="bg-gradient-to-r from-green-600 to-green-700 text-white px-4 py-2 rounded-full text-sm font-medium">
-                  C2 French (native)
+                  A2 French 
                 </span>
                 <span className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium">
-                  C1 English
+                  English (native)
                 </span>
                 <span className="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-4 py-2 rounded-full text-sm font-medium">
-                  B1 German
+                  A1 Chinese
                 </span>
               </div>
             </div>
@@ -316,20 +299,7 @@ export default function Resume() {
                 <span className="text-lg">📄</span>
                 <span className="font-medium">Resume_Othniel_Nii_Dodou_Aryee.pdf</span>
               </div>
-              <button
-                onClick={handleViewPDF}
-                className="flex items-center gap-2 px-4 py-2 border border-gray-600 rounded-lg text-gray-300 hover:text-white hover:border-gray-400 transition-colors backdrop-blur-sm bg-black/20"
-              >
-                <Eye size={16} />
-                View
-              </button>
-              <button
-                onClick={handleDownloadPDF}
-                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg transition-colors"
-              >
-                <Download size={16} />
-                Download
-              </button>
+             
             </div>
           </div>
         </div>

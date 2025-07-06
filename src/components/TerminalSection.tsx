@@ -42,7 +42,7 @@ const EXPERIENCE = [
   {
     company: "Ministry of Information Systems",
     logo: "https://earlypowerltd.com/wp-content/uploads/vra.jpg",
-    role: "Full-stack engineer",
+    role: "Software Engineer",
     period: "Aug 2023 – Jan 2024",
     duration: "6 months",
     type: "Full-time",
@@ -266,10 +266,7 @@ const TerminalSection = () => {
             <ul>
               {mode === "experience" && EXPERIENCE.slice(0, shownCount).map((itm, idx) => (
                 <li key={itm.company} className={`flex items-start gap-3 sm:gap-5 mb-6 sm:mb-8 last:mb-0 relative transition-all duration-500 ease-out transform ${idx < shownCount ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: `${idx * 160}ms`}}>
-                  {/* Connection dot */}
-                  {idx > 0 && (
-                    <div className="absolute left-0 top-4 sm:top-6 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-[#43e09f] rounded-full border-2 border-[#181823] z-10 transition-all duration-300"></div>
-                  )}
+                  
                   <img
                     src={itm.logo}
                     alt={itm.company + " logo"}
@@ -297,10 +294,7 @@ const TerminalSection = () => {
               ))}
               {mode === "education" && EDUCATION.slice(0, shownCount).map((itm, idx) => (
                 <li key={itm.school} className={`flex items-start gap-3 sm:gap-5 mb-6 sm:mb-8 last:mb-0 relative transition-all duration-500 ease-out transform ${idx < shownCount ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{transitionDelay: `${idx * 160}ms`}}>
-                  {/* Connection dot */}
-                  {idx > 0 && (
-                    <div className="absolute left-0 top-4 sm:top-6 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-[#5dc5d8] rounded-full border-2 border-[#181823] z-10 transition-all duration-300"></div>
-                  )}
+                  
                   <img
                     src={itm.logo}
                     alt={itm.school + " logo"}
