@@ -4,6 +4,7 @@ import { generateResumePDF } from "../components/ResumePDFGenerator";
 import { Document, Page, pdfjs } from 'react-pdf';
 import { pdf } from '@react-pdf/renderer';
 import ResumePDFDocument from "../components/ResumePDFGenerator";
+import BackToTopButton from "@/components/BackToTopButton";
 
 // Set up PDF.js worker
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
@@ -339,6 +340,9 @@ export default function Resume() {
           </div>
         </div>
       )}
+      
+      {/* Back to Top Button */}
+      <BackToTopButton />
     </>
   );
 }

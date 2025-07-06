@@ -33,6 +33,7 @@ A modern, responsive portfolio website showcasing AI/ML projects, software devel
 - **State Management**: Modern React hooks and context
 - **Component Library**: Reusable UI components with shadcn/ui
 - **Type Safety**: Full TypeScript implementation
+- **Back to Top Navigation**: Smooth scroll-to-top functionality on all pages
 
 ## 🏗 Tech Stack
 
@@ -212,6 +213,7 @@ The website is fully responsive with breakpoints:
 - **Optimized Carousel**: Project cards show full content with proper text truncation
 - **Touch-Friendly Navigation**: Larger touch targets for buttons and navigation
 - **Improved Typography**: Responsive font sizes for better readability
+- **Back to Top Button**: Always accessible navigation back to the top of any page
 
 ## 🔍 SEO & Performance
 

@@ -11,6 +11,7 @@ import TerminalSection from "@/components/TerminalSection";
 import ResumeBanner from "@/components/ResumeBanner";
 import OpenSourceSection from "@/components/OpenSourceSection";
 import SoftwarePhilosophySection from "@/components/SoftwarePhilosophySection";
+import BackToTopButton from "@/components/BackToTopButton";
 
 const Index = () => (
   <div className="bg-background font-sans text-foreground relative w-full min-h-screen overflow-x-hidden">
@@ -47,6 +48,9 @@ const Index = () => (
         <ContactSocials />
       </section>
     </main>
+    
+    {/* Back to Top Button */}
+    <BackToTopButton />
   </div>
 );
 

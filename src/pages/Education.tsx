@@ -1,5 +1,6 @@
 import React from "react";
 import { useInView } from "@/hooks/useInView";
+import BackToTopButton from "@/components/BackToTopButton";
 
 // Use placeholder images for logos
 const items = [
@@ -134,6 +135,9 @@ const Education = () => (
       }
       `}
     </style>
+    
+    {/* Back to Top Button */}
+    <BackToTopButton />
   </section>
 );
 

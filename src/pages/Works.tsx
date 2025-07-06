@@ -1,6 +1,7 @@
 
 import React from "react";
 import { ArrowRight } from "lucide-react";
+import BackToTopButton from "@/components/BackToTopButton";
 
 const allWorks = [
   {
@@ -87,6 +88,9 @@ const Works = () => (
         </a>
       </div>
     </div>
+    
+    {/* Back to Top Button */}
+    <BackToTopButton />
   </div>
 );
 export default Works;
