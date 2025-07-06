@@ -16,9 +16,13 @@ const EXPERIENCE = [
       { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
       { name: "Fast API", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
       { name: "Github", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+      { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+      { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+      { name: "Tailwind CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" },
+    
       
     ],
-    description: "Entraînement et implémentation de modèles de deep learning pour l’analyse de scanners cardiovasculaires, ayant permis une amélioration de 70 % de la précision diagnostique.Développement d’interfaces front-end et de fonctionnalités de gamification pour des services d’IA médicale."
+    description: "Contributed to the training and deployment of deep learning models for cardiovascular scan analysis, achieving a 70% improvement in diagnostic accuracy. Contributed to the development and migration of the Nightingale website from React to Next.js, enhancing performance and scalability. Designed and built an interactive echocardiography game to improve medical learning through gamification.."
   },
   {
     company: "Dreamosoft Ghana",
