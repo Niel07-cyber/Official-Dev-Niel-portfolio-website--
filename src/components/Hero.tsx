@@ -74,15 +74,18 @@ const Hero = () => {
                 style={{transitionDelay: '450ms'}}
               >
                 <a 
-                  href="#" 
-                  className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300"
-                >
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                  </svg>
-                </a>
+  href="https://discord.gg/YdgSM78Zqx" 
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300"
+>
+  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.07.07 0 0 0-.073.035c-.211.375-.444.864-.608 1.25a19.736 19.736 0 0 0-5.474 0 12.51 12.51 0 0 0-.617-1.25.07.07 0 0 0-.073-.035 19.736 19.736 0 0 0-4.885 1.515.064.064 0 0 0-.03.027C2.117 9.063 1.502 13.59 1.828 18.063a.083.083 0 0 0 .031.057 19.978 19.978 0 0 0 5.993 3.058.07.07 0 0 0 .076-.027c.46-.63.87-1.295 1.226-1.994a.07.07 0 0 0-.038-.098 13.133 13.133 0 0 1-1.872-.906.07.07 0 0 1-.007-.117c.126-.094.252-.19.372-.287a.07.07 0 0 1 .074-.01c3.927 1.805 8.18 1.805 12.062 0a.07.07 0 0 1 .075.009c.12.098.246.194.372.288a.07.07 0 0 1-.006.117 12.595 12.595 0 0 1-1.873.905.07.07 0 0 0-.037.099c.36.698.77 1.362 1.225 1.993a.07.07 0 0 0 .076.028 19.933 19.933 0 0 0 6.001-3.058.083.083 0 0 0 .03-.056c.484-6.256-.786-10.748-2.924-13.668a.06.06 0 0 0-.031-.028ZM8.02 15.331c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.175 1.094 2.157 2.418 0 1.334-.955 2.419-2.157 2.419Zm7.974 0c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.175 1.094 2.157 2.418 0 1.334-.947 2.419-2.157 2.419Z" />
+  </svg>
+</a>
+
                 <a 
-                  href="linkedin.com/in/othniel-aryee-9501a0239" 
+                  href="https://linkedin.com/in/othniel-aryee-9501a0239" 
                   className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -90,7 +93,7 @@ const Hero = () => {
                   </svg>
                 </a>
                 <a 
-                  href="aryeeothniel@gmail.com" 
+                  href="mailto:aryeeothniel@gmail.com" 
                   className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
