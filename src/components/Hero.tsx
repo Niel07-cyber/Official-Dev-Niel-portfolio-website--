@@ -31,9 +31,9 @@ const Hero = () => {
       <div className="absolute bottom-8 right-8 w-20 h-20 border-r-4 border-b-4 border-white opacity-80"></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-10 relative">
-        <div className="flex flex-col items-start justify-center min-h-screen py-20">
+        <div className="flex flex-col items-center sm:items-start justify-center min-h-screen py-20">
           {/* Main Content */}
-          <div className="w-full max-w-4xl ml-20 sm:ml-22 lg:ml-20">
+          <div className="w-full max-w-4xl text-center sm:text-left sm:ml-20 lg:ml-20">
             <div
               className={`
                 transition-all duration-700
@@ -57,17 +57,17 @@ const Hero = () => {
               `}
               style={{transitionDelay: '300ms'}}
             >
-              <p className="text-xl sm:text-2xl text-gray-200 mb-8 font-light">
+              <p className="text-lg sm:text-xl lg:text-2xl text-gray-200 mb-8 font-light">
                 Building the future with code
               </p>
             </div>
 
             {/* Social Links and CTA Container */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8">
+            <div className="flex flex-col items-center sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-8">
               {/* Social Links */}
               <div
                 className={`
-                  flex gap-6
+                  flex justify-center sm:justify-start gap-4 sm:gap-6
                   transition-all duration-700
                   ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
                 `}
@@ -105,7 +105,8 @@ const Hero = () => {
               {/* CTA Button */}
              <div
   className={`
-    transition-all duration-700 ml-2 sm:ml-4 lg:ml-6
+    flex justify-center sm:justify-start
+    transition-all duration-700
     ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
   `}
   style={{ transitionDelay: '600ms' }}

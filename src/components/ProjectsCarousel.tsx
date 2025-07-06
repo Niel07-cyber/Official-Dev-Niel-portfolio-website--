@@ -36,7 +36,7 @@ const ProjectsCarousel: React.FC = () => {
 
       {/* Custom Stacked Carousel */}
       <div className="relative w-full max-w-3xl sm:max-w-5xl mx-auto mb-8 sm:mb-12">
-        <div className="relative h-[300px] sm:h-[500px] flex items-center justify-center overflow-visible">
+        <div className="relative h-[400px] sm:h-[450px] md:h-[500px] flex items-center justify-center overflow-visible px-4 sm:px-0">
           {projectsList.map((project, index) => {
             const isActive = index === currentIndex;
             const isPrev = index === (currentIndex - 1 + projectsList.length) % projectsList.length;

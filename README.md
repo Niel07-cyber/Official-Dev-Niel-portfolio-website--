@@ -207,6 +207,12 @@ The website is fully responsive with breakpoints:
 - **Desktop**: 1024px - 1440px
 - **Large Desktop**: 1440px+
 
+### Mobile Optimizations
+- **Centered Hero Section**: Text content is perfectly centered on mobile devices
+- **Optimized Carousel**: Project cards show full content with proper text truncation
+- **Touch-Friendly Navigation**: Larger touch targets for buttons and navigation
+- **Improved Typography**: Responsive font sizes for better readability
+
 ## 🔍 SEO & Performance
 
 - **Semantic HTML**: Proper heading structure and landmarks
