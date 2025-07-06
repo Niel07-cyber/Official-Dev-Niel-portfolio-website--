@@ -232,6 +232,8 @@ bun build
 2. Run: `vercel`
 3. Follow the prompts
 
+**Note**: The project includes a `vercel.json` file that configures URL rewrites for client-side routing. This ensures that routes like `/projects` and `/resume` work correctly in production.
+
 ## 🤝 Contributing
 
 1. Fork the repository
